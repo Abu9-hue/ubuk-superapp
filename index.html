@@ -107,3 +107,40 @@ nav{position:fixed;bottom:14px;left:10px;right:10px;background:rgba(11,17,28,.98
         <div class="stat"><span>Cacao Feve Grade 1</span><strong>2 450 XAF/kg</strong></div>
         <div class="stat"><span>Karite Brut Certifie</span><strong>1 850 XAF/kg</strong></div>
         <div class="stat"><span>Or Artisanal SHA-256</span><strong>48 900 XAF/g</strong></div>
+        <div class="stat"><span>Cafe Robusta Selection</span><strong>1 920 XAF/kg</strong></div>
+      </div>
+      <label for="r-chat" class="btn" onclick="document.getElementById('chat').innerHTML+='<div class=\'msg in\'><small>Vitrine UBUK</small>✅ Offre membre publiee avec certificat SHA-256.</div>';">Publier une offre membre</label>
+    </div>
+  </section>
+
+  <section id="s-edu" class="sec">
+    <div class="card"><h2>Ecole Souveraine et Bourse</h2><p>Capitalisation educative : 60 % Infrastructure et Bourses / 40 % Solidarite et Zakat.</p>
+      <div class="grid">
+        <div class="stat"><span>Fonds Bourse (60%)</span><strong>685 000 XAF</strong></div>
+        <div class="stat"><span>Solidarite (40%)</span><strong>456 667 XAF</strong></div>
+      </div>
+      <div class="row"><input id="m-edu" type="number" placeholder="Montant XAF (ex: 5000)"><label for="r-chat" class="btn" style="width:auto;padding:10px 16px" onclick="var v=parseInt(document.getElementById('m-edu').value||0);if(v>0){document.getElementById('m-edu').value='';document.getElementById('chat').innerHTML+='<div class=\'msg in\'><small>Registre Bourse</small>✅ Allocation de <strong>'+v+' XAF</strong> validee (60% Bourses / 40% Solidarite).</div>';}">Allouer</label></div>
+    </div>
+  </section>
+
+  <section id="s-pay" class="sec">
+    <div class="card"><h2>Zakat, Epargne et Mobile Money</h2><p>Plafond garanti 100 a 250 XAF/jour. Interoperabilite MTN, Orange, Wave et M-Pesa.</p>
+      <div class="grid">
+        <div class="stat"><span>Epargne Blucash</span><strong>145 000 XAF</strong></div>
+        <div class="stat"><span>Bouclier Actif</span><strong>100 XAF/jour</strong></div>
+      </div>
+      <div class="row"><select><option>Ecole Malekite (2,5%)</option><option>Ecole Chafeite (2,5%)</option><option>Ecole Hanafite (2,5%)</option><option>Ecole Hanbalite (2,5%)</option></select></div>
+      <div class="row"><input id="m-pay" type="number" placeholder="Montant Zakat ou Depot XAF"><label for="r-chat" class="btn btn-g" style="width:auto;padding:10px 16px" onclick="var v=parseInt(document.getElementById('m-pay').value||0);if(v>0){document.getElementById('m-pay').value='';document.getElementById('chat').innerHTML+='<div class=\'msg in\'><small>Registre Zakat</small>🕌 Versement de <strong>'+v+' XAF</strong> enregistre sur le registre SHA-256.</div>';}">Valider</label></div>
+    </div>
+  </section>
+</main>
+
+<nav>
+  <label for="r-chat" class="tab"><i>💬</i>Chats</label>
+  <label for="r-shop" class="tab"><i>🏪</i>Boutique</label>
+  <label for="r-edu" class="tab"><i>🎓</i>Ecole</label>
+  <label for="r-pay" class="tab"><i>🛡️</i>Zakat & Pay</label>
+</nav>
+
+</body>
+</html>
