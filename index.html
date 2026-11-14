@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>LATIF CONNECT — UBUK.NET</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;background:#060A11;color:#F8FAFC;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.65}
+header,nav,main{position:relative;z-index:10}
+header{background:rgba(11,17,28,.96);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(245,176,65,.45)}
+.logo{width:30px;height:30px;background:linear-gradient(135deg,#F5B041,#B9770E);border-radius:8px;display:grid;place-items:center;color:#060A11;font-weight:900;font-size:.82rem}
+.brand{display:flex;align-items:center;gap:8px}.brand h1{font-size:.9rem}.brand span{font-size:.64rem;color:#00E5A0;display:block}
+.acts{display:flex;align-items:center;gap:6px}
+.pill{background:rgba(0,229,160,.16);color:#00E5A0;border:1px solid rgba(0,229,160,.45);padding:4px 9px;border-radius:12px;font-size:.7rem;font-weight:700;cursor:pointer}
+.btn-u{background:#F5B041;color:#060A11;padding:5px 10px;border-radius:8px;font-weight:800;font-size:.74rem;text-decoration:none}
+nav{background:rgba(11,17,28,.97);border-bottom:1px solid rgba(245,176,65,.45);display:flex;justify-content:space-around;padding:6px 4px}
+.tab{background:none;border:none;color:#94A3B8;font-size:.73rem;cursor:pointer;padding:5px 8px;border-radius:10px}
+.tab.on{background:rgba(245,176,65,.2);color:#F5B041;font-weight:800}
+main{padding:9px 11px 20px;max-width:600px;margin:0 auto}
+.sec{display:none}.sec.on{display:block}
+.chips{display:flex;gap:5px;overflow-x:auto;padding-bottom:7px}
+.chip{background:rgba(18,26,42,.95);border:1px solid rgba(245,176,65,.45);color:#F5B041;padding:6px 10px;border-radius:14px;font-size:.74rem;font-weight:700;white-space:nowrap;cursor:pointer}
+.chat{display:flex;flex-direction:column;gap:8px;height:54vh;overflow-y:auto;padding:4px 0}
+.msg{max-width:86%;padding:8px 11px;border-radius:13px;font-size:.84rem;line-height:1.38}
+.in{background:rgba(18,26,42,.96);border:1px solid rgba(245,176,65,.35);align-self:flex-start}
+.out{background:#0B3B2E;border:1px solid rgba(0,229,160,.55);align-self:flex-end}
+.msg small{display:block;font-size:.62rem;color:#F5B041;margin-bottom:2px;font-weight:700}
+.bar{display:flex;gap:7px;margin-top:8px}
+.bar input{flex:1;background:rgba(18,26,42,.96);border:1px solid rgba(245,176,65,.45);color:#F8FAFC;padding:10px 14px;border-radius:22px;outline:none;font-size:.88rem}
+.bar button{background:#00E5A0;color:#060A11;border:none;width:42px;height:42px;border-radius:50%;font-weight:900;font-size:1rem;cursor:pointer;flex-shrink:0}
+.card{background:rgba(18,26,42,.96);border:1px solid rgba(245,176,65,.35);border-radius:13px;padding:13px;margin-bottom:10px}
+.card h2{font-size:.93rem;margin-bottom:5px;color:#F5B041}.card p{font-size:.79rem;color:#94A3B8;margin-bottom:9px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:9px}
+.stat{background:rgba(6,10,17,.9);padding:8px;border-radius:9px;border:1px solid rgba(245,176,65,.28)}
+.stat span{font-size:.66rem;color:#94A3B8;display:block}.stat strong{font-size:.92rem;color:#00E5A0}
+.btn{background:#00E5A0;color:#060A11;border:none;padding:10px;border-radius:9px;width:100%;font-weight:800;cursor:pointer;font-size:.84rem}
+.btn-g{background:#F5B041}.row{display:flex;gap:7px;margin-bottom:8px}
+.row input,.row select{flex:1;background:rgba(6,10,17,.92);border:1px solid rgba(245,176,65,.35);color:#F8FAFC;padding:9px;border-radius:8px;font-size:.84rem}
+</style>
+</head>
+<body>
+<svg id="bg"><defs><pattern id="g" width="32" height="32" patternUnits="userSpaceOnUse"><polygon points="16,0 20,7 27,5 25,12 32,16 25,20 27,27 20,25 16,32 12,25 5,27 7,20 0,16 7,12 5,5 12,7" fill="none" stroke="#F5B041" stroke-width=".5"/><polygon points="16,4 19,10 25,7 22,13 28,16 22,19 25,25 19,22 16,28 13,22 7,25 10,19 4,16 10,13 7,7 13,10" fill="none" stroke="#00E5A0" stroke-width=".45"/><polygon points="16,10 18,14 22,16 18,18 16,22 14,18 10,16 14,14" fill="none" stroke="#F5B041" stroke-width=".55"/><polygon points="0,0 4,2 7,0 5,4 7,7 3,5 0,7 2,3" fill="none" stroke="#00E5A0" stroke-width=".45"/><polygon points="32,0 28,2 25,0 27,4 25,7 29,5 32,7 30,3" fill="none" stroke="#00E5A0" stroke-width=".45"/><polygon points="0,32 4,30 7,32 5,28 7,25 3,27 0,25 2,29" fill="none" stroke="#00E5A0" stroke-width=".45"/><polygon points="32,32 28,30 25,32 27,28 25,25 29,27 32,25 30,29" fill="none" stroke="#00E5A0" stroke-width=".45"/></pattern></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>
+<header>
+  <div class="brand"><div class="logo">LC</div><div><h1>LATIF CONNECT</h1><span id="rl">Zellige • Profil : Fondateur</span></div></div>
+  <div class="acts"><button type="button" class="pill" onclick="fetch('https://supabase.co',{headers:{'apikey':'sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7','Authorization':'Bearer sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7'}}).then(r=>r.json()).then(d=>{var c=document.getElementById('chat');c.innerHTML='<div class=\'msg in\'><small>Cloud Supabase</small>🟢 '+d.length+' messages charges.</div>';d.reverse().forEach(m=>{c.innerHTML+='<div class=\'msg in\'><small>'+m.expediteur+'</small>'+m.contenu+'</div>';});c.scrollTop=99999;});">● Cloud</button><a class="btn-u" href="https://ubuk.net">UBUK</a></div>
+</header>
+<nav>
+  <button type="button" id="t1" class="tab on" onclick="document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.getElementById('s1').classList.add('on');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));this.classList.add('on');">💬 Chats</button>
+  <button type="button" id="t2" class="tab" onclick="document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.getElementById('s2').classList.add('on');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));this.classList.add('on');">🏪 Boutique</button>
+  <button type="button" id="t3" class="tab" onclick="document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.getElementById('s3').classList.add('on');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));this.classList.add('on');">🎓 Ecole</button>
+  <button type="button" id="t4" class="tab" onclick="document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));document.getElementById('s4').classList.add('on');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));this.classList.add('on');">🛡️ Zakat</button>
+</nav>
+<main>
+  <section id="s1" class="sec on">
+    <div class="chips">
+      <button type="button" class="chip" onclick="document.getElementById('chat').innerHTML+='<div class=\'msg out\'><small>Vous</small>/stock</div><div class=\'msg in\'><small>UBUK</small>📊 Cacao 2 450 XAF • Karite 1 850 XAF • Or 48 900 XAF</div>';document.getElementById('chat').scrollTop=99999;">/stock</button>
+      <button type="button" class="chip" onclick="document.getElementById('chat').innerHTML+='<div class=\'msg out\'><small>Vous</small>/bulletin</div><div class=\'msg in\'><small>UBUK</small>🌍 Veille 54 Ministeres des Finances active.</div>';document.getElementById('chat').scrollTop=99999;">/bulletin</button>
+      <button type="button" class="chip" onclick="document.getElementById('chat').innerHTML+='<div class=\'msg out\'><small>Vous</small>/tarif</div><div class=\'msg in\'><small>UBUK</small>🛡️ Bouclier 100–250 XAF/j • Cle 60% / 40%.</div>';document.getElementById('chat').scrollTop=99999;">/tarif</button>
+      <button type="button" class="chip" onclick="document.getElementById('chat').innerHTML+='<div class=\'msg out\'><small>Vous</small>/zakat</div><div class=\'msg in\'><small>UBUK</small>🕌 Blucash 145 000 XAF • Zakat 2,5% : 3 625 XAF.</div>';document.getElementById('chat').scrollTop=99999;">/zakat</button>
+      <button type="button" class="chip" onclick="var b=document.getElementById('rl');b.textContent=(b.textContent.indexOf('Fondateur')!==-1)?'Zellige • Profil : Ma Fille':'Zellige • Profil : Fondateur';document.getElementById('chat').innerHTML+='<div class=\'msg in\'><small>Appareil</small>🔐 '+b.textContent+'</div>';document.getElementById('chat').scrollTop=99999;">Profil</button>
+    </div>
+    <div class="chat" id="chat"><div class="msg in"><small>Essaim Souverain • UBUK.NET</small>Salam ! Chat direct actif avec pavage Zellige-Girih sans espace vide. Touchez <strong>● Cloud</strong> pour lire les messages de votre fille.</div></div>
+    <div class="bar"><input id="inp" type="text" placeholder="Message en direct..."><button type="button" onclick="var i=document.getElementById('inp'),v=i.value.trim(),r=document.getElementById('rl').textContent.replace('Zellige • Profil : ','');if(v){document.getElementById('chat').innerHTML+='<div class=\'msg out\'><small>'+r+'</small>'+v+'</div>';i.value='';document.getElementById('chat').scrollTop=99999;fetch('https://supabase.co',{method:'POST',headers:{'apikey':'sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7','Authorization':'Bearer sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7','Content-Type':'application/json'},body:JSON.stringify({canal:'ESSAIM_DIRECT',expediteur:r,contenu:v})});}">➤</button></div>
+        </section>
+        
