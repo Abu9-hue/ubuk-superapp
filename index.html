@@ -117,3 +117,39 @@ let sol=145000,ca=42500,fr=10,inf=6850000,zak=4566667;
 function go(t,b){document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.nav').forEach(e=>e.classList.remove('active'));document.getElementById('t-'+t).classList.add('active');b.classList.add('active')}
 function msg(s,t,c='in'){let d=document.createElement('div');d.className='msg '+c;d.innerHTML=(c=='in'?`<span class="snd">${s}</span>`:'')+t;let f=document.getElementById('feed');f.appendChild(d);f.scrollTop=f.scrollHeight}
 function split(f){if(f<=0)return;inf+=Math.round(f*.6);zak+=Math.round(f*.4);document.getElementById('inf').textContent=inf.toLocaleString('fr-FR')+' XAF';document.getElementById('zak').textContent=zak.toLocaleString('fr-FR')+' XAF';document.getElementById('zdu').textContent=Math.round(inf*.025).toLocaleString('fr-FR')+' XAF'}
+<!-- CONNECTEUR CLOUD SUPABASE (UBUK-LATIF-DB) -->
+<script src="https://jsdelivr.net"></script><script src="https://jsdelivr.net"></script>
+  
+<script>
+(function(){const SB_URL = "https://supabase.co";
+  
+  const SB_URL = "https://supabase.co";
+  const SB_KEY = "sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7";
+  if(!window.supabase || SB_KEY.startsWith("COLLEZ")) return;
+  const db = window.supabase.createClient(SB_URL, SB_KEY);
+
+  async function saveMsg(exp, txt){
+    try{
+      await db.from('messages_essaim').insert([{
+        canal: 'ESSAIM_PRINCIPAL',
+        expediteur: exp,
+        contenu: txt
+      }]);
+    }catch(e){}
+  }
+
+  document.addEventListener('submit', function(e){
+    const inp = e.target.querySelector('input[type="text"], textarea');
+    if(inp && inp.value.trim()) saveMsg('Membre_Mobile', inp.value.trim());
+  }, true);
+
+  document.addEventListener('click', function(e){
+    const btn = e.target.closest('button');
+    if(!btn) return;
+    const inp = document.querySelector('input[placeholder*="Message"], input[type="text"]');
+    if(inp && inp.value.trim() && (btn.textContent.includes('➤') || btn.textContent.includes('>') || btn.type==='submit')){
+      saveMsg('Membre_Mobile', inp.value.trim());
+    }
+  }, true);
+})();
+</script>
