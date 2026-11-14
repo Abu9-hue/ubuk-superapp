@@ -2,154 +2,142 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>LATIF CONNECT — Super-App (UBUK.NET)</title>
 <link rel="manifest" href="/manifest.json">
 <meta name="theme-color" content="#0A0D12">
 <style>
-:root{--bg:#0A0D12;--hdr:#11161F;--crd:#151C28;--out:#005C4B;--in:#1E2634;--cy:#00E5FF;--gd:#F5B800;--gn:#10B981;--txt:#F1F5F9;--mut:#94A3B8;--brd:#242E40}
+:root{--bg:#0A0D12;--hdr:#11161F;--crd:#161D29;--acc:#00E5A0;--gld:#F5B041;--txt:#E8ECF2;--mut:#8B95A5;--brd:#242E3F}
 *{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
-html,body{background:var(--bg);color:var(--txt);min-height:100vh;display:flex;flex-direction:column}
-header{background:var(--hdr);padding:12px 14px;border-bottom:1px solid var(--brd);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10}
-.brand{display:flex;align-items:center;gap:8px}
-.logo{width:32px;height:32px;background:linear-gradient(135deg,var(--cy),#0284C7);color:#000;font-weight:700;border-radius:50%;display:flex;align-items:center;justify-content:center}
-.brand h1{font-size:.98rem}.brand span{font-size:.68rem;color:var(--gn);font-family:monospace;display:block}
-.acts{display:flex;align-items:center;gap:6px}
-.ubuk{color:var(--cy);font-size:.72rem;text-decoration:none;border:1px solid var(--cy);padding:4px 8px;border-radius:12px}
-.pill{background:#1B2432;border:1px solid var(--gd);color:var(--gd);padding:4px 9px;border-radius:16px;font-size:.76rem;font-weight:700}
-.tab{display:none;flex:1;flex-direction:column;padding-bottom:76px}.tab.active{display:flex}
-.chips{display:flex;gap:6px;padding:10px;background:#0E131B;border-bottom:1px solid var(--brd);overflow-x:auto}
-.chip{background:var(--crd);border:1px solid var(--cy);color:var(--cy);padding:5px 10px;border-radius:14px;font-size:.76rem;white-space:nowrap;cursor:pointer}
-.feed{flex:1;padding:12px;display:flex;flex-direction:column;gap:10px}
-.msg{max-width:86%;padding:10px 12px;border-radius:12px;font-size:.86rem;line-height:1.4}
-.msg.in{background:var(--in);align-self:flex-start}.msg.out{background:var(--out);align-self:flex-end}
-.snd{font-size:.7rem;font-weight:700;color:var(--gd);display:block;margin-bottom:2px}
-.bar{display:flex;gap:8px;padding:10px;background:var(--hdr);border-top:1px solid var(--brd);position:sticky;bottom:64px}
-.bar input{flex:1;background:var(--crd);border:1px solid var(--brd);color:var(--txt);padding:10px 12px;border-radius:18px;font-size:.88rem}
-.send{background:var(--cy);color:#000;border:none;width:38px;height:38px;border-radius:50%;font-weight:700}
-.pad{padding:14px;display:flex;flex-direction:column;gap:12px}
-.crd{background:var(--crd);border:1px solid var(--brd);border-radius:8px;padding:14px}
-.crd h3{color:var(--gd);font-size:.92rem;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
-.kpis{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
-.kpi{background:#0E131B;padding:10px;border-radius:6px;border-left:3px solid var(--cy)}
-.kpi small{color:var(--mut);font-size:.7rem;display:block}.kpi strong{font-size:1rem}
-.fld{width:100%;background:#0E131B;border:1px solid var(--brd);color:var(--txt);padding:10px;border-radius:6px;margin-bottom:8px;font-size:.88rem}
-.btn{width:100%;padding:11px;border:none;border-radius:6px;font-weight:700;font-size:.84rem;cursor:pointer;text-transform:uppercase}
-.bcy{background:var(--cy);color:#000}.bgd{background:var(--gd);color:#000}
-table{width:100%;border-collapse:collapse;font-size:.82rem}th,td{padding:7px 5px;text-align:left;border-bottom:1px solid var(--brd)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.tile{background:#0E131B;border:1px solid var(--brd);padding:12px 8px;border-radius:8px;text-align:center;cursor:pointer}
-.tile strong{display:block;font-size:.84rem;margin-top:4px}.tile span{font-size:.7rem;color:var(--mut)}
-.sbar{height:8px;border-radius:4px;overflow:hidden;display:flex;margin:8px 0}
-#mdisp{display:none;margin-top:10px;padding:10px;background:#0A0D12;border:1px dashed var(--cy);border-radius:6px;font-family:monospace;font-size:.78rem;line-height:1.4}
-nav{position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--hdr);border-top:1px solid var(--brd);display:grid;grid-template-columns:repeat(4,1fr);z-index:20}
-.nav{display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--mut);font-size:.7rem;gap:3px;border:none;background:none}
-.nav.active{color:var(--cy);font-weight:700}
+html,body{background:var(--bg);color:var(--txt);height:100%}
+header{background:var(--hdr);padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--brd);position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:32px;height:32px;background:linear-gradient(135deg,var(--acc),#008F63);border-radius:8px;display:grid;place-items:center;color:#0A0D12;font-weight:800;font-size:.85rem}
+.brand h1{font-size:.98rem}.brand span{font-size:.72rem;color:var(--acc);display:block}
+.acts{display:flex;align-items:center;gap:8px}
+.pill{background:rgba(0,229,160,.12);color:var(--acc);border:1px solid rgba(0,229,160,.3);padding:4px 8px;border-radius:12px;font-size:.7rem;font-weight:600}
+.btn-u{background:var(--gld);color:#0A0D12;padding:6px 12px;border-radius:8px;font-weight:700;font-size:.78rem;text-decoration:none}
+main{padding:14px 14px 82px;max-width:600px;margin:0 auto}
+.sec{display:none}.sec.on{display:block}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px}
+.chip{background:var(--crd);border:1px solid var(--brd);color:var(--gld);padding:5px 10px;border-radius:14px;font-size:.74rem;white-space:nowrap;cursor:pointer}
+.chat{display:flex;flex-direction:column;gap:10px;min-height:52vh;max-height:60vh;overflow-y:auto;padding:8px 0}
+.msg{max-width:84%;padding:10px 13px;border-radius:14px;font-size:.88rem;line-height:1.4}
+.in{background:var(--crd);border:1px solid var(--brd);align-self:flex-start;border-bottom-left-radius:4px}
+.out{background:#0D3B2E;border:1px solid rgba(0,229,160,.3);align-self:flex-end;border-bottom-right-radius:4px}
+.msg small{display:block;font-size:.66rem;color:var(--mut);margin-bottom:3px}
+.bar{display:flex;gap:8px;margin-top:10px}
+.bar input{flex:1;background:var(--crd);border:1px solid var(--brd);color:var(--txt);padding:11px 14px;border-radius:22px;outline:none;font-size:.9rem}
+.bar button{background:var(--acc);color:#0A0D12;border:none;width:42px;height:42px;border-radius:50%;font-weight:800;cursor:pointer}
+.card{background:var(--crd);border:1px solid var(--brd);border-radius:14px;padding:14px;margin-bottom:12px}
+.card h2{font-size:.95rem;margin-bottom:6px;color:var(--gld)}
+.card p{font-size:.82rem;color:var(--mut);line-height:1.4;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.stat{background:var(--bg);padding:10px;border-radius:10px;border:1px solid var(--brd)}
+.stat span{font-size:.7rem;color:var(--mut);display:block}.stat strong{font-size:1rem;color:var(--acc)}
+.btn{background:var(--acc);color:#0A0D12;border:none;padding:10px;border-radius:10px;width:100%;font-weight:700;cursor:pointer;font-size:.85rem}
+.btn-g{background:var(--gld)}
+.row{display:flex;gap:8px;margin-bottom:8px}
+.row input,.row select{flex:1;background:var(--bg);border:1px solid var(--brd);color:var(--txt);padding:9px;border-radius:8px;font-size:.85rem}
+nav{position:fixed;bottom:0;left:0;right:0;background:var(--hdr);border-top:1px solid var(--brd);display:flex;justify-content:space-around;padding:8px 0;z-index:10}
+.tab{background:none;border:none;color:var(--mut);font-size:.72rem;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
+.tab.on{color:var(--acc);font-weight:700}.tab i{font-style:normal;font-size:1.15rem}
 </style>
 </head>
 <body>
 <header>
-<div class="brand"><div class="logo">L</div><div><h1>LATIF CONNECT</h1><span>● PWA | MAX 5 XAF</span></div></div>
-<div class="acts"><a href="https://ubuk.net" target="_blank" class="ubuk">🌐 UBUK</a><div class="pill" id="bal">145 000 XAF</div></div>
+  <div class="brand"><div class="logo">LC</div><div><h1>LATIF CONNECT</h1><span>Bouclier 100–250 XAF/j</span></div></div>
+  <div class="acts"><span class="pill" id="net">● Cloud</span><a class="btn-u" href="https://ubuk.net" target="_blank">UBUK</a></div>
 </header>
-
-<div id="t-chat" class="tab active">
-<div class="chips">
-<div class="chip" onclick="bot('/stock')">🤖 /stock</div>
-<div class="chip" onclick="bot('/bulletin')">🎓 /bulletin</div>
-<div class="chip" onclick="bot('/tarif')">⚖️ /tarif</div>
-<div class="chip" onclick="bot('/zakat')">🕌 /zakat</div>
-</div>
-<div class="feed" id="feed">
-<div class="msg in"><span class="snd">Latif Connect</span>Bienvenue sur votre Super-App souveraine. Messagerie 0 XAF. Reçu boutique plafonné à <strong>5 XAF</strong> (max 100 XAF/j). Clé <strong>60% Infra / 40% Solidarité</strong> + <strong>Zakat 2,5%</strong> et <strong>Terminal Multimodal</strong> actifs.</div>
-</div>
-<form class="bar" id="fchat"><input id="ichat" placeholder="Message ou /zakat, /tarif, /stock..."><button class="send">➤</button></form>
-</div>
-
-<div id="t-bout" class="tab"><div class="pad">
-<div class="kpis">
-<div class="kpi"><small>Ventes Jour</small><strong id="ca" style="color:var(--gn)">42 500 XAF</strong></div>
-<div class="kpi" style="border-color:var(--gd)"><small>Bouclier Frais</small><strong id="fr">10 / 100 XAF</strong></div>
-</div>
-<div class="crd"><h3>Caisse Rapide <span>Max 5 XAF</span></h3>
-<form id="fvte"><input id="art" class="fld" placeholder="Article (ex: Riz 25kg)" required><input id="mnt" type="number" class="fld" placeholder="Montant (XAF)" required><button class="btn bcy">ENCAISSER & REÇU</button></form>
-</div></div></div>
-
-<div id="t-ecol" class="tab"><div class="pad">
-<div class="crd"><h3>Bulletin Trimestre 1 <span style="color:var(--gn)">15.4/20</span></h3>
-<table><tr><th>Matière</th><th>Note</th></tr><tr><td>Mathématiques</td><td>16.5/20</td></tr><tr><td>Arabe & Grammaire</td><td>17.0/20</td></tr><tr><td>Sciences & Info</td><td>15.0/20</td></tr></table>
-</div>
-<div class="crd"><h3>Scolarité Tranche 2 <span>Frais: 50 XAF</span></h3><p style="font-size:.82rem;margin-bottom:8px">Reste : <strong>35 000 XAF</strong></p><button class="btn bgd" onclick="pay('Scolarité T2',35000,50)">PAYER EN 1 CLIC</button></div>
-</div></div>
-
-<div id="t-pay" class="tab"><div class="pad">
-<div class="crd" style="border-color:var(--cy)"><h3>Terminal Multimodal</h3>
-<div class="grid">
-<div class="tile" onclick="palm()">🖐️<strong>Veine Palmaire</strong><span>Scan (5 XAF)</span></div>
-<div class="tile" onclick="qr()">📱<strong>QR Code Pay</strong><span>Instantané (5 XAF)</span></div>
-<div class="tile" onclick="atm()">🏧<strong>Retrait ATM</strong><span>Sans carte (25 XAF)</span></div>
-<div class="tile" onclick="pay('USSD *777#',5000,15)">📟<strong>USSD *777#</strong><span>Mobile (15 XAF)</span></div>
-</div><div id="mdisp"></div></div>
-<div class="crd"><h3>Ventilation 60% / 40% & Zakat 2,5%</h3>
-<div class="sbar"><div style="width:60%;background:var(--cy)"></div><div style="width:40%;background:var(--gn)"></div></div>
-<div class="kpis">
-<div class="kpi"><small>Infra (60%)</small><strong id="inf" style="color:var(--cy)">6 850 000 XAF</strong></div>
-<div class="kpi" style="border-color:var(--gn)"><small>Solidarité (40%)</small><strong id="zak" style="color:var(--gn)">4 566 667 XAF</strong></div>
-</div>
-<p style="font-size:.78rem;margin-bottom:8px">Zakat Annuelle Due (2,5% — Niṣāb 85g Or atteint) : <strong id="zdu" style="color:var(--gd)">171 250 XAF</strong></p>
-<button class="btn bgd" onclick="decz()">DÉCAISSER ZAKAT VERS UBUK.NET</button>
-</div>
-<div class="crd"><h3>Factures (< 100 XAF)</h3><div class="grid">
-<div class="tile" onclick="pay('ENEO',15000,50)">⚡<strong>ENEO</strong><span>Frais: 50 XAF</span></div>
-<div class="tile" onclick="pay('CAMWATER',8500,50)">💧<strong>CAMWATER</strong><span>Frais: 50 XAF</span></div>
-</div></div>
-</div></div>
-
+<main>
+  <section id="s-chat" class="sec on">
+    <div class="chips">
+      <button class="chip" onclick="cmd('/stock')">/stock</button>
+      <button class="chip" onclick="cmd('/bulletin')">/bulletin</button>
+      <button class="chip" onclick="cmd('/tarif')">/tarif</button>
+      <button class="chip" onclick="cmd('/zakat')">/zakat</button>
+    </div>
+    <div class="chat" id="chat">
+      <div class="msg in"><small>Ma Fille • Essaim Souverain</small>Salam et bienvenue sur <strong>LATIF CONNECT</strong>. Vos messages et registres sont connectés au cloud UBUK.</div>
+    </div>
+    <form class="bar" onsubmit="send(event)">
+      <input id="inp" type="text" placeholder="Message à Ma Fille ou commande..." autocomplete="off">
+      <button type="submit">➤</button>
+    </form>
+  </section>
+  <section id="s-shop" class="sec">
+    <div class="card"><h2>Vitrine Commerciale Continentale</h2><p>Publications illimitées et commandes groupées entre membres de la plateforme.</p>
+      <div class="grid">
+        <div class="stat"><span>Cacao Fève Grade 1</span><strong>2 450 XAF/kg</strong></div>
+        <div class="stat"><span>Karité Brut Certifié</span><strong>1 850 XAF/kg</strong></div>
+      </div>
+      <button class="btn" onclick="msg('Demande de cotation enregistrée sur le registre SHA-256.')">Publier une offre membre</button>
+    </div>
+  </section>
+  <section id="s-edu" class="sec">
+    <div class="card"><h2>École Souveraine & Bourse</h2><p>Capitalisation éducative : 60 % Infrastructure & Bourses / 40 % Solidarité & Zakat.</p>
+      <div class="grid">
+        <div class="stat"><span>Fonds Bourse (60%)</span><strong id="v-inf">685 000 XAF</strong></div>
+        <div class="stat"><span>Solidarité (40%)</span><strong id="v-zak">456 667 XAF</strong></div>
+      </div>
+      <div class="row"><input id="m-edu" type="number" placeholder="Montant XAF (ex: 5000)"><button class="btn" style="width:auto;padding:0 16px" onclick="split('m-edu')">Allouer</button></div>
+    </div>
+  </section>
+  <section id="s-pay" class="sec">
+    <div class="card"><h2>Zakat, Épargne & Mobile Money</h2><p>Plafond garanti entre 100 et 250 XAF/jour. Interopérabilité MTN, Orange, Wave & M-Pesa.</p>
+      <div class="grid">
+        <div class="stat"><span>Épargne Blucash</span><strong id="v-sol">145 000 XAF</strong></div>
+        <div class="stat"><span>Bouclier Actif</span><strong>100 XAF/jour</strong></div>
+      </div>
+      <div class="row"><select><option>École Malékite (2,5%)</option><option>École Chaféite (2,5%)</option><option>École Hanafite (2,5%)</option><option>École Hanbalite (2,5%)</option></select></div>
+      <div class="row"><input id="m-pay" type="number" placeholder="Montant Zakat ou Dépôt XAF"><button class="btn btn-g" style="width:auto;padding:0 16px" onclick="split('m-pay')">Valider</button></div>
+    </div>
+  </section>
+</main>
 <nav>
-<button class="nav active" onclick="go('chat',this)">💬<span>Chats</span></button>
-<button class="nav" onclick="go('bout',this)">🏪<span>Boutique</span></button>
-<button class="nav" onclick="go('ecol',this)">🎓<span>École</span></button>
-<button class="nav" onclick="go('pay',this)">🕌<span>Zakat & Pay</span></button>
+  <button class="tab on" onclick="go('s-chat',this)"><i>💬</i>Chats</button>
+  <button class="tab" onclick="go('s-shop',this)"><i>🏪</i>Boutique</button>
+  <button class="tab" onclick="go('s-edu',this)"><i>🎓</i>École</button>
+  <button class="tab" onclick="go('s-pay',this)"><i>🛡️</i>Zakat & Pay</button>
 </nav>
-
+<script src="https://jsdelivr.net"></script>
 <script>
-let sol=145000,ca=42500,fr=10,inf=6850000,zak=4566667;
-function go(t,b){document.querySelectorAll('.tab').forEach(e=>e.classList.remove('active'));document.querySelectorAll('.nav').forEach(e=>e.classList.remove('active'));document.getElementById('t-'+t).classList.add('active');b.classList.add('active')}
-function msg(s,t,c='in'){let d=document.createElement('div');d.className='msg '+c;d.innerHTML=(c=='in'?`<span class="snd">${s}</span>`:'')+t;let f=document.getElementById('feed');f.appendChild(d);f.scrollTop=f.scrollHeight}
-function split(f){if(f<=0)return;inf+=Math.round(f*.6);zak+=Math.round(f*.4);document.getElementById('inf').textContent=inf.toLocaleString('fr-FR')+' XAF';document.getElementById('zak').textContent=zak.toLocaleString('fr-FR')+' XAF';document.getElementById('zdu').textContent=Math.round(inf*.025).toLocaleString('fr-FR')+' XAF'}
-<!-- CONNECTEUR CLOUD SUPABASE (UBUK-LATIF-DB) -->
-<script src="https://jsdelivr.net"></script><script src="https://jsdelivr.net"></script>
-  
-<script>
-(function(){const SB_URL = "https://supabase.co";
-  
-  const SB_URL = "https://supabase.co";
-  const SB_KEY = "sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7";
-  if(!window.supabase || SB_KEY.startsWith("COLLEZ")) return;
-  const db = window.supabase.createClient(SB_URL, SB_KEY);
+const SB_URL = "https://supabase.co";
+const SB_KEY = "sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7";
+const db = window.supabase ? window.supabase.createClient(SB_URL, SB_KEY) : null;
+let sol=145000, inf=685000, zak=456667;
 
-  async function saveMsg(exp, txt){
-    try{
-      await db.from('messages_essaim').insert([{
-        canal: 'ESSAIM_PRINCIPAL',
-        expediteur: exp,
-        contenu: txt
-      }]);
-    }catch(e){}
-  }
-
-  document.addEventListener('submit', function(e){
-    const inp = e.target.querySelector('input[type="text"], textarea');
-    if(inp && inp.value.trim()) saveMsg('Membre_Mobile', inp.value.trim());
-  }, true);
-
-  document.addEventListener('click', function(e){
-    const btn = e.target.closest('button');
-    if(!btn) return;
-    const inp = document.querySelector('input[placeholder*="Message"], input[type="text"]');
-    if(inp && inp.value.trim() && (btn.textContent.includes('➤') || btn.textContent.includes('>') || btn.type==='submit')){
-      saveMsg('Membre_Mobile', inp.value.trim());
-    }
-  }, true);
-})();
+function go(id,el){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  document.getElementById(id).classList.add('on'); el.classList.add('on');
+}
+function msg(txt,cls='in',who='Ma Fille • Essaim'){
+  const c=document.getElementById('chat'), d=document.createElement('div');
+  d.className='msg '+cls; d.innerHTML='<small>'+who+'</small>'+txt;
+  c.appendChild(d); c.scrollTop=c.scrollHeight;
+}
+async function saveCloud(exp,txt){
+  if(!db) return;
+  try{ await db.from('messages_essaim').insert([{canal:'ESSAIM_PRINCIPAL',expediteur:exp,contenu:txt}]); }catch(e){}
+}
+function send(e){
+  e.preventDefault(); const i=document.getElementById('inp'), v=i.value.trim(); if(!v) return;
+  msg(v,'out','Vous'); saveCloud('Membre_Mobile',v); i.value='';
+  setTimeout(()=>{ const r='Message enregistré dans le registre souverain UBUK.NET.'; msg(r); saveCloud('Ma_Fille_IA',r); },400);
+}
+function cmd(c){ document.getElementById('inp').value=c; send(new Event('submit')); }
+function split(id){
+  const el=document.getElementById(id), v=parseInt(el.value||0,10); if(v<=0) return;
+  sol+=v; inf+=Math.round(v*0.6); zak+=Math.round(v*0.4);
+  document.getElementById('v-sol').textContent=sol.toLocaleString('fr-FR')+' XAF';
+  document.getElementById('v-inf').textContent=inf.toLocaleString('fr-FR')+' XAF';
+  document.getElementById('v-zak').textContent=zak.toLocaleString('fr-FR')+' XAF';
+  el.value=''; go('s-chat',document.querySelector('.tab'));
+  const r='Opération de '+v.toLocaleString('fr-FR')+' XAF validée : 60% Infrastructure/Bourses et 40% Solidarité/Zakat.';
+  msg(r); saveCloud('Registre_Financier',r);
+}
 </script>
+</body>
+  </html>
+  sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7
