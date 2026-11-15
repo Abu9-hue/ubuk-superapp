@@ -66,7 +66,6 @@ main{padding:8px 11px 82px;max-width:600px;margin:0 auto}
 <main>
   <div class="sr"><span>🔍</span><input id="sq" type="text" placeholder="Rechercher contact, groupe, 4 Écoles ou Rasm..." oninput="var q=this.value.toLowerCase();document.querySelectorAll('.ms,.cd').forEach(e=>{e.style.display=e.textContent.toLowerCase().includes(q)?'':'none';});"></div>
   <section id="s1" class="sc on">
-    <div class="ch">
           <div class="ch">
       <button type="button" class="cp on" onclick="window.cn='GROUPE_200K';document.querySelectorAll('.cp').forEach(x=>x.classList.remove('on'));this.classList.add('on');document.getElementById('ct').innerHTML='<div class=\'ms in\'><small>👥 GROUPE 200K • IDDIR &amp; CECV</small>Tous les contacts et membres actifs (Memoire locale active).</div>';">Tout (200K)</button>
       <button type="button" class="cp" onclick="window.cn='ESSAIM_DIRECT';document.querySelectorAll('.cp').forEach(x=>x.classList.remove('on'));this.classList.add('on');document.getElementById('ct').innerHTML='<div class=\'ms in\'><small>👤 CONTACTS DIRECTS</small>• Ma Fille (Direct)<br>• Bureau Exécutif Douala<br>• Relais Villageois (Mesh)</div>';">Contacts</button>
