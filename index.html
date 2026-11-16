@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>UBUK — KO'ONE &amp; PAY</title>
+<link rel="manifest" href="/manifest.json">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif}
+html,body{height:100%;background:#F8F9FA;color:#0B2545;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.10}
+header,nav,main,#onb{position:relative;z-index:10}
+.cur{font-family:'Palatino Linotype',Georgia,serif;font-style:italic}
+header{background:#0B2545;color:#F8F9FA;padding:8px 10px;display:flex;justify-content:space-between;align-items:center;gap:6px;border-bottom:2.5px solid #F5B041}
+.lg{width:30px;height:30px;background:linear-gradient(135deg,#F5B041,#D4AC0D);border-radius:8px;display:grid;place-items:center;color:#0B2545;font-weight:900;font-family:Georgia,serif;flex-shrink:0}
+.br{display:flex;align-items:center;gap:7px;min-width:0;flex:1}.btit{min-width:0}
+.br h1{font-size:.9rem;color:#F5B041;font-family:Georgia,serif;letter-spacing:.5px}
+.br span{font-size:.6rem;color:#20BF6B;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;align-items:center;gap:4px;flex-shrink:0}
+.pl{background:#20BF6B22;color:#20BF6B;border:1px solid #20BF6B;padding:4px 7px;border-radius:12px;font-size:.64rem;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:3px;white-space:nowrap}
+.dot{width:6px;height:6px;border-radius:50%;background:#20BF6B;display:inline-block}
+.pl.ld{border-color:#F5B041;color:#F5B041}.pl.ld .dot{background:#F5B041}
+.pl.er{border-color:#DC2626;color:#FCA5A5}.pl.er.dot{background:#DC2626}
+.mn{background:none;border:none;color:#F5B041;font-size:1.2rem;font-weight:900;cursor:pointer;padding:0 3px}
+.dd{display:none;position:fixed;top:46px;right:10px;background:#0B2545;border:1.5px solid #F5B041;border-radius:12px;padding:6px;z-index:120;min-width:225px;box-shadow:0 10px 25px rgba(11,37,69,.35)}
+.dd.on{display:block}.dd button{display:block;width:100%;text-align:left;background:none;border:none;color:#F8F9FA;padding:9px 10px;font-size:.8rem;border-radius:8px;cursor:pointer}
+.pinbox{background:#0B2545;color:#F8F9FA;border:1.5px solid #F5B041;border-radius:10px;padding:6px 9px;margin-bottom:6px;font-size:.67rem}
+.pinbox .row{display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:2px}
+.pinbox strong{color:#F5B041}.pinbox em{color:#20BF6B;font-style:normal;font-weight:800}
+.sr{background:#FFFFFF;border:1.5px solid #0B254533;border-radius:20px;padding:5px 11px;display:flex;align-items:center;gap:7px;margin-bottom:6px}
+.sr input{flex:1;background:none;border:none;color:#0B2545;outline:none;font-size:.82rem;min-width:0}
+.sr button{background:none;border:none;color:#64748B;font-weight:800;cursor:pointer;font-size:.8rem}
+nav{position:fixed;bottom:8px;left:8px;right:8px;background:#0B2545;border:1.5px solid #F5B041;border-radius:18px;display:flex;justify-content:space-around;padding:6px 2px;z-index:99}
+.tb{background:none;border:none;color:#CBD5E1;font-size:.64rem;cursor:pointer;padding:4px 5px;border-radius:10px;text-align:center}
+.tb.on{background:#20BF6B;color:#FFFFFF;font-weight:800}
+main{padding:7px 10px 80px;max-width:600px;margin:0 auto}
+.sc{display:none}.sc.on{display:block}
+.ch{display:flex;gap:5px;overflow-x:auto;padding-bottom:6px}
+.cp{background:#FFFFFF;border:1.5px solid #0B254533;color:#0B2545;padding:4px 9px;border-radius:14px;font-size:.69rem;font-weight:700;white-space:nowrap;cursor:pointer}
+.cp.on{background:#0B2545;border-color:#F5B041;color:#F5B041}
+.ct{display:flex;flex-direction:column;gap:7px;height:48vh;overflow-y:auto;padding:3px 0;scroll-behavior:smooth}
+.ms{max-width:90%;padding:8px 11px;border-radius:13px;font-size:.81rem;line-height:1.38;box-shadow:0 2px 5px rgba(11,37,69,.07);word-wrap:break-word}
+.in{background:#FFFFFF;border:1.5px solid #F5B041;color:#0B2545;align-self:flex-start}
+.ot{background:#0B2545;border:1.5px solid #20BF6B;color:#F8F9FA;align-self:flex-end}
+.al{background:#FEF2F2;border:1.5px solid #DC2626;color:#7F1D1D;align-self:stretch;max-width:100%}
+.ms small{display:block;font-size:.61rem;color:#B45309;margin-bottom:2px;font-weight:800}.ot small{color:#F5B041}.al small{color:#DC2626}
+.ms img{max-width:100%;border-radius:8px;margin-top:5px;border:1px solid #F5B041;display:block}
+.br2{display:flex;gap:6px;margin-top:6px;align-items:center}
+.br2 input[type=text]{flex:1;min-width:0;background:#FFFFFF;border:1.5px solid #0B254544;color:#0B2545;padding:8px 12px;border-radius:22px;outline:none;font-size:.83rem}
+.ic{background:#0B2545;border:1.5px solid #F5B041;color:#F5B041;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;cursor:pointer;flex-shrink:0}
+.sd{background:#20BF6B;color:#FFFFFF;border:none;width:38px;height:38px;border-radius:50%;font-weight:900;cursor:pointer;flex-shrink:0}
+.cd{background:#FFFFFF;border:1.5px solid #F5B041;border-radius:13px;padding:11px;margin-bottom:8px;box-shadow:0 3px 9px rgba(11,37,69,.06)}
+.cd h2{font-size:.88rem;margin-bottom:4px;color:#0B2545;font-family:Georgia,serif}.cd p{font-size:.77rem;color:#334155;line-height:1.4;margin-bottom:7px}
+.gd{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+.st{background:#F8F9FA;padding:7px;border-radius:9px;border:1.5px solid #0B254522;min-width:0}
+.st span{font-size:.63rem;color:#475569;display:block}.st strong{font-size:.84rem;color:#20BF6B}
+.bt{background:#20BF6B;color:#FFFFFF;border:none;padding:9px;border-radius:9px;width:100%;font-weight:800;cursor:pointer;font-size:.8rem}
+.bg{background:#F5B041;color:#0B2545}.bb{background:#0B2545;color:#F5B041}
+.rw{display:flex;gap:6px;margin-bottom:7px}
+.rw input,.rw select,.rw textarea{flex:1;min-width:0;width:100%;background:#F8F9FA;border:1.5px solid #0B254533;color:#0B2545;padding:8px;border-radius:8px;font-size:.8rem}
+.dc{background:#F8F9FA;border:1.5px solid #20BF6B;border-radius:9px;padding:8px;margin-top:6px;font-size:.74rem;color:#0B2545}
+#onb{position:fixed;inset:0;background:#0B2545F5;z-index:200;display:none;place-items:center;padding:14px}
+#onb .cd{max-width:420px;width:100%;border:2px solid #F5B041}
+</style>
+</head>
