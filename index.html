@@ -529,14 +529,83 @@
         `
       },
       
-      page3: {
+          page3: {
         title: "🏛️ Point 3 — Les 54 Ministères des Finances & Contre-Audit des Agences",
-        content: "<p>Espace prêt pour l'intégration détaillée du Point 3 : tableau et carte des 54 Ministères africains et comparateur souverain sur 100 points face aux agences internationales.</p>"
+        content: `
+          <div style="margin-bottom:20px;">
+            <h3 style="color:#f3d46e; font-size:1.08rem; margin-bottom:8px;">⚖️ Contre-Audit Souverain sur 100 Points (Agences Africaines vs Big Three)</h3>
+            <p style="color:#94a3b8; font-size:0.86rem; margin-bottom:14px;">Évaluation objective de la transparence budgétaire, de la soutenabilité réelle et de l'impartialité des notations souveraines.</p>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px;">
+              <div style="background:#08131e; border:1px solid #10b981; border-radius:12px; padding:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;"><strong style="color:#fff;">AfCRA (Union Africaine)</strong><span style="color:#10b981; font-weight:800;">92 / 100</span></div>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:6px;">Ancrage continental, prise en compte des actifs naturels et absence de biais spéculatif.</p>
+              </div>
+              <div style="background:#08131e; border:1px solid #10b981; border-radius:12px; padding:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;"><strong style="color:#fff;">Bloomfield Investment</strong><span style="color:#10b981; font-weight:800;">88 / 100</span></div>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:6px;">Expertise terrain en zone UEMOA/CEMAC et analyse fine de l'économie réelle locale.</p>
+              </div>
+              <div style="background:#08131e; border:1px solid #d4af37; border-radius:12px; padding:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;"><strong style="color:#fff;">GCR Ratings</strong><span style="color:#f3d46e; font-weight:800;">84 / 100</span></div>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:6px;">Bonne couverture panafricaine des institutions financières et des infrastructures.</p>
+              </div>
+              <div style="background:#08131e; border:1px solid #ef4444; border-radius:12px; padding:14px;">
+                <div style="display:flex; justify-content:space-between; align-items:center;"><strong style="color:#fff;">Big Three (Moody's, S&P, Fitch)</strong><span style="color:#ef4444; font-weight:800;">41 / 100</span></div>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:6px;">Surévaluation systématique du risque africain renchérissant le coût de la dette.</p>
+              </div>
+            </div>
+          </div>
+
+          <h3 style="color:#f3d46e; font-size:1.08rem; margin-bottom:10px;">📊 Observatoire des 54 Ministères des Finances (Échantillon Régional)</h3>
+          <div style="overflow-x:auto; background:#08131e; border:1px solid rgba(212,175,55,0.25); border-radius:12px; padding:12px;">
+            <table style="width:100%; border-collapse:collapse; font-size:0.85rem; text-align:left;">
+              <thead>
+                <tr style="border-bottom:1px solid rgba(212,175,55,0.3); color:#f3d46e;">
+                  <th style="padding:8px;">Pays / Ministère</th>
+                  <th style="padding:8px;">Zone</th>
+                  <th style="padding:8px;">Note Souveraine</th>
+                  <th style="padding:8px;">Transparence Budgétaire</th>
+                </tr>
+              </thead>
+              <tbody style="color:#cbd5e1;">
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">🇨🇲 Cameroun (MINFI)</td><td style="padding:8px;">CEMAC</td><td style="padding:8px; color:#10b981; font-weight:700;">🟢 A- (78/100)</td><td style="padding:8px;">Recettes douanières & cacao en hausse</td></tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">🇨🇮 Côte d'Ivoire (MEF)</td><td style="padding:8px;">UEMOA</td><td style="padding:8px; color:#10b981; font-weight:700;">🟢 A (82/100)</td><td style="padding:8px;">Forte croissance & transformation locale</td></tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">🇸🇳 Sénégal (MFB)</td><td style="padding:8px;">UEMOA</td><td style="padding:8px; color:#f3d46e; font-weight:700;">🟡 BBB+ (74/100)</td><td style="padding:8px;">Audit de la dette & revenus gaziers</td></tr>
+                <tr style="border-bottom:1px solid rgba(255,255,255,0.06);"><td style="padding:8px;">🇨🇩 RD Congo (MinFin)</td><td style="padding:8px;">SADC / CEEAC</td><td style="padding:8px; color:#f3d46e; font-weight:700;">🟡 BBB (71/100)</td><td style="padding:8px;">Potentiel minier majeur vs enclavement</td></tr>
+                <tr><td style="padding:8px;">🇲🇦 Maroc (MEF)</td><td style="padding:8px;">Afrique du Nord</td><td style="padding:8px; color:#10b981; font-weight:700;">🟢 A+ (85/100)</td><td style="padding:8px;">Stabilité macroéconomique & industrie</td></tr>
+              </tbody>
+            </table>
+            <div style="font-size:0.78rem; color:#94a3b8; margin-top:8px;">* Suivi consolidé des 54 États membres disponible en temps réel dans la Super-App UBUK.</div>
+          </div>
+        `
       },
       page4: {
         title: "💎 Point 4 — Matières Premières, Zones de Conflits & Empreinte de l'Usure",
-        content: "<p>Espace prêt pour l'intégration détaillée du Point 4 : carte géopolitique des ressources et zones de conflits + étude historique et chiffrée du Usury Footprint (FMI / Banque Mondiale).</p>"
+        content: `
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:20px;">
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.35); border-radius:16px; padding:16px;">
+              <h3 style="color:#f3d46e; font-size:1.05rem; margin-bottom:8px;">🗺️ Ressources Stratégiques & Zones de Conflits</h3>
+              <p style="color:#94a3b8; font-size:0.85rem; margin-bottom:10px;">Superposition géopolitique : les régions les plus dotées en minerais critiques coïncident directement avec les foyers d'instabilité et d'enclavement.</p>
+              <ul style="list-style:none; font-size:0.83rem; color:#cbd5e1; display:grid; gap:7px;">
+                <li>• <strong>Cobalt, Coltan & Lithium (Kivu / Katanga) :</strong> Cœur des batteries mondiales • Zone de conflit et traçabilité anti-pillage.</li>
+                <li>• <strong>Or & Uranium (Sahel / Liptako-Gourma) :</strong> Réserves stratégiques • Enclavement sévère et urgence humanitaire.</li>
+                <li>• <strong>Pétrole, Gaz & Cacao (Golfe de Guinée) :</strong> 70 % du cacao mondial • Enjeu de transformation sur place.</li>
+              </ul>
+            </div>
+
+            <div style="background:#08131e; border:1px solid rgba(239,68,68,0.45); border-radius:16px; padding:16px;">
+              <div style="color:#ef4444; font-weight:800; font-size:0.78rem; text-transform:uppercase; margin-bottom:4px;">Étude Audacieuse • Usury Footprint</div>
+              <h3 style="color:#fff; font-size:1.05rem; margin-bottom:8px;">📉 L'Empreinte Universelle de l'Usure (FMI & Banque Mondiale)</h3>
+              <p style="color:#94a3b8; font-size:0.85rem; margin-bottom:10px;">Depuis les premières grandes récessions et les Plans d'Ajustement Structurel (PAS), l'intérêt composé (<em>Riba</em>) agit comme un mécanisme d'extraction silencieuse.</p>
+              <ul style="list-style:none; font-size:0.83rem; color:#cbd5e1; display:grid; gap:7px;">
+                <li>• <strong>Le Piège de l'Intérêt Composé :</strong> Des États remboursent plusieurs fois le capital initial sans jamais éteindre la dette.</li>
+                <li>• <strong>Ponction Budgétaire :</strong> Le service de la dette dépasse souvent les budgets cumulés de la santé et de l'éducation.</li>
+                <li>• <strong>Réponse Latif Connect (0 %) :</strong> Remplacement par le financement participatif réel, le Waqf et le prêt <em>Qard Hasan</em> sans intérêt.</li>
+              </ul>
+            </div>
+          </div>
+        `
       },
+    
       page5: {
         title: "📰 Point 5 — Agences de Presse & Podcast Souverain",
         content: "<p>Espace prêt pour l'intégration détaillée du Point 5 : fil d'actualité filtré sur les 4 axes stratégiques et lecteur audio Podcast intégré.</p>"
