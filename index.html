@@ -343,4 +343,136 @@
           <div>
             <div class="nav-card-header">
               <div class="nav-icon">💎</div>
-  
+              <div class="nav-card-header">
+              <div class="nav-icon">💎</div>
+              <h2>4. Ressources, Conflits & Usure</h2>
+            </div>
+            <p>Carte des matières premières, zones de conflits et étude chiffrée de l'empreinte de l'usure (FMI / Banque Mondiale).</p>
+          </div>
+          <div class="nav-link">Ouvrir la Carte & l'Étude Usure ➔</div>
+        </div>
+
+        <div class="nav-card" onclick="openPage('page5')">
+          <div>
+            <div class="nav-card-header">
+              <div class="nav-icon">📰</div>
+              <h2>5. Presse & Podcast Souverain</h2>
+            </div>
+            <p>Fil d'actualité filtré sur les 4 axes stratégiques et bulletin audio podcast intégré en bas débit.</p>
+          </div>
+          <div class="nav-link">Lire & Écouter les Bulletins ➔</div>
+        </div>
+
+        <div class="nav-card" onclick="openPage('page6')">
+          <div>
+            <div class="nav-card-header">
+              <div class="nav-icon">🎓</div>
+              <h2>6. Savoir, Tablette Kalam & Dessin</h2>
+            </div>
+            <p>Écrits fondateurs (RASM, eszo28D, intuition), programme complet de formation, Tablette Kalam et Logiciel de Dessin.</p>
+          </div>
+          <div class="nav-link">Accéder au Savoir & aux Outils ➔</div>
+        </div>
+      </div>
+
+      <div class="market-banner">
+        <div>
+          <strong style="color: var(--gold-light); font-size: 1.05rem;">🛒 Vitrine Commerciale des Membres</strong>
+          <div style="font-size: 0.86rem; color: var(--text-muted);">Publication gratuite • Paiement sécurisé Carte UBUK PAY & livraison réseau continental.</div>
+        </div>
+        <button class="btn-publish" onclick="openPage('vitrine')">+ Publier un Produit ou Service</button>
+      </div>
+    </div>
+
+    <div id="dedicatedContainer" class="dedicated-view">
+      <div class="view-topbar">
+        <h2 id="viewTitle" style="color: var(--gold-light); font-size: 1.15rem;">Page Dédiée</h2>
+        <button class="btn-back" onclick="closePage()">⬅ Retour à l'Enveloppe UBUK.NET</button>
+      </div>
+      <div id="viewBody"></div>
+    </div>
+
+    <div class="quadrants-row">
+      <div class="quadrant-card">
+        <div>
+          <div class="quadrant-title">🏥 CADRAN 3 • MALADES</div>
+          <div class="quadrant-sub">Réassurance médicale lourde</div>
+        </div>
+        <div class="quadrant-stat">ACTIF • 100% Tracés</div>
+      </div>
+      <div class="quadrant-card">
+        <div>
+          <div class="quadrant-title">🌪️ CADRAN 4 • SINISTRÉS</div>
+          <div class="quadrant-sub">Intervention d'urgence & abris</div>
+        </div>
+        <div class="quadrant-stat">ACTIF • 100% Tracés</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const pagesData = {
+      page1: {
+        title: "💳 Point 1 — Carte UBUK PAY • Standard Universel",
+        content: "<p style='color:#cbd5e1;'>Module Point 1 prêt pour l'enrichissement individuel.</p>"
+      },
+      page2: {
+        title: "🤝 Point 2 — UBUK KO'ONE • Solidarité & Réassurance",
+        content: "<p style='color:#cbd5e1;'>Module Point 2 prêt pour l'enrichissement individuel.</p>"
+      },
+      page3: {
+        title: "🏛️ Point 3 — 54 Ministères & Contre-Audit Agences",
+        content: "<p style='color:#cbd5e1;'>Module Point 3 prêt pour l'enrichissement individuel.</p>"
+      },
+      page4: {
+        title: "💎 Point 4 — Ressources, Conflits & Empreinte de l'Usure",
+        content: "<p style='color:#cbd5e1;'>Module Point 4 prêt pour l'enrichissement individuel.</p>"
+      },
+      page5: {
+        title: "📰 Point 5 — Agences de Presse & Podcast Souverain",
+        content: "<p style='color:#cbd5e1;'>Module Point 5 prêt pour l'enrichissement individuel.</p>"
+      },
+      page6: {
+        title: "🎓 Point 6 — Savoir (RASM / eszo28D), Kalam & Dessin",
+        content: "<p style='color:#cbd5e1;'>Module Point 6 prêt pour l'enrichissement individuel.</p>"
+      },
+      vitrine: {
+        title: "🛒 Vitrine Commerciale des Membres",
+        content: "<p style='color:#cbd5e1;'>Espace Vitrine Commerciale prêt pour l'enrichissement individuel.</p>"
+      }
+    };
+
+    function openPage(pageId, pushState = true) {
+      const data = pagesData[pageId];
+      if (!data) return;
+      document.getElementById('envelopeHome').style.display = 'none';
+      document.getElementById('viewTitle').innerText = data.title;
+      document.getElementById('viewBody').innerHTML = data.content;
+      document.getElementById('dedicatedContainer').classList.add('active');
+      if (pushState) {
+        history.pushState({ page: pageId }, '', '#' + pageId);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closePage(pushState = true) {
+      document.getElementById('dedicatedContainer').classList.remove('active');
+      document.getElementById('envelopeHome').style.display = 'block';
+      if (pushState) {
+        history.pushState({ page: null }, '', window.location.pathname);
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('popstate', function(event) {
+      if (event.state && event.state.page) {
+        openPage(event.state.page, false);
+      } else {
+        closePage(false);
+      }
+    });
+  </script>
+</body>
+</html>
+
