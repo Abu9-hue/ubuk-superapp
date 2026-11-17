@@ -1,0 +1,348 @@
+I<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBUK.NET — Framework Latif Connect • Infrastructure Souveraine</title>
+  <style>
+    :root {
+      --bg-dark: #07111a;
+      --bg-card: #0e1d2b;
+      --bg-card-hover: #14283b;
+      --gold: #d4af37;
+      --gold-light: #f3d46e;
+      --emerald: #10b981;
+      --emerald-dark: #059669;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(212, 175, 55, 0.28);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, #0f2537 0%, var(--bg-dark) 65%);
+      color: var(--text-main);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* Bande de Cotation Souveraine */
+    .ticker-bar {
+      background: #040a10;
+      border-bottom: 1px solid var(--border);
+      padding: 8px 16px;
+      font-size: 0.82rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      color: var(--gold-light);
+    }
+    .ticker-item span { color: #fff; font-weight: 600; }
+
+    /* Conteneur Principal */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 16px 48px;
+    }
+
+    /* Les 4 Cadrans Humanitaires (Haut) */
+    .quadrants-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .quadrant-card {
+      background: rgba(14, 29, 43, 0.9);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quadrant-title { font-size: 0.85rem; color: var(--gold-light); font-weight: 700; }
+    .quadrant-sub { font-size: 0.74rem; color: var(--text-muted); }
+    .quadrant-stat {
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--emerald);
+    }
+
+    /* En-tête Souverain & Gros Boutons Principaux */
+    .hero-envelope {
+      text-align: center;
+      background: linear-gradient(145deg, #0d1f30, #08131e);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    }
+    .brand-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .hero-envelope h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .hero-envelope p {
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 22px;
+      font-size: 0.98rem;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+    .btn-superapp {
+      background: linear-gradient(135deg, var(--emerald), var(--emerald-dark));
+      color: #fff;
+      font-size: 1.08rem;
+      font-weight: 800;
+      padding: 16px 28px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+      transition: transform 0.2s;
+    }
+    .btn-superapp:hover { transform: translateY(-2px); }
+
+    .btn-ubukpay {
+      background: linear-gradient(135deg, var(--gold), #b89020);
+      color: #07111a;
+      font-size: 1rem;
+      font-weight: 800;
+      padding: 16px 24px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+      transition: transform 0.2s;
+    }
+    .btn-ubukpay:hover { transform: translateY(-2px); }
+
+    /* Grille des 6 Beaux Boutons (Pages Dédiées) */
+    .section-label {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .nav-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+    }
+    .nav-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+    .nav-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .nav-icon {
+      font-size: 1.7rem;
+      background: rgba(212, 175, 55, 0.12);
+      border: 1px solid var(--border);
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nav-card h2 {
+      font-size: 1.08rem;
+      color: #fff;
+      font-weight: 700;
+    }
+    .nav-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .nav-link {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Conteneur Dynamique des 6 Pages Dédiées */
+    .dedicated-view {
+      display: none;
+      background: var(--bg-card);
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 24px;
+      animation: fadeIn 0.25s ease;
+    }
+    .dedicated-view.active { display: block; }
+    .view-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 14px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn-back {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-back:hover { background: rgba(212, 175, 55, 0.2); }
+
+    /* Vitrine Commerciale des Membres */
+    .market-banner {
+      background: linear-gradient(135deg, #102638, #0b1926);
+      border: 1px dashed var(--gold);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+    .btn-publish {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-publish:hover { background: var(--gold); color: #07111a; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Bande de Cotation Souveraine -->
+  <div class="ticker-bar">
+    <div class="ticker-item">🪙 OR (XAU) : <span>4 054.45 USD/oz</span></div>
+    <div class="ticker-item">🍫 CACAO DOUALA : <span>3 057.0 XAF/kg</span></div>
+    <div class="ticker-item">🏛️ MINISTÈRES AUDITÉS : <span>54 / 54 États</span></div>
+    <div class="ticker-item">🛡️ BOUCLIER FRAIS : <span>100 – 250 XAF / Jour (Étanches)</span></div>
+  </div>
+
+  <div class="container">
+
+    <!-- Cadrans Humanitaires Haut (Extrémités Supérieures) -->
+    <div class="quadrants-row">
+      <div class="quadrant-card">
+        <div>
+          <div class="quadrant-title">👶 CADRAN 1 • ORPHELINS</div>
+          <div class="quadrant-sub">Réassurance UBUK KO'ONE & Zakat</div>
+        </div>
+        <div class="quadrant-stat">ACTIF • 100% Tracés</div>
+      </div>
+      <div class="quadrant-card">
+        <div>
+          <div class="quadrant-title">🧕 CADRAN 2 • VEUVES</div>
+          <div class="quadrant-sub">Soutien direct & Autonomie</div>
+        </div>
+        <div class="quadrant-stat">ACTIF • 100% Tracés</div>
+      </div>
+    </div>
+
+    <!-- VUE ENVELOPPE PRINCIPALE -->
+    <div id="envelopeHome">
+      <div class="hero-envelope">
+        <div class="brand-badge">Framework Latif Connect • Dorsale Continentale</div>
+        <h1>UBUK.NET</h1>
+        <p>Espace Numérique Souverain, Inclusion Financière Universelle, Audit des 54 États et Réassurance Solidaire.</p>
+        <div class="cta-group">
+          <a href="https://app.ubuk.net" target="_blank" class="btn-superapp">
+            📲 Télécharger / Ouvrir la Super-App UBUK
+          </a>
+          <button class="btn-ubukpay" onclick="openPage('page1')">
+            💳 CARTE UBUK PAY • Standard Universel
+          </button>
+        </div>
+      </div>
+
+      <div class="section-label">Les 6 Pages Dédiées Souveraines (Module 3 Dynamique)</div>
+
+      <div class="grid-6">
+        <!-- Point 1 -->
+        <div class="nav-card" onclick="openPage('page1')">
+          <div>
+            <div class="nav-card-header">
+              <div class="nav-icon">💳</div>
+              <h2>1. Carte UBUK PAY</h2>
+            </div>
+            <p>Standard universel de paiement, commutateur bancaire, 7 comptes strictement étanches et biométrie Aratek.</p>
+          </div>
+          <div class="nav-link">Ouvrir la Dorsale Financière ➔</div>
+        </div>
+
+        <!-- Point 2 -->
+        <div class="nav-card" onclick="openPage('page2')">
+          <div>
+            <div class="nav-card-header">
+  
