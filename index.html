@@ -345,4 +345,147 @@
         <div class="nav-card" onclick="openPage('page2')">
           <div>
             <div class="nav-card-header">
-  
+              <div class="nav-card-header">
+              <div class="nav-icon">🤝</div>
+              <h2>2. UBUK KO'ONE</h2>
+            </div>
+            <p>Solidarité locale autonome des groupements villageois et fonds global de réassurance (Zakat 4 Écoles & Qard Hasan 0 %).</p>
+          </div>
+          <div class="nav-link">Ouvrir la Solidarité & Réassurance ➔</div>
+        </div>
+
+        <!-- Point 3 -->
+        <div class="nav-card" onclick="openPage('page3')">
+          <div>
+            <div class="nav-card-header">
+              <div class="nav-icon">🏛️</div>
+              <h2>3. 54 Ministères & Agences</h2>
+            </div>
+            <p>Notation mensuelle des 54 Ministères et contre-audit souverain.</p>
+          </div>
+          <div class="nav-link">Ouvrir l'Observatoire & Contre-Audit ➔</div>
+        </div>
+
+        <!-- Point 4 -->
+        <div class="nav-card" onclick="openPage('page4')">
+          <div>
+            <div class="nav-card-header">
+              <div class="nav-icon">💎</div>
+              <h2>4. Ressources, Conflits & Usure</h2>
+            </div>
+            <p>Cartographie des matières premières et étude de l'empreinte de l'usure financière.</p>
+          </div>
+          <div class="nav-link">Ouvrir la Carte & l'Étude Usure ➔</div>
+        </div>
+
+        <!-- Point 5 -->
+        <div class="nav-card" onclick="openPage('page5')">
+          <div>
+            <div class="nav-card-header">
+              <div class="nav-icon">📰</div>
+              <h2>5. Presse & Podcast Souverain</h2>
+            </div>
+            <p>Actualités et bulletins audio axés sur les 4 piliers stratégiques.</p>
+          </div>
+          <div class="nav-link">Lire & Écouter les Bulletins ➔</div>
+        </div>
+
+        <!-- Point 6 -->
+        <div class="nav-card" onclick="openPage('page6')">
+          <div>
+            <div class="nav-card-header">
+              <div class="nav-icon">🎓</div>
+              <h2>6. Savoir, Tablette Kalam & Dessin</h2>
+            </div>
+            <p>Écrits fondateurs (RASM, eszo28D), formations, Tablette Kalam et outils de création.</p>
+          </div>
+          <div class="nav-link">Accéder au Savoir & aux Outils ➔</div>
+        </div>
+      </div>
+
+      <!-- Vitrine Commerciale des Membres -->
+      <div class="market-banner">
+        <div>
+          <strong style="color: var(--gold-light); font-size: 1.05rem;">🛒 Vitrine Commerciale des Membres</strong>
+          <div style="font-size: 0.86rem; color: var(--text-muted);">Publication gratuite • Paiement sécurisé Carte UBUK PAY & livraison réseau continental.</div>
+        </div>
+        <button class="btn-publish" onclick="window.open('https://ubuk.net', '_blank')">+ Publier un Produit ou Service</button>
+      </div>
+    </div>
+
+    <!-- Conteneur Dynamique des 6 Pages Dédiées -->
+    <div id="dedicatedContainer" class="dedicated-view">
+      <div class="view-topbar">
+        <h2 id="viewTitle" style="color: var(--gold-light);">Page Dédiée</h2>
+        <button class="btn-back" onclick="closePage()">⬅ Retour à l'Enveloppe UBUK.NET</button>
+      </div>
+      <div id="viewBody"></div>
+    </div>
+
+    <!-- Cadrans Humanitaires Bas (Extrémités Inférieures) -->
+    <div class="quadrants-row">
+      <div class="quadrant-card">
+        <div>
+          <div class="quadrant-title">🏥 CADRAN 3 • MALADES</div>
+          <div class="quadrant-sub">Réassurance médicale lourde</div>
+        </div>
+        <div class="quadrant-stat">ACTIF • 100% Tracés</div>
+      </div>
+      <div class="quadrant-card">
+        <div>
+          <div class="quadrant-title">🌪️ CADRAN 4 • SINISTRÉS</div>
+          <div class="quadrant-sub">Intervention d'urgence & abris</div>
+        </div>
+        <div class="quadrant-stat">ACTIF • 100% Tracés</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const pagesData = {
+      page1: {
+        title: "💳 Point 1 — Carte UBUK PAY (Standard Universel & Dorsale Financière)",
+        content: "<p>Espace prêt pour l'intégration détaillée du Point 1 : présentation de la Carte UBUK PAY, architecture des 7 comptes étanches et interopérabilité bancaire/biométrique.</p>"
+      },
+      page2: {
+        title: "🤝 Point 2 — UBUK KO'ONE (Solidarité Locale & Réassurance Globale)",
+        content: "<p>Espace prêt pour l'intégration détaillée du Point 2 : caisses villageoises autonomes, réassurance globale par la Direction Générale, calculateur Zakat 4 Écoles et Qard Hasan 0 %.</p>"
+      },
+      page3: {
+        title: "🏛️ Point 3 — Les 54 Ministères des Finances & Contre-Audit des Agences",
+        content: "<p>Espace prêt pour l'intégration détaillée du Point 3 : tableau et carte des 54 Ministères africains et comparateur souverain sur 100 points face aux agences internationales.</p>"
+      },
+      page4: {
+        title: "💎 Point 4 — Matières Premières, Zones de Conflits & Empreinte de l'Usure",
+        content: "<p>Espace prêt pour l'intégration détaillée du Point 4 : carte géopolitique des ressources et zones de conflits + étude historique et chiffrée du Usury Footprint (FMI / Banque Mondiale).</p>"
+      },
+      page5: {
+        title: "📰 Point 5 — Agences de Presse & Podcast Souverain",
+        content: "<p>Espace prêt pour l'intégration détaillée du Point 5 : fil d'actualité filtré sur les 4 axes stratégiques et lecteur audio Podcast intégré.</p>"
+      },
+      page6: {
+        title: "🎓 Point 6 — Savoir (RASM / eszo28D), Formation, Tablette Kalam & Dessin",
+        content: "<p>Espace prêt pour l'intégration détaillée du Point 6 : écrits fondateurs (RASM, langage RASM, eszo28D, opération d'intuition), programme complet de formation et espace côte à côte Tablette Kalam + Logiciel de Dessin.</p>"
+      }
+    };
+
+    function openPage(pageId) {
+      const data = pagesData[pageId];
+      if (!data) return;
+      document.getElementById('envelopeHome').style.display = 'none';
+      document.getElementById('viewTitle').innerText = data.title;
+      document.getElementById('viewBody').innerHTML = data.content;
+      document.getElementById('dedicatedContainer').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closePage() {
+      document.getElementById('dedicatedContainer').classList.remove('active');
+      document.getElementById('envelopeHome').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
+
