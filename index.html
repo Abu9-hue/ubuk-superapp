@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+n<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -559,5 +559,80 @@
             <p style="font-size:0.86rem; color:#cbd5e1; margin:6px 0 12px;">Écoutez directement le résumé des 4 axes stratégiques sans télécharger de fichier lourd :</p>
             <button onclick="if('speechSynthesis' in window){ window.speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance('Bulletin souverain UBUK Latif Connect. Cours de l or à 4054 dollars l once. Cacao Douala à 3057 francs CFA le kilo. Les 54 ministères des finances sont audités et la réassurance solidaire UBUK KO ONE est active dans les zones enclavées.'); u.lang='fr-FR'; window.speechSynthesis.speak(u); document.getElementById('podMsg').innerText='🔊 Lecture vocale en cours...'; } else { document.getElementById('podMsg').innerText='Audio prêt sur navigateur compatible.'; }" style="background:#10b981; color:#fff; font-weight:800; border:none; padding:10px 18px; border-radius:10px; cursor:pointer;">▶️ Écouter le Bulletin Vocal</button>
             <button onclick="if('speechSynthesis' in window) window.speechSynthesis.cancel(); document.getElementById('podMsg').innerText='⏹️ Lecture arrêtée.';" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(212,175,55,0.4); padding:10px 14px; border-radius:10px; cursor:pointer; margin-left:8px;">⏹️ Stop</button>
-            
+                      <div id="podMsg" style="margin-top:8px; font-size:0.84rem; color:#f3d46e;"></div>
+          </div>
+          <div style="display:grid; gap:10px;">
+            <div style="background:#08131e; border-left:4px solid #d4af37; padding:12px; border-radius:8px;"><strong style="color:#f3d46e;">AXE 1 • Budgets & Dette :</strong> <span style="color:#cbd5e1; font-size:0.86rem;">Analyse de l'impact du financement à 0 % sur les budgets d'investissement des 54 États.</span></div>
+            <div style="background:#08131e; border-left:4px solid #10b981; padding:12px; border-radius:8px;"><strong style="color:#10b981;">AXE 2 • Matières Premières :</strong> <span style="color:#cbd5e1; font-size:0.86rem;">Suivi des cours Or, Cacao Douala et minerais stratégiques sans intermédiaires spéculatifs.</span></div>
+            <div style="background:#08131e; border-left:4px solid #ef4444; padding:12px; border-radius:8px;"><strong style="color:#ef4444;">AXE 3 • Zones Enclavées :</strong> <span style="color:#cbd5e1; font-size:0.86rem;">Activation de la réassurance globale UBUK KO'ONE et des terminaux biométriques hors-ligne.</span></div>
+          </div>
+        `
+      },
+      page6: {
+        title: "🎓 Point 6 — Savoir (RASM / eszo28D), Formation, Tablette Kalam & Dessin",
+        content: `
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:10px; margin-bottom:16px;">
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.3); padding:12px; border-radius:10px;"><strong style="color:#f3d46e;">Le RASM & Langage RASM</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Programmation rasmique, mathématiques rasmiques, Tajweed rasmique et écriture Shümom.</p></div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.3); padding:12px; border-radius:10px;"><strong style="color:#38bdf8;">Architecture eszo28D & Intuition</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Opération d'intuition et modélisation dépassant l'informatique classique.</p></div>
+            <div style="background:#08131e; border:1px solid rgba(16,185,129,0.3); padding:12px; border-radius:10px;"><strong style="color:#10b981;">Programme Complet (1 250 XAF/mois)</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">1 000 XAF Éducation + 250 XAF Plateforme • Traités téléchargeables.</p></div>
+          </div>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:12px;">
+            <div style="background:#040a10; border:1px solid #38bdf8; border-radius:12px; padding:14px;">
+              <strong style="color:#38bdf8;">📱 Tablette Kalam (Notes & Exercices)</strong>
+              <textarea placeholder="Écrivez ici vos notes d'étude rasmique ou vos exercices..." style="width:100%; height:110px; margin-top:8px; background:#08131e; color:#fff; border:1px solid rgba(56,189,248,0.4); border-radius:8px; padding:8px; font-size:0.85rem;"></textarea>
+            </div>
+            <div style="background:#040a10; border:1px solid #d4af37; border-radius:12px; padding:14px;">
+              <strong style="color:#f3d46e;">🎨 Atelier de Dessin Géométrique</strong>
+              <canvas id="kalamCanvas" width="260" height="110" style="width:100%; height:110px; margin-top:8px; background:#08131e; border:1px solid rgba(212,175,55,0.4); border-radius:8px; touch-action:none;" onpointermove="if(event.buttons===1){ const ctx=this.getContext('2d'); const r=this.getBoundingClientRect(); ctx.fillStyle='#f3d46e'; ctx.fillRect((event.clientX-r.left)*(this.width/r.width),(event.clientY-r.top)*(this.height/r.height),3,3); }"></canvas>
+              <button onclick="const c=document.getElementById('kalamCanvas'); c.getContext('2d').clearRect(0,0,c.width,c.height);" style="margin-top:6px; background:transparent; border:1px solid #d4af37; color:#f3d46e; padding:4px 10px; border-radius:6px; font-size:0.75rem; cursor:pointer;">Effacer le tracé</button>
+            </div>
+          </div>
+        `
+      },
+      vitrine: {
+        title: "🛒 Vitrine Commerciale des Membres",
+        content: `
+          <div style="background:#08131e; border:1px solid rgba(212,175,55,0.35); border-radius:14px; padding:16px; margin-bottom:16px;">
+            <h3 style="color:#f3d46e; font-size:1.05rem; margin-bottom:8px;">Publier Gratuitement un Produit ou Service</h3>
+            <div style="display:grid; gap:10px; max-width:500px;">
+              <input id="prodName" type="text" placeholder="Nom du produit (ex: Sac Cacao 50kg / Panneau Solaire)" style="padding:10px; border-radius:8px; border:1px solid rgba(212,175,55,0.4); background:#040a10; color:#fff;" />
+              <input id="prodPrice" type="text" placeholder="Prix (ex: 45 000 XAF)" style="padding:10px; border-radius:8px; border:1px solid rgba(212,175,55,0.4); background:#040a10; color:#fff;" />
+              <button onclick="const n=document.getElementById('prodName').value; const p=document.getElementById('prodPrice').value; if(n){ document.getElementById('prodList').innerHTML += '<div style=\\'background:#040a10; border:1px solid #10b981; border-radius:10px; padding:12px; margin-top:8px;\\'><strong style=\\'color:#10b981;\\'>✅ ' + n + '</strong> — <span style=\\'color:#fff;\\'>' + (p||'Sur demande') + ' (Carte UBUK PAY)</span></div>'; document.getElementById('prodName').value=''; document.getElementById('prodPrice').value=''; }" style="background:#d4af37; color:#07111a; font-weight:800; border:none; padding:11px; border-radius:8px; cursor:pointer;">Publier dans la Vitrine</button>
+            </div>
+          </div>
+          <div id="prodList">
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); border-radius:10px; padding:12px;">
+              <strong style="color:#fff;">Cacao Certifié Traçable (Lot Coopérative)</strong> — <span style="color:#10b981;">3 057 XAF / kg (Paiement Carte UBUK PAY)</span>
+            </div>
+          </div>
+        `
+      }
+    };
+
+    function openPage(pageId, pushState = true) {
+      const data = pagesData[pageId];
+      if (!data) return;
+      document.getElementById('envelopeHome').style.display = 'none';
+      document.getElementById('viewTitle').innerText = data.title;
+      document.getElementById('viewBody').innerHTML = data.content;
+      document.getElementById('dedicatedContainer').classList.add('active');
+      if (pushState) history.pushState({ page: pageId }, '', '#' + pageId);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function closePage(pushState = true) {
+      document.getElementById('dedicatedContainer').classList.remove('active');
+      document.getElementById('envelopeHome').style.display = 'block';
+      if (pushState) history.pushState({ page: null }, '', window.location.pathname);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    window.addEventListener('popstate', function(event) {
+      if (event.state && event.state.page) openPage(event.state.page, false);
+      else closePage(false);
+    });
+  </script>
+</body>
+</html>
+
 
