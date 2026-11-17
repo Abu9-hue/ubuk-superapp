@@ -18,7 +18,8 @@ header{position:sticky;top:0;z-index:90;background:#0B2545;color:#F8F9FA;padding
 .pill{background:#20BF6B22;color:#20BF6B;border:1.5px solid #20BF6B;padding:5px 10px;border-radius:20px;font-size:.72rem;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;gap:5px}
 .pill.gold{background:#F5B04122;color:#F5B041;border-color:#F5B041}
 .tk{background:#07192E;color:#F8F9FA;padding:8px 16px;font-size:.75rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-bottom:1.5px solid #20BF6B}
-.tk strong{color:#F5B041}.tk em{color:#20BF6B;font-style:normal;font-weight:800}
+.tk strong{color:#F5B041}.tk em{color:#20BF6B;font-style:normal;font-weight:800}.wrap>*,.side>*{min-width:0;max-width:100%}
+  
 .wrap{max-width:1360px;margin:0 auto;padding:18px 14px 90px;display:grid;grid-template-columns:255px 1fr 255px;gap:20px;align-items:start}
 @media(max-width:1024px){.wrap{grid-template-columns:1fr;gap:16px}.side{display:grid;grid-template-columns:1fr 1fr;gap:12px}}
 @media(max-width:560px){.side{grid-template-columns:1fr}}
@@ -185,7 +186,7 @@ const HUM=[
   [{t:'Dossier #V-05 • Coopérative Veuves (Maroua)',p:88,m:'440 000 / 500 000 XAF • Zakat Tamlik'},{t:'Dossier #V-12 • Atelier Couture Mères (Abidjan)',p:95,m:'285 000 / 300 000 XAF • Prêt 0%'}],
   [{t:'Dossier #S-03 • Incendie Marché (Douala)',p:100,m:'600 000 / 600 000 XAF • Relance 72h'},{t:'Dossier #S-11 • Inondation Récoltes (Dakar)',p:84,m:'420 000 / 500 000 XAF • Sadaqah'}]
 ];
-let hi=0;
+function rotHum(){for(let i=0;i<4;i++){let arr=HUM[i],d=arr[hi%arr.length];document.getElementById('hi'+i).textContent=d.t;document.getElementById('hs'+i).innerHTML='<div class="bar"><i style="width:'+d.p+'%"></i></div><strong>'+d.p+' %</strong> — '+d.m;}hi++;}
 function rotHum(){for(let i=0;i<4;i++){let d=HUM[i][hi%2];document.getElementById('hi'+i).textContent=d.t;document.getElementById('hs'+i).innerHTML='<div class="bar"><i style="width:'+d.p+'%"></i></div><strong>'+d.p+' %</strong> — '+d.m;}hi++;}
 rotHum();setInterval(rotHum,7000);
 function goPg(id,el){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');if(el){document.querySelectorAll('.tile').forEach(t=>t.classList.remove('on'));el.classList.add('on');}window.scrollTo({top:0,behavior:'smooth'});}
