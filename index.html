@@ -413,34 +413,93 @@
 
   <script>
     const pagesData = {
-      page1: {
-        title: "💳 Point 1 — Carte UBUK PAY • Standard Universel",
-        content: "<p style='color:#cbd5e1;'>Module Point 1 prêt pour l'enrichissement individuel.</p>"
+        page1: {
+        title: "💳 Point 1 — Carte UBUK PAY • Standard Universel & Dorsale Financière",
+        content: `
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:18px; align-items:center; margin-bottom:22px;">
+            <div style="background: linear-gradient(135deg, #0d2638 0%, #07131e 60%, #1a1608 100%); border: 2px solid #d4af37; border-radius: 18px; padding: 20px; box-shadow: 0 10px 28px rgba(0,0,0,0.5);">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                <span style="color:#f3d46e; font-weight:800; letter-spacing:1.5px; font-size:1.1rem;">UBUK PAY</span>
+                <span style="background:rgba(16,185,129,0.2); color:#10b981; border:1px solid #10b981; padding:3px 10px; border-radius:999px; font-size:0.72rem; font-weight:700;">STANDARD UNIVERSEL</span>
+              </div>
+              <div style="width:42px; height:30px; background:linear-gradient(135deg,#f3d46e,#b89020); border-radius:6px; margin-bottom:16px;"></div>
+              <div style="font-family:monospace; font-size:1.1rem; letter-spacing:2px; color:#fff; margin-bottom:14px;">UBUK • 5400 • 2800 • 0001</div>
+              <div style="display:flex; justify-content:space-between; align-items:flex-end; font-size:0.76rem; color:#94a3b8;">
+                <div>
+                  <div>IDENTITÉ BIOMÉTRIQUE ARATEK</div>
+                  <div style="color:#fff; font-weight:700;">CITOYEN SOUVERAIN • 0% USURE</div>
+                </div>
+                <div style="display:flex; align-items:center;">
+                  <span style="width:20px; height:20px; border-radius:50%; background:#d4af37; display:inline-block;"></span>
+                  <span style="width:20px; height:20px; border-radius:50%; background:#10b981; display:inline-block; margin-left:-7px;"></span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 style="color:#f3d46e; margin-bottom:8px; font-size:1.1rem;">Une Carte Universelle à l'image des Standards Mondiaux</h3>
+              <p style="color:#cbd5e1; font-size:0.9rem; margin-bottom:10px;">La <strong>Carte UBUK PAY</strong> réunit l'identification biométrique souveraine et un réseau de paiement universel physique et virtuel.</p>
+              <ul style="list-style:none; font-size:0.85rem; color:#94a3b8; display:grid; gap:6px;">
+                <li>✅ <strong style="color:#fff;">Avec ou sans Smartphone :</strong> Terminal biométrique Aratek, réseau USSD hors-ligne et Super-App.</li>
+                <li>✅ <strong style="color:#fff;">Commutateur Universel :</strong> Relie Banques, Microfinances, Assurances, Mobile Money et États.</li>
+                <li>✅ <strong style="color:#fff;">Zéro Usure (0 %) :</strong> Aucune création monétaire ex-nihilo ni intérêt composé.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="background:#08131e; border:1px solid rgba(16,185,129,0.35); border-radius:14px; padding:16px; margin-bottom:18px;">
+            <h3 style="color:#10b981; font-size:1rem; margin-bottom:8px;">🎛️ Simulateur d'Orientation Étanche (Zéro Mélange de Fonds)</h3>
+            <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+              <input id="simAmount" type="number" placeholder="Montant en XAF (ex: 10000)" style="padding:9px 12px; border-radius:8px; border:1px solid rgba(212,175,55,0.4); background:#040a10; color:#fff; width:200px;" />
+              <select id="simTarget" style="padding:9px 12px; border-radius:8px; border:1px solid rgba(212,175,55,0.4); background:#040a10; color:#fff;">
+                <option value="Compte 1 • Épargne Souveraine">Compte 1 • Épargne Souveraine</option>
+                <option value="Compte 2 • Zakat (4 Écoles)">Compte 2 • Zakat (4 Écoles)</option>
+                <option value="Compte 3 • Sadaqah & Dons Purs">Compte 3 • Sadaqah & Dons Purs</option>
+                <option value="Compte 4 • Waqf Perpétuel">Compte 4 • Waqf Perpétuel</option>
+                <option value="Compte 5 • Solidarité UBUK KO'ONE">Compte 5 • Solidarité UBUK KO'ONE</option>
+                <option value="Compte 6 • Éducation & Kalam">Compte 6 • Éducation & Kalam</option>
+              </select>
+              <button onclick="const m=parseFloat(document.getElementById('simAmount').value||0); const t=document.getElementById('simTarget').value; document.getElementById('simOut').innerText = m>0 ? '✅ ' + m.toLocaleString('fr-FR') + ' XAF affectés à 100 % au ' + t + ' (0 % usure, étanchéité garantie).' : 'Entrez un montant.';" style="background:#10b981; color:#fff; font-weight:800; border:none; padding:9px 16px; border-radius:8px; cursor:pointer;">Simuler le Flux</button>
+            </div>
+            <div id="simOut" style="margin-top:8px; font-size:0.86rem; color:#f3d46e; font-weight:600;"></div>
+          </div>
+          <h3 style="color:#f3d46e; margin-bottom:10px; font-size:1.02rem;">🔒 Les 7 Comptes Strictement Étanches</h3>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap:10px;">
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); padding:12px; border-radius:12px;"><strong style="color:#10b981;">1. Épargne Souveraine</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Capital personnel inviolable disponible sans frais cachés.</p></div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); padding:12px; border-radius:12px;"><strong style="color:#f3d46e;">2. Zakat (4 Écoles)</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Réservée exclusivement aux 8 catégories coraniques.</p></div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); padding:12px; border-radius:12px;"><strong style="color:#f3d46e;">3. Sadaqah & Dons Purs</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Aide directe aux projets communautaires et personnes vulnérables.</p></div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); padding:12px; border-radius:12px;"><strong style="color:#f3d46e;">4. Waqf Perpétuel</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Actifs durables générant des revenus d'intérêt général.</p></div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); padding:12px; border-radius:12px;"><strong style="color:#10b981;">5. Solidarité UBUK KO'ONE</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Réassurance mutuelle des groupements villageois et urgences.</p></div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); padding:12px; border-radius:12px;"><strong style="color:#38bdf8;">6. Éducation & Kalam</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Fonds dédié aux bourses et formations (1 000 XAF).</p></div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); padding:12px; border-radius:12px;"><strong style="color:#cbd5e1;">7. Fonctionnement Plafonné</strong><p style="font-size:0.8rem; color:#94a3b8; margin-top:4px;">Bouclier transparent de 100 à 250 XAF/jour.</p></div>
+          </div>
+        `
       },
       page2: {
-        title: "🤝 Point 2 — UBUK KO'ONE • Solidarité & Réassurance",
-        content: "<p style='color:#cbd5e1;'>Module Point 2 prêt pour l'enrichissement individuel.</p>"
-      },
-      page3: {
-        title: "🏛️ Point 3 — 54 Ministères & Contre-Audit Agences",
-        content: "<p style='color:#cbd5e1;'>Module Point 3 prêt pour l'enrichissement individuel.</p>"
-      },
-      page4: {
-        title: "💎 Point 4 — Ressources, Conflits & Empreinte de l'Usure",
-        content: "<p style='color:#cbd5e1;'>Module Point 4 prêt pour l'enrichissement individuel.</p>"
-      },
-      page5: {
-        title: "📰 Point 5 — Agences de Presse & Podcast Souverain",
-        content: "<p style='color:#cbd5e1;'>Module Point 5 prêt pour l'enrichissement individuel.</p>"
-      },
-      page6: {
-        title: "🎓 Point 6 — Savoir (RASM / eszo28D), Kalam & Dessin",
-        content: "<p style='color:#cbd5e1;'>Module Point 6 prêt pour l'enrichissement individuel.</p>"
-      },
-      vitrine: {
-        title: "🛒 Vitrine Commerciale des Membres",
-        content: "<p style='color:#cbd5e1;'>Espace Vitrine Commerciale prêt pour l'enrichissement individuel.</p>"
-      }
+        title: "🤝 Point 2 — UBUK KO'ONE • Solidarité Locale & Réassurance Globale",
+        content: `
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:20px;">
+            <div style="background:#08131e; border:1px solid rgba(16,185,129,0.35); border-radius:16px; padding:16px;">
+              <div style="color:#10b981; font-weight:800; font-size:0.8rem; text-transform:uppercase; margin-bottom:4px;">Niveau 1 • Initiative Populaire</div>
+              <h3 style="color:#fff; font-size:1.05rem; margin-bottom:8px;">🏘️ Solidarité Locale (Caisses Villageoises)</h3>
+              <p style="color:#94a3b8; font-size:0.86rem; margin-bottom:8px;">Chaque village ou quartier gère son groupement autonome (modèle Iddir / VSLA) pour les urgences de proximité.</p>
+              <ul style="list-style:none; font-size:0.82rem; color:#cbd5e1; display:grid; gap:5px;">
+                <li>• <strong>Gouvernance Autonome :</strong> Fonds conservés dans la caisse locale du groupe.</li>
+                <li>• <strong>Transparence :</strong> Solde réel épinglé et double clé biométrique Aratek.</li>
+                <li>• <strong>Supervision :</strong> Alertes de seuil suivies dans la Cabine de Contrôle Direction.</li>
+              </ul>
+            </div>
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.4); border-radius:16px; padding:16px;">
+              <div style="color:#f3d46e; font-weight:800; font-size:0.8rem; text-transform:uppercase; margin-bottom:4px;">Niveau 2 • Bouclier Direction Générale</div>
+              <h3 style="color:#fff; font-size:1.05rem; margin-bottom:8px;">🛡️ Réassurance Globale & Péréquation</h3>
+              <p style="color:#94a3b8; font-size:0.86rem; margin-bottom:8px;">En cas de sinistre grave ou maladie coûteuse dépassant la caisse locale, le fonds global UBUK KO'ONE prend le relais.</p>
+              <ul style="list-style:none; font-size:0.82rem; color:#cbd5e1; display:grid; gap:5px;">
+                <li>• <strong>4 Cadrans Prioritaires :</strong> Orphelins, Veuves, Malades lourds et Sinistrés.</li>
+                <li>• <strong>Micro-Dons :</strong> Contribution dès 100 XAF depuis l'Afrique ou la Diaspora.</li>
+                <li>• <strong>Prêt Qard Hasan (0 %) :</strong> Financement sans intérêt pour relancer l'activité.</li>
+              </ul>
+            </div>
+          </div>
+          <div style="background:linear-gradient(135deg, #0d2336, #08131e); border:1px solid rgba(212,175,55,0.3); border-radius:16px; padding:16px;">
+          
     };
 
     function openPage(pageId, pushState = true) {
