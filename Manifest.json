@@ -1,0 +1,16 @@
+{
+  "name": "UBUK — KO'ONE & PAY",
+  "short_name": "UBUK",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B2545",
+  "theme_color": "#0B2545",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 192 192'%3E%3Crect width='192' height='192' rx='40' fill='%230B2545'/%3E%3Crect x='8' y='8' width='176' height='176' rx='34' fill='none' stroke='%23F5B041' stroke-width='6'/%3E%3Ctext x='96' y='118' font-family='Georgia,serif' font-size='78' font-weight='bold' fill='%23F5B041' text-anchor='middle'%3EUP%3C/text%3E%3Ccircle cx='150' cy='44' r='14' fill='%2320BF6B'/%3E%3C/svg%3E",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
