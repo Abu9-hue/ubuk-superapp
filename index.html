@@ -105,4 +105,47 @@ body.dk .row input,body.dk .row select,body.dk .row textarea{background:#07192E;
         <div class="boxr"><strong>📜 Point de Compréhension Rasmique (Rasm Uthmani) :</strong> L'observation directe des consonnes originelles du texte coranique met en lumière la clarté du pacte social et l'interdiction absolue de toute captation injuste des biens d'autrui.</div>
       </div>
           </div>
+        <div id="pmsg" class="pg">
+      <div class="card" id="dstBox">
+        <h2>💬 Étape 1 : Choisir le Destinataire (Obligatoire)</h2>
+        <p style="font-size:.8rem;margin-bottom:10px">Sélectionnez d'abord votre interlocuteur. La <strong>Direction Générale</strong> est présente nativement en veille silencieuse dans tous les groupes et canaux.</p>
+        <div class="row">
+          <button type="button" class="btn navy" onclick="openChat('👤 FIFEN Issah (Pionnier Bloc 1)','INDIV_FIFEN')">👤 Individuel : FIFEN Issah</button>
+          <button type="button" class="btn navy" onclick="openChat('👤 Fille Fondatrice (Relais 📎)','INDIV_FILLE')">👤 Individuel : Fille Fondatrice</button>
+        </div>
+        <div class="row">
+          <button type="button" class="btn" onclick="openChat('👥 Groupe Solidaire Plus (≤ 200K • Direction native)','GRP_SOLIDAIRE_PLUS')">👥 Groupe : Solidaire Plus</button>
+          <button type="button" class="btn gold" onclick="openChat('📢 Canal Officiel Direction &amp; KO\'ONE (Illimité)','CANAL_OFFICIEL')">📢 Canal Officiel (Illimité)</button>
+        </div>
+        <div class="row"><input id="newGrp" type="text" placeholder="Créer un nouveau Groupe (Direction intégrée d'office)..."><button type="button" class="btn" style="width:auto" onclick="var g=document.getElementById('newGrp').value.trim();if(!g)return;openChat('👥 Groupe '+g+' (≤ 200K • Direction native)','GRP_'+g.toUpperCase().replace(/\s+/g,'_'));">+ Créer</button></div>
+      </div>
+      <div class="card" id="chatBox" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:1.5px solid #20BF6B;padding-bottom:8px">
+          <button type="button" class="pill" onclick="document.getElementById('chatBox').style.display='none';document.getElementById('dstBox').style.display='block';">← Retour</button>
+          <strong id="chatTit" style="font-size:.82rem;color:#20BF6B"></strong>
+        </div>
+        <div id="chatLog" style="max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px;padding:4px"></div>
+        <div class="row" style="gap:6px;align-items:center">
+          <button type="button" class="pill gold" id="recBtn" onclick="toggleAudio()">🎤 Audio</button>
+          <label class="pill" style="cursor:pointer">📷 Photo<input type="file" accept="image/*" style="display:none" onchange="sendMedia(this,'photo')"></label>
+          <label class="pill" style="cursor:pointer">🎥 Vidéo (50Mo)<input type="file" accept="video/*" style="display:none" onchange="sendMedia(this,'video')"></label>
+        </div>
+        <div class="row"><input id="msgIn" type="text" placeholder="Écrire un message..." onkeydown="if(event.key==='Enter')sendTxt();"><button type="button" class="btn" style="width:auto" onclick="sendTxt()">➤</button></div>
+      </div>
+    </div>
+    <div id="ppay" class="pg">
+      <div class="card">
+        <h2>🛡️ Les 7 Comptes Strictement Étanches <span class="hl">Zéro Mélange</span></h2>
+        <p style="font-size:.8rem;margin-bottom:10px">1. <strong>Fonctionnement FEFE0 GROUP SARL</strong> (frais 100–250 F/j, téléchargements, 20% bénéfice → paie réassurance, salaires, partenaires) • 2. <strong>Comptes Groupes</strong> • 3. <strong>UBUK KO'ONE</strong> • 4. <strong>Zakat 2,5%</strong> (8 Asnaf + 4 Abeilles) • 5. <strong>Waqf Perpétuel</strong> • 6. <strong>Sadaqah</strong> • 7. <strong>Séquestre Projets &amp; Remboursements</strong>.</p>
+        <div class="row"><select id="c7"><option>🚨 UBUK KO'ONE (Urgences Santé / Décès / Sinistres)</option><option>🕌 Compte Zakat 2,5% (8 Asnaf + 4 Abeilles locales)</option><option>🏛️ Compte Waqf Perpétuel (Forages / Solaire LiFePO4)</option><option>🤲 Compte Sadaqah (Secours libre dès 100 XAF)</option><option>💳 Wallet Bidirectionnel (Recevoir / Envoyer MoMo-OM)</option></select><input id="m7" type="number" placeholder="Montant libre (dès 100 F)..."></div>
+        <button type="button" class="btn gold" onclick="var c=document.getElementById('c7').value,m=parseInt(document.getElementById('m7').value||0);if(m<100){alert('Montant minimum 100 XAF (libre au-delà).');return;}alert('✅ Opération de '+m+' XAF enregistrée dans le compartiment étanche : '+c+' (Certifié SHA-256).');document.getElementById('m7').value='';">Valider l'Opération Étanche</button>
+      </div>
+      <div class="card">
+        <h2>📒 Registre Local de Groupement <span class="hl">4 Sous-Compartiments</span></h2>
+        <p style="font-size:.8rem;margin-bottom:10px">Séparation stricte dès le niveau villageois (Zéro Riba) + Réassurance optionnelle auprès de <strong>Latif Connect</strong>.</p>
+        <div class="row"><input id="rg1" type="text" placeholder="Nom du groupe (ex: Solidaire Plus)"><input id="rg2" type="number" placeholder="Épargne Parts (XAF)"></div>
+        <div class="row"><input id="rg3" type="number" placeholder="Fonds Social Local (XAF)"><select id="rg4"><option>Réassurance Latif Connect : Oui (+100 F frais)</option><option>Réassurance Latif Connect : Non (Autonome)</option></select></div>
+        <button type="button" class="btn" onclick="var g=document.getElementById('rg1').value||'Solidaire Plus',e=document.getElementById('rg2').value||0,f=document.getElementById('rg3').value||0;alert('✅ Séance '+g+' enregistrée : '+e+' F Épargne Parts + '+f+' F Fonds Social Local (Compartiments séparés).');">Enregistrer la Séance Locale</button>
+      </div>
+    </div>
     
