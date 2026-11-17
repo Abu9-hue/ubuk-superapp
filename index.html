@@ -606,15 +606,85 @@
         `
       },
     
-      page5: {
+          page5: {
         title: "📰 Point 5 — Agences de Presse & Podcast Souverain",
-        content: "<p>Espace prêt pour l'intégration détaillée du Point 5 : fil d'actualité filtré sur les 4 axes stratégiques et lecteur audio Podcast intégré.</p>"
+        content: `
+          <div style="background:linear-gradient(135deg, #0d2336, #08131e); border:1px solid #d4af37; border-radius:16px; padding:16px; margin-bottom:18px;">
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;">
+              <div>
+                <div style="color:#10b981; font-size:0.78rem; font-weight:800; text-transform:uppercase;">🎧 Bulletin Audio Souverain • Mode Bas Débit</div>
+                <h3 style="color:#fff; font-size:1.05rem; margin-top:2px;">Synthèse Quotidienne des 4 Axes Stratégiques (3 min 45)</h3>
+              </div>
+              <button onclick="const s=document.getElementById('podcastStatus'); s.innerText = s.innerText.includes('Lecture') ? '⏸️ Bulletin en pause' : '▶️ Lecture en cours : Analyse Budgets, Matières Premières & Solidarité...';" style="background:#10b981; color:#fff; border:none; padding:10px 18px; border-radius:10px; font-weight:800; cursor:pointer;">▶️ Écouter le Bulletin</button>
+            </div>
+            <div id="podcastStatus" style="margin-top:10px; font-size:0.84rem; color:#f3d46e; font-weight:600;">Prêt pour l'écoute instantanée sans téléchargement lourd.</div>
+          </div>
+
+          <h3 style="color:#f3d46e; font-size:1.02rem; margin-bottom:10px;">🔍 Fil d'Actualité Filtré & Décrypté (Zéro Bruit Médiatique)</h3>
+          <div style="display:grid; gap:12px;">
+            <div style="background:#08131e; border-left:4px solid #d4af37; padding:12px 14px; border-radius:10px;">
+              <div style="font-size:0.75rem; color:#f3d46e; font-weight:700;">AXE 1 • BUDGETS & DETTE SOUVERAINE</div>
+              <strong style="color:#fff; font-size:0.92rem;">Révision des taux d'emprunt en zone CEMAC/UEMOA</strong>
+              <p style="font-size:0.83rem; color:#94a3b8; margin-top:4px;"><em>Éclairage Latif Connect :</em> L'alternative participative sans intérêt (0 %) permet d'économiser jusqu'à 22 % du budget annuel d'investissement.</p>
+            </div>
+            <div style="background:#08131e; border-left:4px solid #10b981; padding:12px 14px; border-radius:10px;">
+              <div style="font-size:0.75rem; color:#10b981; font-weight:700;">AXE 2 • MATIÈRES PREMIÈRES & TRANSFORMATION</div>
+              <strong style="color:#fff; font-size:0.92rem;">Cours du Cacao Douala (3 057 XAF/kg) & Or (4 054 USD/oz)</strong>
+              <p style="font-size:0.83rem; color:#94a3b8; margin-top:4px;"><em>Éclairage Latif Connect :</em> La traçabilité directe relie les coopératives agricoles aux acheteurs sans intermédiaires spéculatifs.</p>
+            </div>
+            <div style="background:#08131e; border-left:4px solid #ef4444; padding:12px 14px; border-radius:10px;">
+              <div style="font-size:0.75rem; color:#ef4444; font-weight:700;">AXE 3 • ZONES ENCLAVÉES & RÉASSURANCE UBUK KO'ONE</div>
+              <strong style="color:#fff; font-size:0.92rem;">Déploiement des terminaux Aratek hors-ligne dans les zones rurales</strong>
+              <p style="font-size:0.83rem; color:#94a3b8; margin-top:4px;"><em>Éclairage Latif Connect :</em> Activation de la réassurance globale pour les caisses villageoises en tension.</p>
+            </div>
+          </div>
+        `
       },
       page6: {
         title: "🎓 Point 6 — Savoir (RASM / eszo28D), Formation, Tablette Kalam & Dessin",
-        content: "<p>Espace prêt pour l'intégration détaillée du Point 6 : écrits fondateurs (RASM, langage RASM, eszo28D, opération d'intuition), programme complet de formation et espace côte à côte Tablette Kalam + Logiciel de Dessin.</p>"
+        content: `
+          <div style="margin-bottom:20px;">
+            <h3 style="color:#f3d46e; font-size:1.08rem; margin-bottom:8px;">📚 Visions Fondatrices & Écrits de Latif Connect</h3>
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px;">
+              <div style="background:#08131e; border:1px solid rgba(212,175,55,0.3); border-radius:12px; padding:14px;">
+                <strong style="color:#f3d46e;">Le RASM & Langage Universel RASM</strong>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:5px;">Fondement linguistique, programmation rasmique, mathématiques rasmiques et Tajweed rasmique.</p>
+              </div>
+              <div style="background:#08131e; border:1px solid rgba(212,175,55,0.3); border-radius:12px; padding:14px;">
+                <strong style="color:#38bdf8;">Architecture eszo28D & Intuition</strong>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:5px;">Modélisation multidimensionnelle et opération d'intuition dépassant l'informatique classique.</p>
+              </div>
+              <div style="background:#08131e; border:1px solid rgba(16,185,129,0.3); border-radius:12px; padding:14px;">
+                <strong style="color:#10b981;">Bibliothèque & Téléchargements</strong>
+                <p style="font-size:0.8rem; color:#94a3b8; margin-top:5px;">Traités fondateurs et manuels disponibles dans la Super-App (Pass Afrique 500 XAF/j).</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); border-radius:14px; padding:16px; margin-bottom:18px;">
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:8px;">
+              <h3 style="color:#fff; font-size:1.02rem;">📖 Programme Complet de Formation Latif Connect</h3>
+              <span style="background:rgba(16,185,129,0.2); color:#10b981; padding:4px 10px; border-radius:8px; font-size:0.78rem; font-weight:700;">1 250 XAF/mois (1 000 Éducation + 250 Plateforme)</span>
+            </div>
+            <p style="font-size:0.84rem; color:#94a3b8;">Cursus intégré : Informatique fondamentale & programmation rasmique • Géométrie sacrée & art islamique • Langue arabe, Tajweed rasmique & écritures africaines (Shümom) • Finance sans usure.</p>
+          </div>
+
+          <h3 style="color:#f3d46e; font-size:1.05rem; margin-bottom:10px;">🖥️ Espace Pratique Côte à Côte : Tablette Kalam & Logiciel de Dessin</h3>
+          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:14px;">
+            <div style="background:#040a10; border:1px solid #38bdf8; border-radius:14px; padding:16px;">
+              <strong style="color:#38bdf8; font-size:0.95rem;">📱 Tablette Kalam (Cahier & Exercices)</strong>
+              <p style="font-size:0.82rem; color:#94a3b8; margin:8px 0;">Support numérique interactif synchronisé avec les cours et compatible hors-ligne.</p>
+              <div style="background:#08131e; padding:10px; border-radius:8px; font-family:monospace; font-size:0.82rem; color:#cbd5e1;">> Module 1 : Tracé Rasmique & Logique<br>> Statut : Prêt dans la Super-App</div>
+            </div>
+            <div style="background:#040a10; border:1px solid #d4af37; border-radius:14px; padding:16px;">
+              <strong style="color:#f3d46e; font-size:0.95rem;">🎨 Logiciel de Dessin Géométrique</strong>
+              <p style="font-size:0.82rem; color:#94a3b8; margin:8px 0;">Atelier vectoriel côte à côte pour tracer rosaces, figures rasmiques et schémas techniques.</p>
+              <div style="background:#08131e; padding:10px; border-radius:8px; text-align:center; color:#f3d46e; font-size:0.85rem;">✦ Grille Géométrique & Compas Actifs ✦</div>
+            </div>
+          </div>
+        `
       }
-    };
+        
 
     function openPage(pageId) {
       const data = pagesData[pageId];
