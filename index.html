@@ -65,3 +65,56 @@ body.dk .row input,body.dk .row select,body.dk .row textarea{background:#07192E;
 #sas .card{max-width:440px;width:100%;border:2.5px solid #F5B041}
 </style>
 </head>
+    <div id="pfil" class="pg on">
+      <div class="card">
+        <h2>🕌 Calculateur Zakat selon les 4 Écoles <span class="hl">Dr M. Obaidullah</span></h2>
+        <p class="jst" style="font-size:.82rem;margin-bottom:10px">Calcul indexé sur le cours de l'Or (<strong>48 900 XAF/g</strong>). La Zakat (2,5 %) est versée en pleine propriété (<strong>Tamlik</strong>) uniquement aux <strong>8 catégories coraniques (Asnaf) incluant les 4 Abeilles locales</strong>.</p>
+        <div class="row">
+          <select id="zkec"><option value="mal">École Malékite (Nissab 85g Or = 4 156 500 F • Hors bijoux portés)</option><option value="han">École Hanafite (Seuil de précaution favorable aux pauvres • Bijoux inclus)</option><option value="cha">École Chaféite (Transfert Tamlik local prioritaire • Hors bijoux d'usage)</option><option value="hnb">École Hanbalite (Dettes échues déduites • Zakat productive admise)</option></select>
+          <input id="zkmt" type="number" placeholder="Épargne & actifs nets 1 an (XAF)...">
+        </div>
+        <button type="button" class="btn gold" onclick="var ec=document.getElementById('zkec').value,v=parseInt(document.getElementById('zkmt').value||0),ns=(ec==='han'?650000:4156500),r=document.getElementById('zko');if(v<ns){r.innerHTML='ℹ️ Inférieur au Nissab ('+ns.toLocaleString('fr-FR')+' XAF). Vous pouvez faire une <strong>Sadaqah libre dès 100 F</strong>.';}else{var z=Math.round(v*0.025);r.innerHTML='✅ <strong>Zakat due (2,5 %) : '+z.toLocaleString('fr-FR')+' XAF</strong> — Orientée vers le Compte Étanche Zakat (8 Asnaf + 4 Abeilles locales).';}">Calculer ma Zakat (2,5 %)</button>
+        <div id="zko" style="margin-top:8px;font-size:.8rem;font-weight:700;color:#20BF6B"></div>
+      </div>
+      <div class="card">
+        <h2>🌊 L'École des Petits Ruisseaux <span class="hl">Loi du Nombre</span></h2>
+        <p class="jst" style="font-size:.84rem"><strong>« Les petits ruisseaux deviennent des grandes rivières » :</strong> Isolés, <strong>100 XAF</strong> s'évaporent ; réunis par <strong>10 000 membres</strong> au même moment, ils mobilisent <strong>1 000 000 XAF</strong> pour sauver une vie sur <strong>UBUK KO'ONE</strong> ou équiper un atelier en <strong>Don Pur / Prêt 0 %</strong> sans endetter personne.</p>
+        <div class="box4"><strong>📚 L'Avis des 4 Écoles :</strong> <strong>Malékite &amp; Chaféite</strong> valident la mutualisation solidaire (<em>Takaful</em>) fondée sur l'intérêt général (<em>Maslaha</em>) ; <strong>Hanafite &amp; Hanbalite</strong> exigent la séparation stricte entre l'épargne individuelle, les aumônes et les frais techniques (<em>Zéro Riba</em>).</div>
+        <div class="boxr"><strong>📜 Point de Compréhension Rasmique (Rasm Uthmani) :</strong> La graphie originelle sans voyelles ni points de la racine <strong>ن ح ل (l'Abeille)</strong> révèle l'ordre naturel de la ruche : chaque abeille produit 1/12e de cuillère de miel dont profitent les générations futures.</div>
+      </div>
+      <div class="card">
+        <h2>⚖️ Justice Sociale &amp; Souveraineté Économique <span class="hl">Zéro Riba</span></h2>
+        <p class="jst" style="font-size:.84rem">Déploiement terrain selon la pyramide de proximité : <strong>4 Abeilles par Bloc (1–3 km)</strong> → <strong>PSP Biométrique Aratek (10 Blocs / 5–15 km)</strong> → <strong>Superviseur de Zone (10–15 PSP)</strong> → <strong>Direction Générale</strong> en veille native silencieuse.</p>
+        <div class="box4"><strong>📚 L'Avis des 4 Écoles :</strong> Les quatre écoles prohibent unanimement l'intérêt usuraire (<em>Riba</em>) et l'aléa abusif (<em>Gharar</em>), privilégiant le prêt fraternel sans intérêt (<em>Qard Hasan 0 %</em>) et le partage réel des profits et pertes (<em>Mudarabah</em>).</div>
+        <div class="boxr"><strong>📜 Point de Compréhension Rasmique (Rasm Uthmani) :</strong> L'observation directe des consonnes originelles du texte coranique met en lumière la clarté du pacte social et l'interdiction absolue de toute captation injuste des biens d'autrui.</div>
+      </div>
+    </div>
+    <div id="pmsg" class="pg">
+      <div class="card" id="dstBox">
+        <h2>💬 Étape 1 : Choisir le Destinataire (Obligatoire)</h2>
+        <p style="font-size:.8rem;margin-bottom:10px">Sélectionnez d'abord votre interlocuteur. La <strong>Direction Générale</strong> est présente nativement en veille silencieuse dans tous les groupes et canaux.</p>
+        <div class="row">
+          <button type="button" class="btn navy" onclick="openChat('👤 FIFEN Issah (Pionnier Bloc 1)','INDIV_FIFEN')">👤 Individuel : FIFEN Issah</button>
+          <button type="button" class="btn navy" onclick="openChat('👤 Fille Fondatrice (Relais 📎)','INDIV_FILLE')">👤 Individuel : Fille Fondatrice</button>
+        </div>
+        <div class="row">
+          <button type="button" class="btn" onclick="openChat('👥 Groupe Solidaire Plus (≤ 200K • Direction native)','GRP_SOLIDAIRE_PLUS')">👥 Groupe : Solidaire Plus</button>
+          <button type="button" class="btn gold" onclick="openChat('📢 Canal Officiel Direction &amp; KO\'ONE (Illimité)','CANAL_OFFICIEL')">📢 Canal Officiel (Illimité)</button>
+        </div>
+        <div class="row"><input id="newGrp" type="text" placeholder="Créer un nouveau Groupe (Direction intégrée d'office)..."><button type="button" class="btn" style="width:auto" onclick="var g=document.getElementById('newGrp').value.trim();if(!g)return;openChat('👥 Groupe '+g+' (≤ 200K • Direction native)','GRP_'+g.toUpperCase().replace(/\s+/g,'_'));">+ Créer</button></div>
+      </div>
+      <div class="card" id="chatBox" style="display:none">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;border-bottom:1.5px solid #20BF6B;padding-bottom:8px">
+          <button type="button" class="pill" onclick="document.getElementById('chatBox').style.display='none';document.getElementById('dstBox').style.display='block';">← Retour</button>
+          <strong id="chatTit" style="font-size:.82rem;color:#20BF6B"></strong>
+        </div>
+        <div id="chatLog" style="max-height:320px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-bottom:10px;padding:4px"></div>
+        <div class="row" style="gap:6px;align-items:center">
+          <button type="button" class="pill gold" id="recBtn" onclick="toggleAudio()">🎤 Audio</button>
+          <label class="pill" style="cursor:pointer">📷 Photo<input type="file" accept="image/*" style="display:none" onchange="sendMedia(this,'photo')"></label>
+          <label class="pill" style="cursor:pointer">🎥 Vidéo (50Mo)<input type="file" accept="video/*" style="display:none" onchange="sendMedia(this,'video')"></label>
+        </div>
+        <div class="row"><input id="msgIn" type="text" placeholder="Écrire un message..." onkeydown="if(event.key==='Enter')sendTxt();"><button type="button" class="btn" style="width:auto" onclick="sendTxt()">➤</button></div>
+      </div>
+  </div>
+  
