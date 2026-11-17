@@ -165,4 +165,42 @@ body.dk .row input,body.dk .row select,body.dk .row textarea{background:#07192E;
       <div class="card"><h2>🛡️ Salle de Commandement Direction (54 Pays) &amp; Agréments</h2><p class="jst" style="font-size:.8rem">Supervision native silencieuse de tous les groupes, pyramide terrain (<strong>4 Abeilles [1–3 km] → PSP Aratek [5–15 km] → Superviseur de Zone</strong>), conformité préventive <strong>COBAC / ANIF / SYSCOHADA / AAOIFI</strong> et génération du <strong>Rapport Financier Consolidé (5 Référentiels)</strong>.</p><button type="button" class="btn gold" onclick="alert('📊 RAPPORT FINANCIER CONSOLIDÉ (54 PAYS)\n• Compte Fonctionnement FEFE0 GROUP SARL (SYSCOHADA) : Équilibré\n• 7 Comptes Étanches & 4 Sous-Compartiments Locaux : 100% Cloisonnés\n• Conformité KYC Biométrique Aratek (-B) & Cantonnement COBAC : Validée SHA-256');">📊 Éditer le Rapport Financier Consolidé (5 Standards)</button></div>
     </div>
 </div>
-      
+     </main>
+  <aside class="side">
+    <div class="hum or"><div class="hum-hd"><strong>👩‍👧 PRÉVOYANCE VEUVES</strong><span class="hum-tag">Tamlik / 0%</span></div><div class="hum-img" id="hi2"></div><div class="hum-st" id="hs2"></div><button type="button" class="btn gold" onclick="goPg('ppay')">Accompagner une Veuve</button></div>
+    <div class="hum"><div class="hum-hd"><strong>🚨 SINISTRÉS &amp; URGENCES</strong><span class="hum-tag">Élan 72h</span></div><div class="hum-img" id="hi3"></div><div class="hum-st" id="hs3"></div><button type="button" class="btn" onclick="goPg('ppay')">Relancer un Sinistré</button></div>
+  </aside>
+</div>
+<footer style="background:#07192E;color:#CBD5E1;text-align:center;padding:16px;font-size:.74rem;border-top:2px solid #F5B041">
+  <strong style="color:#F5B041">LATIF CONNECT — UBUK • UBUK KO'ONE • UBUK PAY</strong><br>
+  Édité par <strong>FEFE0 GROUP SARL</strong> • RCCM : RC/DLA/2022/B/3075 • NIU : M052217354278H • Douala 2, Cameroun<br>
+  Contacts : <a href="mailto:direction@ubuk.net" style="color:#20BF6B">direction@ubuk.net</a> • <a href="mailto:contact@ubuk.net" style="color:#20BF6B">contact@ubuk.net</a> • <a href="mailto:support@ubuk.net" style="color:#20BF6B">support@ubuk.net</a> • <a href="mailto:algazelabuhamid@gmail.com" style="color:#F5B041">algazelabuhamid@gmail.com</a>
+</footer>
+<script>
+const SB_U='https://supabase.co',SB_K='sb_publishable_PhTV_yeDZVd1UbFs9LylWg_eynyOwS7';
+const HUM=[
+  [{t:'Dossier #O-14 • Orphelinat Espoir (Douala 2)',p:94,m:'470 000 / 500 000 XAF • 342 enfants'},{t:'Dossier #O-22 • Scolarité Orphelins (Garoua)',p:81,m:'324 000 / 400 000 XAF • 118 élèves'}],
+  [{t:'Dossier #M-08 • Dialyse & Soins (Yaoundé)',p:91,m:'910 000 / 1 000 000 XAF • Élan 72h'},{t:'Dossier #M-19 • Chirurgie Pédiatrique (Bafoussam)',p:76,m:'570 000 / 750 000 XAF • KO\'ONE'}],
+  [{t:'Dossier #V-05 • Coopérative Veuves (Maroua)',p:88,m:'440 000 / 500 000 XAF • Zakat Tamlik'},{t:'Dossier #V-12 • Atelier Couture Mères (Abidjan)',p:95,m:'285 000 / 300 000 XAF • Prêt 0%'}],
+  [{t:'Dossier #S-03 • Incendie Marché (Douala)',p:100,m:'600 000 / 600 000 XAF • Relance 72h'},{t:'Dossier #S-11 • Inondation Récoltes (Dakar)',p:84,m:'420 000 / 500 000 XAF • Sadaqah'}]
+];
+let hi=0;
+function rotHum(){for(let i=0;i<4;i++){let d=HUM[i][hi%2];document.getElementById('hi'+i).textContent=d.t;document.getElementById('hs'+i).innerHTML='<div class="bar"><i style="width:'+d.p+'%"></i></div><strong>'+d.p+' %</strong> — '+d.m;}hi++;}
+rotHum();setInterval(rotHum,7000);
+function goPg(id,el){document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));document.getElementById(id).classList.add('on');if(el){document.querySelectorAll('.tile').forEach(t=>t.classList.remove('on'));el.classList.add('on');}window.scrollTo({top:0,behavior:'smooth'});}
+let curCn='',mr=null,auChunks=[];
+function openChat(tit,cn){curCn=cn;document.getElementById('dstBox').style.display='none';document.getElementById('chatBox').style.display='block';document.getElementById('chatTit').textContent=tit;loadChat();}
+function delM(b,id){b.parentElement.parentElement.remove();if(id)fetch(SB_U+'/rest/v1/messages_essaim?id=eq.'+id,{method:'DELETE',headers:{'apikey':SB_K,'Authorization':'Bearer '+SB_K}}).catch(()=>{});}
+function loadChat(){if(!curCn)return;fetch(SB_U+'/rest/v1/messages_essaim?canal=eq.'+curCn+'&order=id.desc&limit=30',{headers:{'apikey':SB_K,'Authorization':'Bearer '+SB_K}}).then(r=>r.json()).then(d=>{let box=document.getElementById('chatLog'),u=JSON.parse(localStorage.getItem('ubuk_user')||'{}'),h='';d.reverse().forEach(m=>{let me=(u.id&&m.expediteur&&m.expediteur.includes(u.id));h+='<div style="align-self:'+(me?'flex-end':'flex-start')+';background:'+(me?'#0B2545':'#F0FDF4')+';color:'+(me?'#F8F9FA':'#0B2545')+';border:1.5px solid #20BF6B;border-radius:12px;padding:8px 11px;max-width:88%;font-size:.82rem"><div style="display:flex;justify-content:space-between;gap:8px;font-size:.65rem;color:#F5B041;font-weight:800"><span>'+m.expediteur+'</span><button type="button" style="background:none;border:none;color:#94A3B8;cursor:pointer" onclick="delM(this,'+m.id+')">✕</button></div><div>'+m.contenu+'</div></div>';});box.innerHTML=h||'<small style="color:#64748B">Aucun message pour le moment. Écrivez, parlez (🎤) ou joignez photo/vidéo.</small>';box.scrollTop=99999;}).catch(()=>{});}
+setInterval(loadChat,4000);
+function postMsg(html){let u=JSON.parse(localStorage.getItem('ubuk_user')||'{}'),exp=(u.id||'MEMBRE')+' • '+(u.nom||'Citoyen');fetch(SB_U+'/rest/v1/messages_essaim',{method:'POST',headers:{'apikey':SB_K,'Authorization':'Bearer '+SB_K,'Content-Type':'application/json'},body:JSON.stringify({canal:curCn,expediteur:exp,contenu:html})}).then(()=>loadChat()).catch(()=>alert('Hors-ligne : vérifiez le signal.'));}
+function sendTxt(){let i=document.getElementById('msgIn'),v=i.value.trim();if(!v)return;i.value='';postMsg(v);}
+async function sendMedia(inp,tp){let f=inp.files[0];if(!f)return;if(f.size>52428800){alert('Fichier supérieur à 50 Mo.');return;}let fn=Date.now()+'_'+f.name.replace(/[^a-zA-Z0-9.]/g,'_'),r=await fetch(SB_U+'/storage/v1/object/justificatifs_ubuk/'+fn,{method:'POST',headers:{'apikey':SB_K,'Authorization':'Bearer '+SB_K,'Content-Type':f.type},body:f});if(r.ok){let url=SB_U+'/storage/v1/object/public/justificatifs_ubuk/'+fn;postMsg(tp==='photo'?'📷 PHOTO (SHA-256)<br><img src="'+url+'" style="max-width:100%;border-radius:8px;margin-top:4px">':'🎥 VIDÉO (SHA-256)<br><video controls playsinline src="'+url+'" style="max-width:100%;max-height:220px;border-radius:8px;margin-top:4px"></video>');}else{alert('Créez le bucket public justificatifs_ubuk dans Supabase Storage.');}inp.value='';}
+async function toggleAudio(){let b=document.getElementById('recBtn');if(!mr||mr.state==='inactive'){let s=await navigator.mediaDevices.getUserMedia({audio:true});mr=new MediaRecorder(s);auChunks=[];mr.ondataavailable=e=>auChunks.push(e.data);mr.onstop=async()=>{let bl=new Blob(auChunks,{type:'audio/webm'}),fn='audio_'+Date.now()+'.webm',r=await fetch(SB_U+'/storage/v1/object/justificatifs_ubuk/'+fn,{method:'POST',headers:{'apikey':SB_K,'Authorization':'Bearer '+SB_K,'Content-Type':'audio/webm'},body:bl});if(r.ok){let url=SB_U+'/storage/v1/object/public/justificatifs_ubuk/'+fn;postMsg('🎤 NOTE VOCALE (SHA-256)<br><audio controls src="'+url+'" style="width:100%;margin-top:4px"></audio>');}};mr.start();b.textContent='⏹️ Stop & Envoyer';}else{mr.stop();b.textContent='🎤 Audio';}}
+if(localStorage.getItem('ubuk_dk')==='1')document.body.classList.add('dk');
+let cu=JSON.parse(localStorage.getItem('ubuk_user')||'null');if(!cu){document.getElementById('sas').style.display='grid';}else{document.getElementById('usrLbl').textContent=cu.id+' • '+cu.nom;}
+if('serviceWorker'in navigator)navigator.serviceWorker.register('/sw.js');
+</script>
+</body>
+</html>
+
