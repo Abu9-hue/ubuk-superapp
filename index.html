@@ -409,7 +409,8 @@
           <strong style="color: var(--gold-light); font-size: 1.05rem;">🛒 Vitrine Commerciale des Membres</strong>
           <div style="font-size: 0.86rem; color: var(--text-muted);">Publication gratuite • Paiement sécurisé Carte UBUK PAY & livraison réseau continental.</div>
         </div>
-        <button class="btn-publish" onclick="window.open('https://ubuk.net', '_blank')">+ Publier un Produit ou Service</button>
+        <button class="btn-publish" onclick="openPage('vitrine')">+ Publier un Produit ou Service</button>
+    
       </div>
     </div>
 
@@ -682,7 +683,35 @@
               <div style="background:#08131e; padding:10px; border-radius:8px; text-align:center; color:#f3d46e; font-size:0.85rem;">✦ Grille Géométrique & Compas Actifs ✦</div>
             </div>
           </div>
+              },
+      vitrine: {
+        title: "🛒 Vitrine Commerciale des Membres • Commerce Souverain",
+        content: `
+          <div style="background:#08131e; border:1px solid rgba(212,175,55,0.35); border-radius:16px; padding:18px; margin-bottom:20px;">
+            <h3 style="color:#f3d46e; font-size:1.08rem; margin-bottom:6px;">Publier Gratuitement un Produit ou Service</h3>
+            <p style="font-size:0.86rem; color:#94a3b8; margin-bottom:14px;">Présentez votre production, marchandise ou savoir-faire à tout le réseau continental avec paiement sécurisé <strong>Carte UBUK PAY</strong> (0 % d'intérêt).</p>
+            <div style="display:grid; gap:10px; max-width:520px;">
+              <input id="prodName" type="text" placeholder="Nom du produit ou service (ex: Sac Cacao 50kg / Panneau Solaire)" style="padding:11px 14px; border-radius:10px; border:1px solid rgba(212,175,55,0.4); background:#040a10; color:#fff;" />
+              <select id="prodCat" style="padding:11px 14px; border-radius:10px; border:1px solid rgba(212,175,55,0.4); background:#040a10; color:#fff;">
+                <option value="Agriculture & Matières Premières">Agriculture & Matières Premières</option>
+                <option value="Artisanat & Industrie Locale">Artisanat & Industrie Locale</option>
+                <option value="Énergie, Eau & Équipements">Énergie, Eau & Équipements</option>
+                <option value="Services, Formation & Savoir-Faire">Services, Formation & Savoir-Faire</option>
+              </select>
+              <input id="prodPrice" type="text" placeholder="Prix unitaire (ex: 45 000 XAF)" style="padding:11px 14px; border-radius:10px; border:1px solid rgba(212,175,55,0.4); background:#040a10; color:#fff;" />
+              <button onclick="const n=document.getElementById('prodName').value; const p=document.getElementById('prodPrice').value; const c=document.getElementById('prodCat').value; if(n){ document.getElementById('prodList').innerHTML += '<div style=\\'background:#040a10; border:1px solid #10b981; border-radius:12px; padding:12px; margin-top:8px;\\'><strong style=\\'color:#10b981;\\'>✅ ' + n + '</strong> <span style=\\'color:#f3d46e; font-size:0.82rem;\\'>(' + c + ')</span><div style=\\'color:#fff; font-size:0.9rem; margin-top:4px;\\'>Prix : ' + (p||'Sur demande') + ' • Paiement Carte UBUK PAY</div></div>'; document.getElementById('prodName').value=''; document.getElementById('prodPrice').value=''; }" style="background:#d4af37; color:#07111a; font-weight:800; border:none; padding:12px; border-radius:10px; cursor:pointer;">Publier dans la Vitrine Souveraine</button>
+            </div>
+          </div>
+          <h3 style="color:#f3d46e; font-size:1.02rem; margin-bottom:10px;">📦 Offres Actives des Membres</h3>
+          <div id="prodList">
+            <div style="background:#08131e; border:1px solid rgba(212,175,55,0.25); border-radius:12px; padding:12px;">
+              <strong style="color:#fff;">Cacao Certifié Traçable (Lot Coopérative)</strong> <span style="color:#f3d46e; font-size:0.8rem;">(Agriculture)</span>
+              <div style="color:#10b981; font-size:0.88rem; margin-top:4px;">3 057 XAF / kg • Paiement Carte UBUK PAY & Livraison Réseau</div>
+            </div>
+          </div>
         `
+          }
+      
       }
       };
 
