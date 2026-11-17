@@ -1,0 +1,59 @@
+I<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>LATIF CONNECT — UBUK.NET | Souveraineté &amp; Solidarité</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',system-ui,sans-serif}
+html,body{min-height:100%;background:#0B2545;color:#F8F9FA;overflow-x:hidden}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:.08}
+header,main,footer,#onb,#mod{position:relative;z-index:10}
+.cur{font-family:'Palatino Linotype',Georgia,serif;font-style:italic}
+.just{text-align:justify;text-justify:inter-word}
+body.t-cl{background:#F8F9FA;color:#0B2545}
+body.t-cl .cd,body.t-cl .tl,body.t-cl .tk,body.t-cl .bx{background:#FFFFFF;color:#0B2545;border-color:#20BF6B}
+body.t-cl .cd h2,body.t-cl .tl h3{color:#0B2545}body.t-cl .cd p,body.t-cl .tl p{color:#334155}
+body.t-cl input,body.t-cl select,body.t-cl textarea{background:#F8F9FA;color:#0B2545;border-color:#0B254544}
+header{background:#07192E;color:#F8F9FA;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;border-bottom:2.5px solid #F5B041}
+.br{display:flex;align-items:center;gap:8px;min-width:0}
+.lg{width:34px;height:34px;background:linear-gradient(135deg,#F5B041,#D4AC0D);border-radius:9px;display:grid;place-items:center;color:#0B2545;font-weight:900;font-family:Georgia,serif;flex-shrink:0}
+.br h1{font-size:.95rem;color:#F5B041;font-family:Georgia,serif;letter-spacing:.5px}
+.br span{font-size:.63rem;color:#20BF6B;font-weight:700;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;align-items:center;gap:5px;flex-shrink:0}
+.pl{background:#20BF6B22;color:#20BF6B;border:1px solid #20BF6B;padding:5px 8px;border-radius:12px;font-size:.66rem;font-weight:800;cursor:pointer;white-space:nowrap}
+.pl.gd{border-color:#F5B041;color:#F5B041;background:#F5B04122}
+main{max-width:860px;margin:0 auto;padding:10px 10px 30px}
+.tk{background:#07192E;border:1.5px solid #F5B041;border-radius:11px;padding:7px 10px;margin-bottom:10px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px;font-size:.68rem}
+.tk span strong{color:#F5B041}.tk span em{color:#20BF6B;font-style:normal;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(4,1fr)}}
+.tl{background:#102E52;border:1.5px solid #20BF6B;border-radius:12px;padding:10px;cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 3px 8px rgba(0,0,0,.18);transition:transform .12s}
+.tl:active{transform:scale(.98)}
+.tl .ic{font-size:1.35rem;margin-bottom:4px}
+.tl h3{font-size:.8rem;color:#F5B041;margin-bottom:3px;font-family:Georgia,serif}
+.tl p{font-size:.68rem;color:#E2E8F0;line-height:1.35;margin-bottom:6px}
+.tl span{font-size:.66rem;color:#20BF6B;font-weight:800}
+.feed{background:linear-gradient(135deg,#07192E,#102E52);border:2px solid #F5B041;border-radius:14px;padding:11px;margin-bottom:10px;box-shadow:0 5px 15px rgba(0,0,0,.25)}
+.fh{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;gap:6px}
+.fh strong{font-size:.76rem;color:#F5B041;letter-spacing:.3px}
+.fnav button{background:#0B2545;border:1px solid #F5B041;color:#F5B041;border-radius:7px;padding:2px 8px;font-weight:800;cursor:pointer}
+.fcard{background:#0B2545;border:1.5px solid #20BF6B;border-radius:10px;padding:9px;margin-bottom:7px}
+.fcard h4{font-size:.82rem;color:#F8F9FA;margin-bottom:4px}
+.fcard p{font-size:.74rem;color:#E2E8F0;line-height:1.4;margin-bottom:6px;text-align:justify}
+.fmeta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;font-size:.68rem}
+.cd{background:#102E52;border:1.5px solid #20BF6B;border-radius:13px;padding:12px;margin-bottom:10px;box-shadow:0 3px 9px rgba(0,0,0,.16)}
+.cd h2{font-size:.9rem;color:#F5B041;margin-bottom:6px;font-family:Georgia,serif}
+.cd p{font-size:.77rem;color:#E2E8F0;line-height:1.45;margin-bottom:8px;text-align:justify}
+.rw{display:flex;gap:6px;margin-bottom:7px;flex-wrap:wrap}
+input,select,textarea{flex:1;min-width:0;width:100%;background:#07192E;color:#F8F9FA;border:1.5px solid #F5B04188;padding:8px;border-radius:8px;font-size:.8rem}
+.bt{background:#20BF6B;color:#FFFFFF;border:none;padding:9px 12px;border-radius:9px;width:100%;font-weight:800;cursor:pointer;font-size:.8rem;display:inline-block;text-align:center;text-decoration:none}
+.bg{background:#F5B041;color:#0B2545}.bb{background:#07192E;color:#F5B041;border:1px solid #F5B041}
+.bx{background:#07192E;border:1.5px solid #F5B04166;border-radius:9px;padding:8px;margin-bottom:6px;font-size:.73rem;line-height:1.4;text-align:justify}
+.bx strong{color:#F5B041}
+.pg{display:none}.pg.on{display:block}
+#onb{position:fixed;inset:0;background:#07192EF8;z-index:200;display:none;place-items:center;padding:14px}
+#onb .cd{max-width:420px;width:100%;border:2px solid #F5B041}
+footer{text-align:center;font-size:.68rem;color:#CBD5E1;padding:10px;border-top:1px solid #F5B04144}
+</style>
+</head>
