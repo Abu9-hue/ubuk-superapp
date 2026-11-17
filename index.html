@@ -1,4 +1,4 @@
-I<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -57,3 +57,41 @@ input,select,textarea{flex:1;min-width:0;width:100%;background:#07192E;color:#F8
 footer{text-align:center;font-size:.68rem;color:#CBD5E1;padding:10px;border-top:1px solid #F5B04144}
 </style>
 </head>
+<body onload="if(localStorage.getItem('ubuk_th')==='cl'){document.body.classList.add('t-cl');document.getElementById('thb').textContent='🌙';}var u=JSON.parse(localStorage.getItem('ubuk_user')||'null');if(!u){document.getElementById('onb').style.display='grid';}else{document.getElementById('rl').textContent=u.id+' • '+u.nom;}window.fIdx=0;window.fItems=[{t:'🚨 URGENCE SANTÉ & DÉCÈS (UBUK KO\'ONE • ÉLAN 72H)',d:'Famille en détresse médicale lourde à Douala 2 — Dossier vérifié par les 4 Abeilles (Bloc 1) avec preuve SHA-256. Soutien immédiat via la Caisse Solidaire.',b:'🌊 Soutenir dès 100 XAF',p:'pg-pay'},{t:'🕌 DOSSIER ASNAF ÉLIGIBLE ZAKAT (2,5 % • TAMLIK)',d:'Équipement de 2 machines à coudre remises en pleine propriété (Tamlik) à une veuve artisane — Validé selon les 4 Écoles & Standard Dr M. Obaidullah.',b:'🕌 Orienter ma Zakat',p:'pg-pay'},{t:'🏛️ WAQF PERPÉTUEL — NŒUD SOLAIRE LIFEPO4 VILLAGE',d:'Installation d\'une station solaire LiFePO4 (durée 15 ans) pour alimenter les Tablettes Kalam et terminaux Aratek en zone rurale enclavée.',b:'🏛️ Contribuer au Waqf',p:'pg-kalam'}];window.showFeed=function(step){if(step)window.fIdx=(window.fIdx+step+window.fItems.length)%window.fItems.length;var it=window.fItems[window.fIdx];document.getElementById('ftit').textContent=it.t;document.getElementById('fdesc').textContent=it.d;var fb=document.getElementById('fbtn');fb.textContent=it.b;fb.onclick=function(){window.openPg(it.p);};};window.showFeed(0);setInterval(function(){window.showFeed(1);},7000);window.openPg=function(id){document.querySelectorAll('.pg').forEach(x=>x.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo(0,0);};">
+<svg id="bg"><defs><pattern id="g" width="36" height="36" patternUnits="userSpaceOnUse"><polygon points="18,0 22,8 30,6 28,14 36,18 28,22 30,30 22,28 18,36 14,28 6,30 8,22 0,18 8,14 6,6 14,8" fill="none" stroke="#F5B041" stroke-width=".75"/><polygon points="18,5 21,11 28,8 25,15 31,18 25,21 28,28 21,25 18,31 15,25 8,28 11,21 5,18 11,15 8,8 15,11" fill="none" stroke="#20BF6B" stroke-width=".55"/></pattern></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>
+<div id="onb"><div class="cd"><h2>🐝 Bienvenue sur LATIF CONNECT (UBUK.NET)</h2><p class="cur">Sas d'entrée unique par pays • Everytime • Everywhere • Everyone. Accédez à la Super-App, UBUK PAY, la Zakat 4 Écoles, la Notation des 54 Ministères et les Richesses d'Afrique.</p><div class="rw"><input id="un" type="text" placeholder="Votre Nom complet..."></div><div class="rw"><select id="uc"><option value="237">🇨🇲 Cameroun (+237)</option><option value="33">🇫🇷 France / Europe (+33)</option><option value="1">🇺🇸 Amérique du Nord (+1)</option><option value="225">🇨🇮 Côte d'Ivoire (+225)</option><option value="221">🇸🇳 Sénégal (+221)</option><option value="241">🇬🇦 Gabon (+241)</option><option value="000">🌍 Autre Pays / Diaspora</option></select></div><div class="rw"><input id="up" type="tel" placeholder="Numéro de téléphone..."></div><div class="rw"><input id="upin" type="password" maxlength="4" placeholder="Code PIN Secret 4 chiffres (Protection compte)..."></div><button type="button" class="bt" onclick="var n=document.getElementById('un').value.trim(),c=document.getElementById('uc').value,p=document.getElementById('up').value.trim(),pin=document.getElementById('upin').value.trim();if(!n||!p||pin.length<4){alert('Saisissez Nom, Téléphone et PIN 4 chiffres.');return;}var rad=Math.floor(100000+Math.random()*900000),id='UBK-'+c+'-'+rad+'-P',u={id:id,nom:n,tel:'+'+c+p,pin:pin};localStorage.setItem('ubuk_user',JSON.stringify(u));document.getElementById('rl').textContent=id+' • '+n;document.getElementById('onb').style.display='none';">🐝 Entrer dans l'Écosystème Latif Connect</button></div></div>
+<header>
+  <div class="br"><div class="lg">LC</div><div><h1>LATIF CONNECT</h1><span id="rl" class="cur">UBUK.NET • Dorsale Continentale Souveraine</span></div></div>
+  <div class="acts"><button type="button" class="pl gd" onclick="window.openPg('pg-home')">🏠 Accueil</button><button type="button" id="thb" class="pl" onclick="var c=document.body.classList.toggle('t-cl');this.textContent=c?'🌙':'☀️';localStorage.setItem('ubuk_th',c?'cl':'bl');">☀️</button></div>
+</header>
+<main>
+  <div class="tk">
+    <span>🪙 OR (XAU) : <strong>48 900 XAF/g</strong></span>
+    <span>🍫 CACAO : <strong>3 057 XAF/kg</strong></span>
+    <span>🏛️ ÉTATS : <em>54 / 54</em></span>
+    <span>🛡️ COMPTES : <em>6 Étanches</em></span>
+  </div>
+  <div id="pg-home" class="pg on">
+    <div class="grid">
+      <div class="tl" onclick="window.openPg('pg-app')"><div class="ic">🐝</div><h3>UBUK Super-App</h3><p>Groupes (≤200K), Canaux Illimités, 4 Abeilles &amp; KO'ONE.</p><span>Ouvrir ➔</span></div>
+      <div class="tl" onclick="window.openPg('pg-pay')"><div class="ic">💳</div><h3>UBUK PAY &amp; Dons</h3><p>Nécessiteux (Zakat/Sadaqah/Waqf), Crowd &amp; Bourse.</p><span>Explorer ➔</span></div>
+      <div class="tl" onclick="window.openPg('pg-min')"><div class="ic">🏛️</div><h3>54 Ministères</h3><p>Notation souveraine des 54 Ministères des Finances.</p><span>Consulter ➔</span></div>
+      <div class="tl" onclick="window.openPg('pg-ag')"><div class="ic">⚖️</div><h3>Agences Notation</h3><p>Contre-notation &amp; audit indépendant (AfCRA, Big Three).</p><span>Auditer ➔</span></div>
+    </div>
+    <div class="feed">
+      <div class="fh"><strong>📡 FIL D'ACTUALITÉ &amp; URGENCES NÉCESSITEUX (EN DIRECT)</strong><div class="fnav"><button type="button" onclick="window.showFeed(-1)">◀</button> <button type="button" onclick="window.showFeed(1)">▶</button></div></div>
+      <div class="fcard"><h4 id="ftit">Chargement...</h4><p id="fdesc"></p><div class="fmeta"><span style="color:#20BF6B;font-weight:800">✅ Certifié SHA-256 • 4 Abeilles</span><button type="button" id="fbtn" class="pl gd">Soutenir</button></div></div>
+    </div>
+    <div class="grid">
+      <div class="tl" onclick="window.openPg('pg-map')"><div class="ic">🌍</div><h3>Richesses Afrique</h3><p>Carte interactive : Or, Cacao, Lithium, Cobalt &amp; Solaire.</p><span>Découvrir ➔</span></div>
+      <div class="tl" onclick="window.openPg('pg-lib')"><div class="ic">📚</div><h3>Livres &amp; Vision</h3><p>Téléchargement des ouvrages Latif Connect &amp; UBUK.</p><span>Télécharger ➔</span></div>
+      <div class="tl" onclick="window.openPg('pg-kalam')"><div class="ic">📱</div><h3>Tablette Kalam</h3><p>Matériel éducatif, biométrie Aratek &amp; Nœuds LiFePO4.</p><span>Voir ➔</span></div>
+      <div class="tl" onclick="window.openPg('pg-draw')"><div class="ic">🎨</div><h3>Logiciel Dessin</h3><p>Studio de dessin vectoriel &amp; géométrie islamique.</p><span>Dessiner ➔</span></div>
+    </div>
+    <div class="cd"><h2>🕌 Calculateur Zakat selon les 4 Écoles (Standard Dr M. Obaidullah)</h2><p class="cur">Indexé sur le cours de l'Or (<strong>Nissab 85 g = 4 156 500 XAF</strong>). Distribué exclusivement aux <strong>8 catégories (Asnaf) dont les 4 Abeilles locales</strong> en pleine propriété (<em>Tamlik</em>).</p>
+      <div class="rw"><select id="zmad"><option value="mal">École Malékite (85g Or • Hors bijoux portés)</option><option value="han">École Hanafite (Seuil précaution • Bijoux inclus)</option><option value="cha">École Chaféite (Tamlik strict • Local prioritaire)</option><option value="hnb">École Hanbalite (Dettes échues déduites)</option></select></div>
+      <div class="rw"><input id="zkv" type="number" placeholder="Épargne &amp; actifs nets sur 1 année lunaire (XAF)..."><button type="button" class="bt bg" style="width:auto;padding:8px 14px" onclick="var v=parseInt(document.getElementById('zkv').value||0),m=document.getElementById('zmad').value,ns=(m==='han')?650000:4156500,r=document.getElementById('zout');if(v<ns){r.innerHTML='ℹ️ Sous le seuil Nissab ('+ns.toLocaleString('fr-FR')+' XAF). Optez pour un <strong>Don Pur Sadaqah dès 100 XAF</strong>.';}else{var z=Math.round(v*0.025);r.innerHTML='✅ <strong>Zakat due (2,5 %) : '+z.toLocaleString('fr-FR')+' XAF</strong> — Réservé aux 8 catégories Asnaf (dont les 4 Abeilles locales).';}">Calculer</button></div>
+      <div id="zout" style="font-size:.75rem;color:#F5B041;font-weight:700"></div>
+    </div>
+    </div>
+    
