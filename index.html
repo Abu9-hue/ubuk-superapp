@@ -185,7 +185,8 @@ const HUM=[
   [{t:'Dossier #M-08 • Dialyse & Soins (Yaoundé)',p:91,m:'910 000 / 1 000 000 XAF • Élan 72h'},{t:'Dossier #M-19 • Chirurgie Pédiatrique (Bafoussam)',p:76,m:'570 000 / 750 000 XAF • KO\'ONE'}],
   [{t:'Dossier #V-05 • Coopérative Veuves (Maroua)',p:88,m:'440 000 / 500 000 XAF • Zakat Tamlik'},{t:'Dossier #V-12 • Atelier Couture Mères (Abidjan)',p:95,m:'285 000 / 300 000 XAF • Prêt 0%'}],
   [{t:'Dossier #S-03 • Incendie Marché (Douala)',p:100,m:'600 000 / 600 000 XAF • Relance 72h'},{t:'Dossier #S-11 • Inondation Récoltes (Dakar)',p:84,m:'420 000 / 500 000 XAF • Sadaqah'}]
-];
+function rotHum(){for(let i=0;i<4;i++){let arr=HUM[i],d=arr[hi%arr.length];document.getElementById('hi'+i).textContent=d.t;document.getElementById('hs'+i).innerHTML='<div class="bar"><i style="width:'+d.p+'%"></i></div><strong>'+d.p+' %</strong> — '+d.m;}hi++;}
+    
 function rotHum(){for(let i=0;i<4;i++){let arr=HUM[i],d=arr[hi%arr.length];document.getElementById('hi'+i).textContent=d.t;document.getElementById('hs'+i).innerHTML='<div class="bar"><i style="width:'+d.p+'%"></i></div><strong>'+d.p+' %</strong> — '+d.m;}hi++;}
 function rotHum(){for(let i=0;i<4;i++){let d=HUM[i][hi%2];document.getElementById('hi'+i).textContent=d.t;document.getElementById('hs'+i).innerHTML='<div class="bar"><i style="width:'+d.p+'%"></i></div><strong>'+d.p+' %</strong> — '+d.m;}hi++;}
 rotHum();setInterval(rotHum,7000);
