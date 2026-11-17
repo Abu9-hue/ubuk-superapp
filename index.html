@@ -75,4 +75,34 @@ body.dk .row input,body.dk .row select,body.dk .row textarea{background:#07192E;
       <button type="button" class="tile on" onclick="goPg('pfil',this)"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#20BF6B22"/><path d="M18 6L28 12V24L18 30L8 24V12Z" fill="#F5B041"/><circle cx="18" cy="18" r="4" fill="#0B2545"/></svg><div><b>Fil Continu</b><small>4 Écoles &amp; Rasm</small></div></button>
       <button type="button" class="tile" onclick="goPg('pmsg',this)"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#20BF6B22"/><path d="M7 10C7 8 9 7 11 7H25C27 7 29 8 29 10V21C29 23 27 24 25 24H14L8 29V24C7 23 7 22 7 21Z" fill="#20BF6B"/></svg><div><b>UBUK Ruche</b><small>Groupes &amp; Canaux</small></div></button>
       <button type="button" class="tile" onclick="goPg('ppay',this)"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#F5B04122"/><rect x="6" y="10" width="24" height="16" rx="4" fill="#0B2545"/><circle cx="24" cy="18" r="3" fill="#F5B041"/></svg><div><b>UBUK PAY</b><small>7 Comptes Étanches</small></div></button>
-  
+        <button type="button" class="tile" onclick="goPg('peco',this)"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#20BF6B22"/><path d="M8 13H28L26 27H10Z" fill="#F5B041"/><path d="M14 13V10C14 8 22 8 22 10V13" fill="none" stroke="#0B2545" stroke-width="2"/></svg><div><b>E-Commerce</b><small>Projets &amp; Qard 0%</small></div></button>
+      <button type="button" class="tile" onclick="goPg('pmin',this)"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#0B254518"/><path d="M18 6L30 13H6Z" fill="#0B2545"/><rect x="9" y="15" width="4" height="11" fill="#F5B041"/><rect x="16" y="15" width="4" height="11" fill="#F5B041"/><rect x="23" y="15" width="4" height="11" fill="#F5B041"/></svg><div><b>54 Ministères</b><small>Notation &amp; Richesses</small></div></button>
+      <button type="button" class="tile" onclick="goPg('pkal',this)"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#20BF6B22"/><rect x="9" y="6" width="18" height="24" rx="3" fill="#0B2545"/><circle cx="18" cy="26" r="1.5" fill="#20BF6B"/></svg><div><b>Tablette Kalam</b><small>Éducation &amp; Dessin</small></div></button>
+      <button type="button" class="tile" onclick="goPg('pdir',this)"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#F5B04122"/><path d="M18 6L28 10V18C28 24 23 28 18 30C13 28 8 24 8 18V10Z" fill="#20BF6B"/></svg><div><b>Commandement</b><small>Direction &amp; Agréments</small></div></button>
+      <button type="button" class="tile" onclick="window.open('https://ubuk.net','_blank')"><svg viewBox="0 0 36 36"><rect width="36" height="36" rx="10" fill="#0B254518"/><circle cx="18" cy="18" r="10" fill="none" stroke="#20BF6B" stroke-width="2.5"/><path d="M8 18H28M18 8C21 12 21 24 18 28" fill="none" stroke="#F5B041" stroke-width="2"/></svg><div><b>Portail Web</b><small>www.ubuk.net</small></div></button>
+    </div>
+    <div id="pfil" class="pg on">
+      <div class="card">
+        <h2>🕌 Calculateur Zakat selon les 4 Écoles <span class="hl">Dr M. Obaidullah</span></h2>
+        <p class="jst" style="font-size:.82rem;margin-bottom:10px">Calcul indexé sur le cours de l'Or (<strong>48 900 XAF/g</strong>). La Zakat (2,5 %) est versée en pleine propriété (<strong>Tamlik</strong>) uniquement aux <strong>8 catégories coraniques (Asnaf) incluant les 4 Abeilles locales</strong>.</p>
+        <div class="row">
+          <select id="zkec"><option value="mal">École Malékite (Nissab 85g Or = 4 156 500 F • Hors bijoux portés)</option><option value="han">École Hanafite (Seuil de précaution favorable aux pauvres • Bijoux inclus)</option><option value="cha">École Chaféite (Transfert Tamlik local prioritaire • Hors bijoux d'usage)</option><option value="hnb">École Hanbalite (Dettes échues déduites • Zakat productive admise)</option></select>
+          <input id="zkmt" type="number" placeholder="Épargne & actifs nets 1 an (XAF)...">
+        </div>
+        <button type="button" class="btn gold" onclick="var ec=document.getElementById('zkec').value,v=parseInt(document.getElementById('zkmt').value||0),ns=(ec==='han'?650000:4156500),r=document.getElementById('zko');if(v<ns){r.innerHTML='ℹ️ Inférieur au Nissab ('+ns.toLocaleString('fr-FR')+' XAF). Vous pouvez faire une <strong>Sadaqah libre dès 100 F</strong>.';}else{var z=Math.round(v*0.025);r.innerHTML='✅ <strong>Zakat due (2,5 %) : '+z.toLocaleString('fr-FR')+' XAF</strong> — Orientée vers le Compte Étanche Zakat (8 Asnaf + 4 Abeilles locales).';}">Calculer ma Zakat (2,5 %)</button>
+        <div id="zko" style="margin-top:8px;font-size:.8rem;font-weight:700;color:#20BF6B"></div>
+      </div>
+      <div class="card">
+        <h2>🌊 L'École des Petits Ruisseaux <span class="hl">Loi du Nombre</span></h2>
+        <p class="jst" style="font-size:.84rem"><strong>« Les petits ruisseaux deviennent des grandes rivières » :</strong> Isolés, <strong>100 XAF</strong> s'évaporent ; réunis par <strong>10 000 membres</strong> au même moment, ils mobilisent <strong>1 000 000 XAF</strong> pour sauver une vie sur <strong>UBUK KO'ONE</strong> ou équiper un atelier en <strong>Don Pur / Prêt 0 %</strong> sans endetter personne.</p>
+        <div class="box4"><strong>📚 L'Avis des 4 Écoles :</strong> <strong>Malékite &amp; Chaféite</strong> valident la mutualisation solidaire (<em>Takaful</em>) fondée sur l'intérêt général (<em>Maslaha</em>) ; <strong>Hanafite &amp; Hanbalite</strong> exigent la séparation stricte entre l'épargne individuelle, les aumônes et les frais techniques (<em>Zéro Riba</em>).</div>
+        <div class="boxr"><strong>📜 Point de Compréhension Rasmique (Rasm Uthmani) :</strong> La graphie originelle sans voyelles ni points de la racine <strong>ن ح ل (l'Abeille)</strong> révèle l'ordre naturel de la ruche : chaque abeille produit 1/12e de cuillère de miel dont profitent les générations futures.</div>
+      </div>
+      <div class="card">
+        <h2>⚖️ Justice Sociale &amp; Souveraineté Économique <span class="hl">Zéro Riba</span></h2>
+        <p class="jst" style="font-size:.84rem">Déploiement terrain selon la pyramide de proximité : <strong>4 Abeilles par Bloc (1–3 km)</strong> → <strong>PSP Biométrique Aratek (10 Blocs / 5–15 km)</strong> → <strong>Superviseur de Zone (10–15 PSP)</strong> → <strong>Direction Générale</strong> en veille native silencieuse.</p>
+        <div class="box4"><strong>📚 L'Avis des 4 Écoles :</strong> Les quatre écoles prohibent unanimement l'intérêt usuraire (<em>Riba</em>) et l'aléa abusif (<em>Gharar</em>), privilégiant le prêt fraternel sans intérêt (<em>Qard Hasan 0 %</em>) et le partage réel des profits et pertes (<em>Mudarabah</em>).</div>
+        <div class="boxr"><strong>📜 Point de Compréhension Rasmique (Rasm Uthmani) :</strong> L'observation directe des consonnes originelles du texte coranique met en lumière la clarté du pacte social et l'interdiction absolue de toute captation injuste des biens d'autrui.</div>
+      </div>
+          </div>
+    
