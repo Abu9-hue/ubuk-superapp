@@ -141,4 +141,54 @@ footer{width:100%;max-width:340px;margin:8px auto 0;padding:3px 2px;font-family:
     <div id="dedBody" style="color:#cbd5e1;font-size:.92rem"></div>
   </div>
 </div>
-  
+  <script>
+const feeds=[
+  {color:'#ef4444',dx:2,dy:2,text:'💳 CARTE UBUK PAY • Douala 🇨🇲 • 0% Intérêt'},
+  {color:'#10b981',dx:-14,dy:-4,text:'🤝 UBUK KO\'ONE • Bouaké 🇨🇮 • Zakat 4 Écoles'},
+  {color:'#f97316',dx:4,dy:1,text:'🏛️ 54 MINISTÈRES • Yaoundé 🇨🇲 • Étude Souveraine'},
+  {color:'#3b82f6',dx:-20,dy:-10,text:'💎 OR 4054.45 USD • Dakar 🇸🇳 • Empreinte Usure'},
+  {color:'#6366f1',dx:-12,dy:-14,text:'📰 PRESSE & PODCAST • Mopti 🇲🇱 • Bulletin Bas Débit'},
+  {color:'#a855f7',dx:16,dy:-16,text:'🎓 SAVOIR & KALAM • Le Caire 🇪🇬 • RASM & esreo 28D'}
+];
+let fIdx=0,pulse=0;
+setInterval(()=>{fIdx=(fIdx+1)%feeds.length;document.getElementById('globeBox').style.setProperty('--glow',feeds[fIdx].color);document.getElementById('newsTicker').innerText=feeds[fIdx].text;},3500);
+const cv=document.getElementById('globeCanvas'),ctx=cv.getContext('2d');let rot=0;
+function drawGlobe(){
+  const w=cv.width,h=cv.height,r=w/2,cur=feeds[fIdx];ctx.clearRect(0,0,w,h);
+  const g=ctx.createRadialGradient(r*0.65,r*0.55,8,r,r,r);g.addColorStop(0,'rgba(243,212,110,0.22)');g.addColorStop(0.75,'rgba(212,175,55,0.08)');g.addColorStop(1,'rgba(5,12,24,0.45)');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.fill();
+  ctx.save();ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.clip();
+  ctx.strokeStyle='rgba(243,212,110,0.32)';ctx.lineWidth=1;
+  for(let i=-3;i<=3;i++){const y=r+i*(r/3.5);ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+  for(let i=0;i<6;i++){const a=rot+i*(Math.PI/3),rx=Math.abs(Math.cos(a))*r;ctx.beginPath();ctx.ellipse(r,r,rx,r,0,0,Math.PI*2);ctx.stroke();}
+  ctx.fillStyle='rgba(243,212,110,0.45)';ctx.strokeStyle='#fef08a';ctx.lineWidth=1.4;
+  const ax=r+Math.sin(rot+2.2)*56;
+  if(Math.cos(rot+2.2)>0){ctx.beginPath();ctx.ellipse(ax,r-8,22,42,-0.2,0,Math.PI*2);ctx.fill();}
+  const ex=r+Math.sin(rot+0.5)*56;
+  if(Math.cos(rot+0.5)>0){ctx.beginPath();ctx.ellipse(ex+18,r-28,34,20,0.1,0,Math.PI*2);ctx.fill();}
+  const ox=r+Math.sin(rot)*54;
+  if(Math.cos(rot)>-0.25){
+    ctx.beginPath();ctx.moveTo(ox-18,r-42);ctx.lineTo(ox+14,r-40);ctx.lineTo(ox+30,r-12);ctx.lineTo(ox+16,r+38);ctx.lineTo(ox+2,r+48);ctx.lineTo(ox-6,r+12);ctx.lineTo(ox-28,r-4);ctx.lineTo(ox-26,r-24);ctx.closePath();ctx.fill();ctx.stroke();
+    const px=ox+cur.dx,py=r+cur.dy,rad=5+Math.sin(pulse)*3.5;
+    ctx.beginPath();ctx.arc(px,py,rad+6,0,Math.PI*2);ctx.fillStyle=cur.color+'55';ctx.fill();
+    ctx.beginPath();ctx.arc(px,py,5,0,Math.PI*2);ctx.fillStyle=cur.color;ctx.fill();
+    ctx.strokeStyle='#ffffff';ctx.lineWidth=1.6;ctx.stroke();
+  }
+  ctx.restore();rot+=0.005;pulse+=0.1;requestAnimationFrame(drawGlobe);
+}
+drawGlobe();
+const pages={
+  p1:{t:'1. Carte UBUK PAY • Standard Universel & 7 Comptes Étanches',b:'Étape 2 à finaliser ensemble : Carte UBUK PAY, biométrie Aratek et commutateur financier.'},
+  p2:{t:'2. UBUK KO\'ONE • Solidarité Locale & Réassurance Globale',b:'Étape 3 à finaliser ensemble : Caisses villageoises autonomes, réassurance Direction et Zakat 4 Écoles.'},
+  p3:{t:'3. 54 Ministères des Finances, Agences & Bourse de Financement',b:'Étape 4 à finaliser ensemble : Observatoire des 54 États, contre-audit des agences et Bourse productive.'},
+  p4:{t:'4. Matières Premières, Zones de Conflits & Empreinte de l\'Usure',b:'Étape 5 à finaliser ensemble : Cartographie ressources/conflits et étude Usury Footprint (FMI/Banque Mondiale).'},
+  p5:{t:'5. Agences de Presse & Podcast Souverain',b:'Étape 6 à finaliser ensemble : Fil stratégique filtré et bulletin audio bas débit.'},
+  p6:{t:'6. Savoir (RASM / esreo 28D), Formation, Tablette Kalam & Dessin',b:'Étape 7 à finaliser ensemble : RASM, esreo 28D, programme complet et atelier Tablette Kalam + Dessin.'}
+};
+function openDedicated(id,push=true){if(!pages[id])return;document.getElementById('dedTitle').innerText=pages[id].t;document.getElementById('dedBody').innerHTML=pages[id].b;document.getElementById('dedModal').classList.add('open');if(push)history.pushState({p:id},'','#'+id);}
+function closeDedicated(push=true){document.getElementById('dedModal').classList.remove('open');if(push)history.pushState({},'',window.location.pathname);}
+window.addEventListener('popstate',e=>{if(e.state&&e.state.p)openDedicated(e.state.p,false);else closeDedicated(false);});
+</script>
+</body>
+</html>
+
