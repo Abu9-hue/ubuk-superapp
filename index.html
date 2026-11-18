@@ -229,7 +229,38 @@ const pages={
     `
   },
   
-  p2:{t:'2. UBUK KO\'ONE • Solidarité Locale & Réassurance Globale',b:'Étape 3 à finaliser ensemble : Caisses villageoises autonomes, réassurance Direction et Zakat 4 Écoles.'},
+    p2:{
+    t:'2. UBUK KO\'ONE • Solidarité Locale & Réassurance Globale',
+    b:`
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px;margin-bottom:14px">
+        <div style="background:#07111d;border:1px solid #10b981;border-radius:12px;padding:12px">
+          <strong style="color:#10b981;font-size:.92rem">🏘️ Niveau 1 : Caisses Villageoises Autonomes</strong>
+          <p style="font-size:.82rem;margin-top:6px;line-height:1.45">Chaque village ou groupement gère librement ses cotisations et secours locaux pour ses propres <strong>Orphelins, Veuves, Malades et Sinistrés</strong> avec validation communautaire directe.</p>
+        </div>
+        <div style="background:#07111d;border:1px solid #f3d46e;border-radius:12px;padding:12px">
+          <strong style="color:#f3d46e;font-size:.92rem">🛡️ Niveau 2 : Réassurance Globale Direction</strong>
+          <p style="font-size:.82rem;margin-top:6px;line-height:1.45">Lorsqu'un sinistre ou une urgence dépasse la capacité d'une caisse locale, le fonds central de réassurance prend le relais sous <strong>48h</strong> sans aucun intérêt.</p>
+        </div>
+      </div>
+      <div style="background:#07111d;border:1px solid #d4af37;border-radius:12px;padding:12px;margin-bottom:14px">
+        <strong style="color:#f3d46e;font-size:.9rem">🕌 Calculateur de Zakat Conforme aux 4 Écoles (2,5 %)</strong>
+        <p style="font-size:.78rem;color:#94a3b8;margin:4px 0 8px">Conforme aux écoles Hanafite, Malikite, Chaféite et Hanbalite • Affectation exclusive aux 8 catégories coraniques.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <input id="zakW" type="number" placeholder="Épargne nette XAF" style="padding:8px;border-radius:8px;border:1px solid #d4af37;background:#040a10;color:#fff;width:165px">
+          <button onclick="const w=Number(document.getElementById('zakW').value);const z=(w*0.025).toLocaleString('fr-FR');document.getElementById('zakR').innerText=w>0?'✅ Zakat due (2,5 %) : '+z+' XAF — Versée à 100 % dans le Compte Étanche n°2 (Zakat).':'Entrez votre épargne nette annuelle.';" style="background:#10b981;color:#fff;font-weight:800;border:none;padding:8px 14px;border-radius:8px;cursor:pointer">Calculer Zakat</button>
+        </div>
+        <div id="zakR" style="margin-top:8px;font-size:.82rem;color:#10b981;font-weight:700"></div>
+      </div>
+      <h3 style="color:#f3d46e;font-size:.95rem;margin-bottom:8px">📋 Les 4 Carrés Prioritaires de Protection</h3>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:.8rem">
+        <div style="background:#07111d;padding:9px;border-radius:8px;border-left:3px solid #f3d46e"><strong>01. Orphelins :</strong> Parrainage scolaire, alimentaire et médical continu.</div>
+        <div style="background:#07111d;padding:9px;border-radius:8px;border-left:3px solid #10b981"><strong>02. Veuves :</strong> Prévoyance familiale et dotation d'activités génératrices.</div>
+        <div style="background:#07111d;padding:9px;border-radius:8px;border-left:3px solid #38bdf8"><strong>03. Malades :</strong> Prise en charge des soins urgents et médicaments.</div>
+        <div style="background:#07111d;padding:9px;border-radius:8px;border-left:3px solid #f97316"><strong>04. Sinistrés :</strong> Kits de survie et relogement d'urgence sous 48h.</div>
+      </div>
+    `
+  },
+    
   p3:{t:'3. 54 Ministères des Finances, Agences & Bourse de Financement',b:'Étape 4 à finaliser ensemble : Observatoire des 54 États, contre-audit des agences et Bourse productive.'},
   p4:{t:'4. Matières Premières, Zones de Conflits & Empreinte de l\'Usure',b:'Étape 5 à finaliser ensemble : Cartographie ressources/conflits et étude Usury Footprint (FMI/Banque Mondiale).'},
   p5:{t:'5. Agences de Presse & Podcast Souverain',b:'Étape 6 à finaliser ensemble : Fil stratégique filtré et bulletin audio bas débit.'},
