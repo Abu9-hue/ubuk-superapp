@@ -94,4 +94,60 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background-color:#050b12;backgr
     <div class="kpi-box">
       <div class="kpi-head">SINISTRÉS & RATIONS <span>100%</span></div>
       <svg viewBox="0 0 200 50" style="width:100%;height:38px;margin-bottom:4px"><polyline points="0,42 35,28 70,35 105,18 140,24 175,10 200,8" fill="none" stroke="#f3d46e" stroke-width="2"/><polyline points="0,46 35,38 70,40 105,28 140,30 175,18 200,14" fill="none" stroke="#10b981" stroke-width="2"/></svg>
-                                                                                                               
+             <div class="kpi-nums"><div><b>100%</b><small>Réactivité</small></div><div><b>1 250</b><small>Kits</small></div><div><b>48h</b><small>Délai</small></div></div>
+    </div>
+  </div>
+  <div class="rainbow-grid">
+    <button class="r-btn c-red" onclick="openDedicated('p1')">1. Carte UBUK PAY</button>
+    <button class="r-btn c-green" onclick="openDedicated('p2')">2. UBUK KO'ONE • Solidarité</button>
+    <button class="r-btn c-orange" onclick="openDedicated('p3')">3. 54 Ministères & Bourse</button>
+    <button class="r-btn c-blue" onclick="openDedicated('p4')">4. Ressources, Conflits & Usure</button>
+    <button class="r-btn c-indigo" onclick="openDedicated('p5')">5. Presse & Podcast</button>
+    <button class="r-btn c-violet" onclick="openDedicated('p6')">6. Savoir, Kalam & Dessin</button>
+  </div>
+</div>
+<div id="dedModal" class="page-modal">
+  <div class="modal-inner">
+    <div class="modal-top"><h2 id="dedTitle" style="color:#f3d46e;font-size:1.1rem">Page Dédiée</h2><button class="btn-retour" onclick="closeDedicated()">⬅ Retour à UBUK.NET</button></div>
+    <div id="dedBody" style="color:#cbd5e1;font-size:.92rem"></div>
+  </div>
+</div>
+<script>
+const feeds=[
+  {color:'#dc2626',text:'💳 CARTE UBUK PAY • Standard Universel 0% Usure'},
+  {color:'#10b981',text:'🤝 UBUK KO\'ONE • Solidarité & Zakat 4 Écoles'},
+  {color:'#ea580c',text:'🏛️ 54 MINISTÈRES & BOURSE • Audit & Contre-Notation'},
+  {color:'#2563eb',text:'💎 OR 4054.45 USD • CACAO 3057 XAF • Usure'},
+  {color:'#4f46e5',text:'📰 PRESSE & PODCAST • Bulletin Bas Débit'},
+  {color:'#9333ea',text:'🎓 SAVOIR & KALAM • RASM, eszo28D & Dessin'}
+];
+let fIdx=0;
+setInterval(()=>{fIdx=(fIdx+1)%feeds.length;document.getElementById('globeBox').style.setProperty('--glow',feeds[fIdx].color);document.getElementById('newsTicker').innerText=feeds[fIdx].text;},3500);
+const cv=document.getElementById('globeCanvas'),ctx=cv.getContext('2d');let rot=0;
+function drawGlobe(){
+  const w=cv.width,h=cv.height,r=w/2;ctx.clearRect(0,0,w,h);
+  const g=ctx.createRadialGradient(r*0.7,r*0.6,10,r,r,r);g.addColorStop(0,'#1e6091');g.addColorStop(0.6,'#0b253a');g.addColorStop(1,'#040c14');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.fill();
+  ctx.save();ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.clip();
+  ctx.strokeStyle='rgba(243,212,110,0.28)';ctx.lineWidth=1;
+  for(let i=-3;i<=3;i++){const y=r+i*(r/3.5);ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+  for(let i=0;i<6;i++){const a=rot+i*(Math.PI/3),rx=Math.abs(Math.cos(a))*r;ctx.beginPath();ctx.ellipse(r,r,rx,r,0,0,Math.PI*2);ctx.stroke();}
+  ctx.fillStyle='rgba(212,175,55,0.65)';const px=r+Math.sin(rot)*45,py=r-10;ctx.beginPath();ctx.ellipse(px,py,38,52,0.2,0,Math.PI*2);ctx.fill();
+  ctx.restore();rot+=0.012;requestAnimationFrame(drawGlobe);
+}
+drawGlobe();
+const pages={
+  p1:{t:'1. Carte UBUK PAY • Standard Universel & 7 Comptes Étanches',b:'Étape 2 à finaliser ensemble : Carte UBUK PAY, biométrie Aratek et commutateur financier.'},
+  p2:{t:'2. UBUK KO\'ONE • Solidarité Locale & Réassurance Globale',b:'Étape 3 à finaliser ensemble : Caisses villageoises autonomes, réassurance Direction et Zakat 4 Écoles.'},
+  p3:{t:'3. 54 Ministères des Finances, Agences & Bourse de Financement',b:'Étape 4 à finaliser ensemble : Observatoire des 54 États, contre-audit des agences et Bourse productive.'},
+  p4:{t:'4. Matières Premières, Zones de Conflits & Empreinte de l\'Usure',b:'Étape 5 à finaliser ensemble : Cartographie ressources/conflits et étude Usury Footprint (FMI/Banque Mondiale).'},
+  p5:{t:'5. Agences de Presse & Podcast Souverain',b:'Étape 6 à finaliser ensemble : Fil stratégique filtré et bulletin audio bas débit.'},
+  p6:{t:'6. Savoir (RASM / eszo28D), Formation, Tablette Kalam & Dessin',b:'Étape 7 à finaliser ensemble : RASM, eszo28D, programme complet et atelier Tablette Kalam + Dessin.'}
+};
+function openDedicated(id,push=true){if(!pages[id])return;document.getElementById('dedTitle').innerText=pages[id].t;document.getElementById('dedBody').innerHTML=pages[id].b;document.getElementById('dedModal').classList.add('open');if(push)history.pushState({p:id},'','#'+id);}
+function closeDedicated(push=true){document.getElementById('dedModal').classList.remove('open');if(push)history.pushState({},'',window.location.pathname);}
+window.addEventListener('popstate',e=>{if(e.state&&e.state.p)openDedicated(e.state.p,false);else closeDedicated(false);});
+</script>
+</body>
+</html>
+
