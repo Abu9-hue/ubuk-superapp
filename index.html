@@ -153,14 +153,11 @@ const feeds=[
   {color:'#ef4444',dx:2,dy:2,text:'💳 CARTE UBUK PAY • Douala 🇨🇲 • 0% Intérêt'},
   {color:'#10b981',dx:-14,dy:-4,text:'🤝 UBUK KO\'ONE • Bouaké 🇨🇮 • Zakat 4 Écoles'},
   {color:'#f97316',dx:4,dy:1,text:'🏛️ 54 MINISTÈRES • Yaoundé 🇨🇲 • Étude Souveraine'},
-    {color:'#3b82f6',dx:-20,dy:-10,text:'💎 OR 4054.45 USD • Dakar 🇸🇳 • Empreinte Usure'},
+  {color:'#3b82f6',dx:-20,dy:-10,text:'💎 OR 4054.45 USD • Dakar 🇸🇳 • Empreinte Usure'},
   {color:'#6366f1',dx:-12,dy:-14,text:'📰 PRESSE & PODCAST • Mopti 🇲🇱 • Bulletin Bas Débit'},
   {color:'#a855f7',dx:16,dy:-16,text:'🎓 SAVOIR & KALAM • Le Caire 🇪🇬 • RASM & esreo 28D'}
 ];
 let fIdx=0,pulse=0;
-     
-let fIdx=0,pulse=0;
-   
 setInterval(()=>{fIdx=(fIdx+1)%feeds.length;document.getElementById('globeBox').style.setProperty('--glow',feeds[fIdx].color);document.getElementById('newsTicker').innerText=feeds[fIdx].text;},3500);
 const cv=document.getElementById('globeCanvas'),ctx=cv.getContext('2d');let rot=0;
 function drawGlobe(){
@@ -188,10 +185,10 @@ function drawGlobe(){
   }
   const sh=ctx.createRadialGradient(r*0.42,r*0.3,2,r*0.42,r*0.3,r*0.48);sh.addColorStop(0,'rgba(255,255,255,0.68)');sh.addColorStop(1,'rgba(255,255,255,0)');
   ctx.fillStyle=sh;ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.fill();
-  drawGlobe();
-const pages={
- 
-      ctx.strokeStyle=front?'#fef08a':'rgba(243,212,110,0.32)';ctx.
+  ctx.restore();rot+=0.0035;pulse+=0.025;requestAnimationFrame(drawGlobe);
+}
+drawGlobe();
+   
 const pages={
     p1:{
     t:'1. Carte UBUK PAY • Standard Universel & Dorsale Financière',
