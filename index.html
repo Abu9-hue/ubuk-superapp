@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+j<!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
@@ -187,7 +187,48 @@ function drawGlobe(){
 }
 drawGlobe();
 const pages={
-  p1:{t:'1. Carte UBUK PAY • Standard Universel & 7 Comptes Étanches',b:'Étape 2 à finaliser ensemble : Carte UBUK PAY, biométrie Aratek et commutateur financier.'},
+    p1:{
+    t:'1. Carte UBUK PAY • Standard Universel & Dorsale Financière',
+    b:`
+      <div style="background:linear-gradient(135deg,#0d2638,#07131e);border:2px solid #d4af37;border-radius:16px;padding:16px;margin-bottom:14px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+          <strong style="color:#f3d46e;font-size:1.1rem;letter-spacing:1.5px">UBUK PAY</strong>
+          <span style="background:rgba(16,185,129,.2);color:#10b981;border:1px solid #10b981;padding:2px 10px;border-radius:999px;font-size:.7rem;font-weight:800">STANDARD UNIVERSEL</span>
+        </div>
+        <div style="width:38px;height:26px;background:linear-gradient(135deg,#f3d46e,#b89020);border-radius:5px;margin-bottom:10px"></div>
+        <div style="font-family:monospace;font-size:1rem;letter-spacing:2px;color:#fff;margin-bottom:8px">UBUK • 5400 • 2800 • 0001</div>
+        <div style="font-size:.74rem;color:#94a3b8">BIOMÉTRIE ARATEK • RÉSEAU USSD HORS-LIGNE • 0% INTÉRÊT</div>
+      </div>
+      <p style="margin-bottom:12px;line-height:1.5">À l'image des standards mondiaux, la <strong>Carte UBUK PAY</strong> relie banques, microfinances, assurances, Mobile Money et États avec <strong>0 % d'intérêt</strong>, avec ou sans smartphone.</p>
+      <div style="background:#07111d;border:1px solid #10b981;border-radius:12px;padding:12px;margin-bottom:14px">
+        <strong style="color:#10b981;font-size:.9rem">🎛️ Simulateur d'Affectation Étanche (Zéro Mélange)</strong>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+          <input id="simM" type="number" placeholder="Montant XAF" style="padding:8px;border-radius:8px;border:1px solid #d4af37;background:#040a10;color:#fff;width:135px">
+          <select id="simC" style="padding:8px;border-radius:8px;border:1px solid #d4af37;background:#040a10;color:#fff">
+            <option>1. Épargne Souveraine</option>
+            <option>2. Zakat (4 Écoles)</option>
+            <option>3. Sadaqah & Dons Purs</option>
+            <option>4. Waqf Perpétuel</option>
+            <option>5. Solidarité UBUK KO'ONE</option>
+            <option>6. Éducation & Kalam</option>
+          </select>
+          <button onclick="const m=document.getElementById('simM').value,c=document.getElementById('simC').value;document.getElementById('simR').innerText=m>0?'✅ '+Number(m).toLocaleString('fr-FR')+' XAF affectés à 100 % au compte '+c+' (Étanchéité garantie).':'Entrez un montant.';" style="background:#10b981;color:#fff;font-weight:800;border:none;padding:8px 14px;border-radius:8px;cursor:pointer">Simuler</button>
+        </div>
+        <div id="simR" style="margin-top:8px;font-size:.82rem;color:#f3d46e;font-weight:700"></div>
+      </div>
+      <h3 style="color:#f3d46e;font-size:.98rem;margin-bottom:8px">🔒 Les 7 Comptes Strictement Étanches</h3>
+      <div style="display:grid;gap:6px;font-size:.84rem">
+        <div style="background:#07111d;padding:8px 10px;border-radius:8px;border-left:3px solid #10b981"><strong>1. Épargne Souveraine :</strong> Capital personnel inviolable sans frais cachés.</div>
+        <div style="background:#07111d;padding:8px 10px;border-radius:8px;border-left:3px solid #f3d46e"><strong>2. Zakat (4 Écoles) :</strong> Réservée exclusivement aux 8 catégories coraniques.</div>
+        <div style="background:#07111d;padding:8px 10px;border-radius:8px;border-left:3px solid #f3d46e"><strong>3. Sadaqah & Dons Purs :</strong> Aide directe aux projets et personnes vulnérables.</div>
+        <div style="background:#07111d;padding:8px 10px;border-radius:8px;border-left:3px solid #f3d46e"><strong>4. Waqf Perpétuel :</strong> Actifs durables générant des revenus d'intérêt général.</div>
+        <div style="background:#07111d;padding:8px 10px;border-radius:8px;border-left:3px solid #10b981"><strong>5. Solidarité UBUK KO'ONE :</strong> Réassurance mutuelle des groupements villageois.</div>
+        <div style="background:#07111d;padding:8px 10px;border-radius:8px;border-left:3px solid #38bdf8"><strong>6. Éducation & Kalam :</strong> Bourses et formations (1 000 XAF/mois).</div>
+        <div style="background:#07111d;padding:8px 10px;border-radius:8px;border-left:3px solid #94a3b8"><strong>7. Fonctionnement Plafonné :</strong> Bouclier transparent de 100 à 250 XAF/jour.</div>
+      </div>
+    `
+  },
+  
   p2:{t:'2. UBUK KO\'ONE • Solidarité Locale & Réassurance Globale',b:'Étape 3 à finaliser ensemble : Caisses villageoises autonomes, réassurance Direction et Zakat 4 Écoles.'},
   p3:{t:'3. 54 Ministères des Finances, Agences & Bourse de Financement',b:'Étape 4 à finaliser ensemble : Observatoire des 54 États, contre-audit des agences et Bourse productive.'},
   p4:{t:'4. Matières Premières, Zones de Conflits & Empreinte de l\'Usure',b:'Étape 5 à finaliser ensemble : Cartographie ressources/conflits et étude Usury Footprint (FMI/Banque Mondiale).'},
