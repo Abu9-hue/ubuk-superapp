@@ -155,6 +155,8 @@ const feeds=[
   {color:'#a855f7',dx:16,dy:-16,text:'🎓 SAVOIR & KALAM • Le Caire 🇪🇬 • RASM & esreo 28D'}
 ];
 let fIdx=0,pulse=0;
+    const cv=document.getElementById('globeCanvas'),ctx=cv.getContext('2d');let rot=0;
+    
 function drawGlobe(){
   const w=cv.width,h=cv.height,r=w/2,cur=feeds[fIdx];ctx.clearRect(0,0,w,h);
   const g=ctx.createRadialGradient(r*0.65,r*0.55,10,r,r,r);g.addColorStop(0,'#ffffff');g.addColorStop(0.78,'#f8fafc');g.addColorStop(1,'#cbd5e1');
