@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>UBUK.NET — Latif Connect Framework</title>
 <style>
-
+*{box-sizing:border-box;margin:0;padding:0}
+  
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background-color:#061120;background-image:radial-gradient(circle at 50% 42%,rgba(212,175,55,.10),rgba(4,10,20,.88) 76%),repeating-linear-gradient(45deg,rgba(212,175,55,.07) 0,rgba(212,175,55,.07) 1px,transparent 1px,transparent 28px),repeating-linear-gradient(-45deg,rgba(37,99,235,.12) 0,rgba(37,99,235,.12) 1px,transparent 1px,transparent 28px),radial-gradient(circle at 50% 50%,transparent 16px,rgba(212,175,55,.11) 17px,transparent 19px);background-size:100% 100%,40px 40px,40px 40px,80px 80px;color:#f8fafc;min-height:100vh;padding-bottom:28px;overflow-x:hidden}
   
   .wrap{max-width:740px;margin:0 auto;padding:6px 6px 14px}
@@ -156,6 +157,9 @@ const feeds=[
   {color:'#a855f7',dx:16,dy:-16,text:'🎓 SAVOIR & KALAM • Le Caire 🇪🇬 • RASM & esreo 28D'}
 ];
 let fIdx=0,pulse=0;
+    setInterval(()=>{fIdx=(fIdx+1)%feeds.length;document.getElementById('globeBox').style.setProperty('--glow',feeds[fIdx].color);document.getElementById('newsTicker').innerText=feeds[fIdx].text;},3500);
+const cv=document.getElementById('globeCanvas'),ctx=cv.getContext('2d');let rot=0;
+    
 function drawGlobe(){
   const w=cv.width,h=cv.height,r=w/2,cur=feeds[fIdx];ctx.clearRect(0,0,w,h);
   const g=ctx.createRadialGradient(r*0.45,r*0.35,4,r,r,r);g.addColorStop(0,'rgba(255,255,255,0.34)');g.addColorStop(0.55,'rgba(243,212,110,0.06)');g.addColorStop(1,'rgba(212,175,55,0.42)');
