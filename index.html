@@ -111,4 +111,92 @@ footer{width:100%;max-width:340px;margin:8px auto 0;padding:3px 2px;font-family:
     <div class="benef-slot"><div class="pill-top">MALADE</div><div class="card-p"><span class="num-badge">03</span><span class="num-wm">03</span><div class="avatar-box">👴🏾</div><div class="p-info"><strong>03 - Ibrahim</strong><span>52 ans • Dakar 🇸🇳</span><div style="margin-top:2px;font-size:.48rem;color:#f3d46e;font-weight:800">Indiv. : 410k/450k (91%)</div><div style="height:3px;background:#1e293b;border-radius:3px;margin-top:2px"><div style="width:91%;height:100%;background:#10b981"></div></div></div></div></div>
     <div class="benef-slot"><div class="pill-top">SINISTRÉ</div><div class="card-p"><span class="num-badge">04</span><span class="num-wm">04</span><div class="avatar-box">👩🏾</div><div class="p-info"><strong>04 - Fatoumata</strong><span>29 ans • Mopti 🇲🇱</span><div style="margin-top:2px;font-size:.48rem;color:#f3d46e;font-weight:800">Indiv. : 200k/200k (100%)</div><div style="height:3px;background:#1e293b;border-radius:3px;margin-top:2px"><div style="width:100%;height:100%;background:#10b981"></div></div></div></div></div>
   </div>
-  
+    <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-head">GLOBAL SANTÉ & MALADES <span>91.0%</span></div>
+      <svg viewBox="0 0 200 50" style="width:100%;height:34px;margin-bottom:4px"><polygon points="0,50 0,38 40,26 80,32 120,16 160,22 200,6 200,50" fill="rgba(16,185,129,.25)"/><polyline points="0,38 40,26 80,32 120,16 160,22 200,6" fill="none" stroke="#10b981" stroke-width="2.5"/></svg>
+      <div class="kpi-nums"><div><b>328M</b><small>Collecté XAF</small></div><div><b>18 420</b><small>Bénéficiaires</small></div><div><b>0%</b><small>Intérêt</small></div></div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-head">GLOBAL SINISTRÉS & RATIONS <span>100%</span></div>
+      <svg viewBox="0 0 200 50" style="width:100%;height:34px;margin-bottom:4px"><polyline points="0,42 35,28 70,35 105,18 140,24 175,10 200,8" fill="none" stroke="#f3d46e" stroke-width="2"/><polyline points="0,46 35,38 70,40 105,28 140,30 175,18 200,14" fill="none" stroke="#10b981" stroke-width="2"/></svg>
+      <div class="kpi-nums"><div><b>195M</b><small>Collecté XAF</small></div><div><b>1 250</b><small>Bénéficiaires</small></div><div><b>0%</b><small>Intérêt</small></div></div>
+    </div>
+  </div>
+  <div class="rainbow-grid">
+    <button class="r-btn" style="--bc:#ef4444" onclick="openDedicated('p1')"><i></i>1. Carte UBUK PAY</button>
+    <button class="r-btn" style="--bc:#10b981" onclick="openDedicated('p2')"><i></i>2. UBUK KO'ONE</button>
+    <button class="r-btn" style="--bc:#f97316" onclick="openDedicated('p3')"><i></i>3. 54 Ministères</button>
+    <button class="r-btn" style="--bc:#3b82f6" onclick="openDedicated('p4')"><i></i>4. Ressources & Usure</button>
+    <button class="r-btn" style="--bc:#6366f1" onclick="openDedicated('p5')"><i></i>5. Presse & Podcast</button>
+    <button class="r-btn" style="--bc:#a855f7" onclick="openDedicated('p6')"><i></i>6. Savoir & Kalam</button>
+  </div>
+  <footer>
+    <span style="white-space:nowrap">FEFEO Group SARL</span> • <span style="white-space:nowrap">Capital Social : 2 000 000 FCFA</span> • <span style="white-space:nowrap">RCCM : RC/DLA/2022/B/3075 du 24/05/2022</span> (TPI Douala-Bonanjo) • <span style="white-space:nowrap">NIU : M052217354278H</span> • <span style="white-space:nowrap">CDI Douala 2</span> • <span style="white-space:nowrap">Régime Fiscal : RSI</span> • Siège Social : Douala 2 (Derrière Boulangerie COAF), Cameroun • Contacts Officiels : <span style="white-space:nowrap">+237 679 70 50 38</span> / <span style="white-space:nowrap">+237 697 01 56 43</span> • <span style="white-space:nowrap">contact@ubuk.net</span>
+  </footer>
+</div>
+<div id="dedModal" class="page-modal">
+  <div class="modal-inner">
+    <div class="modal-top"><h2 id="dedTitle" style="color:#f3d46e;font-size:1.1rem">Page Dédiée</h2><button class="btn-retour" onclick="closeDedicated()">⬅ Retour à UBUK.NET</button></div>
+    <div id="dedBody" style="color:#cbd5e1;font-size:.92rem"></div>
+  </div>
+</div>
+<script>
+const feeds=[
+  {color:'#ef4444',dx:2,dy:2,text:'💳 CARTE UBUK PAY • Douala 🇨🇲 • 0% Intérêt'},
+  {color:'#10b981',dx:-14,dy:-4,text:'🤝 UBUK KO\'ONE • Bouaké 🇨🇮 • Zakat 4 Écoles'},
+  {color:'#f97316',dx:4,dy:1,text:'🏛️ 54 MINISTÈRES • Yaoundé 🇨🇲 • Étude Souveraine'},
+  {color:'#3b82f6',dx:-20,dy:-10,text:'💎 OR 4054.45 USD • Dakar 🇸🇳 • Empreinte Usure'},
+  {color:'#6366f1',dx:-12,dy:-14,text:'📰 PRESSE & PODCAST • Mopti 🇲🇱 • Bulletin Bas Débit'},
+  {color:'#a855f7',dx:16,dy:-16,text:'🎓 SAVOIR & KALAM • Le Caire 🇪🇬 • RASM & esreo 28D'}
+];
+let fIdx=0,pulse=0;
+setInterval(()=>{fIdx=(fIdx+1)%feeds.length;document.getElementById('globeBox').style.setProperty('--glow',feeds[fIdx].color);document.getElementById('newsTicker').innerText=feeds[fIdx].text;},3500);
+const cv=document.getElementById('globeCanvas'),ctx=cv.getContext('2d');let rot=0;
+function drawGlobe(){
+  const w=cv.width,h=cv.height,r=w/2,cur=feeds[fIdx];ctx.clearRect(0,0,w,h);
+  const g=ctx.createRadialGradient(r*0.6,r*0.5,6,r,r,r);g.addColorStop(0,'rgba(255,255,255,0.18)');g.addColorStop(0.55,'rgba(243,212,110,0.06)');g.addColorStop(1,'rgba(212,175,55,0.22)');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.fill();
+  ctx.save();ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.clip();
+  ctx.strokeStyle='rgba(243,212,110,0.38)';ctx.lineWidth=1;
+  for(let i=-3;i<=3;i++){const y=r+i*(r/3.5);ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
+  for(let i=0;i<6;i++){const a=rot+i*(Math.PI/3),rx=Math.abs(Math.cos(a))*r;ctx.beginPath();ctx.ellipse(r,r,rx,r,0,0,Math.PI*2);ctx.stroke();}
+  const drawC=(front)=>{
+    ctx.fillStyle=front?'rgba(243,212,110,0.45)':'rgba(243,212,110,0.12)';
+    ctx.strokeStyle=front?'rgba(254,240,138,0.9)':'rgba(243,212,110,0.2)';ctx.lineWidth=front?1.4:0.8;
+    const ax=r+Math.sin(rot+2.2)*56;
+    if((front&&Math.cos(rot+2.2)>0)||(!front&&Math.cos(rot+2.2)<=0)){ctx.beginPath();ctx.ellipse(ax,r-8,20,38,-0.2,0,Math.PI*2);ctx.fill();ctx.stroke();}
+    const ex=r+Math.sin(rot+0.5)*56;
+    if((front&&Math.cos(rot+0.5)>0)||(!front&&Math.cos(rot+0.5)<=0)){ctx.beginPath();ctx.ellipse(ex+16,r-28,32,18,0.1,0,Math.PI*2);ctx.fill();ctx.stroke();}
+    const ox=r+Math.sin(rot)*54;
+    if((front&&Math.cos(rot)>-0.25)||(!front&&Math.cos(rot)<=-0.25)){
+      ctx.beginPath();ctx.moveTo(ox-18,r-42);ctx.lineTo(ox+14,r-40);ctx.lineTo(ox+30,r-12);ctx.lineTo(ox+16,r+38);ctx.lineTo(ox+2,r+48);ctx.lineTo(ox-6,r+12);ctx.lineTo(ox-28,r-4);ctx.lineTo(ox-26,r-24);ctx.closePath();ctx.fill();ctx.stroke();
+      if(front){
+        const px=ox+cur.dx,py=r+cur.dy,rad=5+Math.sin(pulse)*3.5;
+        ctx.beginPath();ctx.arc(px,py,rad+6,0,Math.PI*2);ctx.fillStyle=cur.color+'55';ctx.fill();
+        ctx.beginPath();ctx.arc(px,py,5,0,Math.PI*2);ctx.fillStyle=cur.color;ctx.fill();
+        ctx.strokeStyle='#ffffff';ctx.lineWidth=1.6;ctx.stroke();
+      }
+    }
+  };
+  drawC(false);drawC(true);
+  const sh=ctx.createRadialGradient(r*0.55,r*0.45,2,r*0.55,r*0.45,r*0.45);sh.addColorStop(0,'rgba(255,255,255,0.45)');sh.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=sh;ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.fill();
+  ctx.restore();rot+=0.004;pulse+=0.1;requestAnimationFrame(drawGlobe);
+}
+drawGlobe();
+const pages={
+  p1:{t:'1. Carte UBUK PAY • Standard Universel & 7 Comptes Étanches',b:'Étape 2 à finaliser ensemble : Carte UBUK PAY, biométrie Aratek et commutateur financier.'},
+  p2:{t:'2. UBUK KO\'ONE • Solidarité Locale & Réassurance Globale',b:'Étape 3 à finaliser ensemble : Caisses villageoises autonomes, réassurance Direction et Zakat 4 Écoles.'},
+  p3:{t:'3. 54 Ministères des Finances, Agences & Bourse de Financement',b:'Étape 4 à finaliser ensemble : Observatoire des 54 États, contre-audit des agences et Bourse productive.'},
+  p4:{t:'4. Matières Premières, Zones de Conflits & Empreinte de l\'Usure',b:'Étape 5 à finaliser ensemble : Cartographie ressources/conflits et étude Usury Footprint (FMI/Banque Mondiale).'},
+  p5:{t:'5. Agences de Presse & Podcast Souverain',b:'Étape 6 à finaliser ensemble : Fil stratégique filtré et bulletin audio bas débit.'},
+  p6:{t:'6. Savoir (RASM / esreo 28D), Formation, Tablette Kalam & Dessin',b:'Étape 7 à finaliser ensemble : RASM, esreo 28D, programme complet et atelier Tablette Kalam + Dessin.'}
+};
+function openDedicated(id,push=true){if(!pages[id])return;document.getElementById('dedTitle').innerText=pages[id].t;document.getElementById('dedBody').innerHTML=pages[id].b;document.getElementById('dedModal').classList.add('open');if(push)history.pushState({p:id},'','#'+id);}
+function closeDedicated(push=true){document.getElementById('dedModal').classList.remove('open');if(push)history.pushState({},'',window.location.pathname);}
+window.addEventListener('popstate',e=>{if(e.state&&e.state.p)openDedicated(e.state.p,false);else closeDedicated(false);});
+</script>
+</body>
+</html>
+
