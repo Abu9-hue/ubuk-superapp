@@ -184,7 +184,7 @@ function drawGlobe(){
     land(new Array(20,34,30,18),new Array(20,22,34,32),0.4);
     const afX=land([-16,-6,4,14,18,28,24,18,12,6,0,-4,-10,-22,-25,-22],[-36,-38,-35,-28,-18,-10,6,24,42,46,24,10,4,2,-12,-26],0);
     
-  const afX=land([-16,-4,8,16,26,22,14,6,0,-6,-14,-24,-22],[-36,-38,-34,-26,-10,8,28,44,42,16,6,-2,-20],0);
+  
   if(afX!==null){
     const px=afX+cur.dx,py=r+cur.dy,rad=5+Math.sin(pulse)*3.5;
     ctx.beginPath();ctx.arc(px,py,rad+6,0,Math.PI*2);ctx.fillStyle=cur.color+'66';ctx.fill();
