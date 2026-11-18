@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>UBUK.NET — Latif Connect Framework</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:00deg);background-size:90px 90px,90px 90px;color:#f8fafc;min-height:100vh;padding-bottom:28px;overflow-x:hidden}
+  const sh=ctx.createRadialGradient(r*0.42,r*0.3,2,r*0.42,r*0.3,r*0.48);sh.addColorStop(0,'rgba(255,255,255,0.68)');sh.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=sh;ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.fill();
+  ctx.restore();rot+=0.0035;pulse+=0.025;requestAnimationFrame(drawGlobe);
+  }
+  
   body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background-color:#050f1f;background-image:radial-gradient(circle at 50% 50%,rgba(243,212,110,.22) 2px,transparent 3px,transparent 16px,rgba(37,99,235,.45) 17px,transparent 20px,transparent 32px,rgba(212,175,55,.32) 33px,transparent 36px),repeating-conic-gradient(from 0deg at 50% 50%,rgba(212,175,55,.18) 0deg 15deg,rgba(15,40,80,.42) 15deg 30deg);background-size:84px 84px,84px 84px;color:#f8fafc;min-height:100vh;padding-bottom:28px;overflow-x:hidden}
  
   
@@ -193,6 +197,11 @@ function drawGlobe(){
     const px=afX+cur.dx,py=r+cur.dy,p1=(pulse%1),p2=((pulse+0.5)%1);
     const beam=ctx.createLinearGradient(px,py,r,r);beam.addColorStop(0,cur.color+'dd');beam.addColorStop(1,cur.color+'15');
     ctx.strokeStyle=beam;ctx.lineWidth=2.4;ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(r,r);ctx.stroke();
+      const sh=ctx.createRadialGradient(r*0.42,r*0.3,2,r*0.42,r*0.3,r*0.48);sh.addColorStop(0,'rgba(255,255,255,0.68)');sh.addColorStop(1,'rgba(255,255,255,0)');
+  ctx.fillStyle=sh;ctx.beginPath();ctx.arc(r,r,r-2,0,Math.PI*2);ctx.fill();
+  ctx.restore();rot+=0.0035;pulse+=0.025;requestAnimationFrame(drawGlobe);
+  }
+  
     ctx.beginPath();ctx.arc(r,r,4+p1*11,0,Math.PI*2);ctx.fillStyle=cur.color+'38';ctx.fill();
     [p1,p2].forEach(p=>{ctx.beginPath();ctx.arc(px,py,4+p*19,0,Math.PI*2);ctx.strokeStyle=cur.color;ctx.globalAlpha=1-p;ctx.lineWidth=1.9;ctx.stroke();ctx.globalAlpha=1;});
     ctx.beginPath();ctx.arc(px,py,4.8,0,Math.PI*2);ctx.fillStyle=cur.color;ctx.fill();ctx.strokeStyle='#ffffff';ctx.lineWidth=1.6;ctx.stroke();
