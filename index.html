@@ -189,4 +189,40 @@ function drawGlobe(){
 }
 drawGlobe();
     </div>
-  
+  const pages={
+  p1:{
+    t:'1. Carte UBUK PAY • Dorsale Financière & Ubuntu Connect',
+    b:`<div style="background:linear-gradient(135deg,#050d1a 0%,#12284c 55%,#3b2606 100%);border:2px solid #d4af37;border-radius:14px;padding:12px;margin-bottom:12px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><strong style="color:#f3d46e;font-size:.8rem">💳 CARTE UBUK PAY • STANDARD UNIVERSEL</strong><span style="background:rgba(16,185,129,.2);border:1px solid #10b981;color:#10b981;font-size:.64rem;padding:2px 7px;border-radius:999px;font-weight:800">0 % INTÉRÊT</span></div><div style="font-family:monospace;color:#f8fafc;font-size:.82rem;letter-spacing:1.2px;margin-bottom:6px">UBUK • 1448H • 2026 • 54 ÉTATS</div><div style="display:flex;justify-content:space-between;font-size:.66rem;color:#cbd5e1"><span>Biométrie Aratek • USSD Hors-Ligne</span><span style="color:#fef08a;font-weight:800">7 COMPTES ÉTANCHES</span></div></div>
+    <h3 style="color:#f3d46e;font-size:.82rem;margin-bottom:6px">🌍 LES 3 LEVIERS UBUNTU CONNECT & LATIF FRAMEWORK</h3>
+    <div style="display:grid;gap:7px;margin-bottom:12px;font-size:.73rem">
+      <div style="background:#07111d;border-left:4px solid #ef4444;border-radius:8px;padding:8px"><strong style="color:#fca5a5;display:block">1. Passeport Biométrique Souverain (Aratek)</strong>Mon empreinte = mon passeport économique. Ouverture des 7 comptes étanches sans papier requis, accessible par empreinte et USSD (*...#) en zone rurale.</div>
+      <div style="background:#07111d;border-left:4px solid #f3d46e;border-radius:8px;padding:8px"><strong style="color:#fef08a;display:block">2. Bourse des Talents (« Taking Talent to the World »)</strong>Passerelle entre la Tablette Kalam et la Bourse Productive (0 % usure) : financement Moudharaba / Moucharaka des artisans, ingénieurs et producteurs des 54 États.</div>
+      <div style="background:#07111d;border-left:4px solid #10b981;border-radius:8px;padding:8px"><strong style="color:#6ee7b7;display:block">3. Entraide Circulaire Ubuntu (UBUK KO'ONE)</strong>Traçabilité du parcours d'autonomisation : chaque foyer soutenu (AGR, scolarité, soins) devient à son tour contributeur solidaire de sa caisse villageoise.</div>
+    </div>
+    <div style="background:#07111d;border:1px solid rgba(212,175,55,.4);border-radius:10px;padding:9px;margin-bottom:10px"><strong style="color:#10b981;font-size:.76rem;display:block;margin-bottom:5px">⚡ SIMULATEUR D'AFFECTATION ÉTANCHE (0 % USURE)</strong><div style="display:flex;flex-wrap:wrap;gap:6px"><input id="simM" type="number" placeholder="Montant XAF" style="flex:1;min-width:110px;padding:6px;border-radius:6px;border:1px solid #334155;background:#0b1726;color:#fff"><select id="simC" style="flex:1;min-width:130px;padding:6px;border-radius:6px;border:1px solid #334155;background:#0b1726;color:#f3d46e"><option>1. Épargne Souveraine</option><option>2. Zakat (4 Écoles)</option><option>3. Sadaqah & Dons</option><option>4. Waqf Perpétuel</option><option>5. Solidarité UBUK KO'ONE</option><option>6. Talents & Kalam</option><option>7. Investissement 0%</option></select><button onclick="const m=document.getElementById('simM').value||0,c=document.getElementById('simC').value;document.getElementById('simR').innerHTML='✅ <b>'+Number(m).toLocaleString('fr-FR')+' XAF</b> verrouillés sur <b>'+c+'</b> • 0 % Usure • Passeport Aratek vérifié.'" style="background:#d4af37;color:#050b12;border:none;padding:6px 11px;border-radius:6px;font-weight:900;cursor:pointer">Affecter</button></div><div id="simR" style="margin-top:6px;font-size:.73rem;color:#fef08a"></div></div>
+    <div style="display:grid;gap:4px;font-size:.71rem">
+      <div style="background:#07111d;padding:5px 8px;border-radius:6px"><b>01 • Épargne Souveraine :</b> Réserve personnelle protégée à 100 %</div>
+      <div style="background:#07111d;padding:5px 8px;border-radius:6px"><b>02 • Zakat (4 Écoles) :</b> Hanafite, Malikite, Chafiite, Hanbalite</div>
+      <div style="background:#07111d;padding:5px 8px;border-radius:6px"><b>03 • Sadaqah & Dons :</b> 100 % versé directement aux nécessiteux</div>
+      <div style="background:#07111d;padding:5px 8px;border-radius:6px"><b>04 • Waqf Perpétuel :</b> Immobilisation productive durable</div>
+      <div style="background:#07111d;padding:5px 8px;border-radius:6px"><b>05 • Solidarité UBUK KO'ONE :</b> Caisses villageoises & réassurance</div>
+      <div style="background:#07111d;padding:5px 8px;border-radius:6px"><b>06 • Talents & Kalam :</b> Certification des métiers & RASM / esreo 28D</div>
+      <div style="background:#07111d;padding:5px 8px;border-radius:6px"><b>07 • Investissement Productif :</b> Moudharaba / Moucharaka / Istisna à 0 %</div>
+    </div>`
+  },
+  p2:{
+    t:'2. UBUK KO\'ONE • Solidarité Locale & Réassurance Globale',
+    b:`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-bottom:12px"><div style="background:#07111d;border:1px solid #10b981;border-radius:10px;padding:10px"><strong style="color:#10b981;display:block;margin-bottom:4px">NIVEAU 1 • CAISSE VILLAGEOISE AUTONOME</strong><p style="font-size:.76rem">Collecte locale Zakat, Sadaqah et Waqf. Chaque village gère directement ses orphelins, veuves et malades sans intermédiaire.</p></div><div style="background:#07111d;border:1px solid #f3d46e;border-radius:10px;padding:10px"><strong style="color:#f3d46e;display:block;margin-bottom:4px">NIVEAU 2 • RÉASSURANCE GLOBALE (DIRECTION)</strong><p style="font-size:.76rem">Fonds d'équilibre souverain (54 États) : si une catastrophe frappe une localité, la réassurance prend immédiatement le relais.</p></div></div><div style="background:#07111d;border:1px solid rgba(212,175,55,.4);border-radius:10px;padding:10px"><strong style="color:#f3d46e;display:block;margin-bottom:6px">🕌 CALCULATEUR DE ZAKAT (4 ÉCOLES • 2,5 %)</strong><div style="display:flex;flex-wrap:wrap;gap:6px"><input id="zakM" type="number" placeholder="Épargne nette XAF" style="flex:1;min-width:130px;padding:6px;border-radius:6px;border:1px solid #334155;background:#0b1726;color:#fff"><button onclick="const z=(document.getElementById('zakM').value||0)*0.025;document.getElementById('zakR').innerHTML='✨ Zakat due (2,5 %) : <b>'+Math.round(z).toLocaleString('fr-FR')+' XAF</b> — 100 % versée sur le Carré des Nécessiteux.'" style="background:#10b981;color:#fff;border:none;padding:6px 12px;border-radius:6px;font-weight:800;cursor:pointer">Calculer</button></div><div id="zakR" style="margin-top:6px;font-size:.76rem;color:#fef08a"></div></div>`
+  },
+  p3:{t:'3. 54 Ministères des Finances, Agences & Bourse de Financement',b:'Page dédiée 3 prête à intégrer : Observatoire des 54 États, Contre-Notation UBUK-AAA / Latif Rating et Bourse Productive 0 % Usure.'},
+  p4:{t:'4. Matières Premières, Zones de Conflits & Empreinte de l\'Usure',b:'Page dédiée 4 prête à intégrer : Cartographie des ressources stratégiques et étude Usury Footprint.'},
+  p5:{t:'5. Agences de Presse & Podcast Souverain',b:'Page dédiée 5 prête à intégrer : Fil d\'actualité stratégique filtré et bulletin audio bas débit.'},
+  p6:{t:'6. Savoir (RASM / esreo 28D), Formation, Tablette Kalam & Dessin',b:'Page dédiée 6 prête à intégrer : RASM, esreo 28D, programme de formation et Tablette Kalam + Dessin.'}
+};
+function openDedicated(id,push=true){if(!pages[id])return;document.getElementById('dedTitle').innerText=pages[id].t;document.getElementById('dedBody').innerHTML=pages[id].b;document.getElementById('dedModal').classList.add('open');if(push)history.pushState({p:id},'','#'+id);}
+function closeDedicated(push=true){document.getElementById('dedModal').classList.remove('open');if(push)history.pushState({},'',window.location.pathname);}
+window.addEventListener('popstate',e=>{if(e.state&&e.state.p)openDedicated(e.state.p,false);else closeDedicated(false);});
+</script>
+</body>
+</html>
+
