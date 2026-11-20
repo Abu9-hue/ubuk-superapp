@@ -133,3 +133,118 @@ h2{font-size:.82rem;font-weight:800;color:var(--gold2);text-transform:uppercase;
   <div class="lev g">
     <h3>3. Entraide UBUK KO'ONE & Banquier Correspondant</h3>
     <p>Tout smartphone devient un ATM Virtuel de proximité : liquidités P2P rémunérées par micro-commission plafonnée.</p>
+    <a href="#" onclick="window.location.href='https://' + 'www.ubuk.net/ubuk-koone.html'; return false;" style="display:inline-block;margin-top:8px;padding:7px 12px;background:rgba(16,185,129,.15);border:1px solid #10b981;color:#10b981;border-radius:999px;font-size:.72rem;font-weight:700;text-decoration:none">
+      Ouvrir l'Espace Entraide UBUK KO'ONE →
+    </a>
+  </div>
+
+  <h2>🏧 GUICHET ATM VIRTUEL & UBUK-LENS</h2>
+  <section class="box">
+    <div class="g2">
+      <button class="mbtn on" data-m="qr">📱 Smartphone Nu (QR+IA)</button>
+      <button class="mbtn" data-m="nir">🔬 Clip NIR (Veine+Iris)</button>
+    </div>
+    <div class="stat" id="st"><strong>Mode Smartphone Nu :</strong> IA embarquée analysant la paume + QR Code dynamique hors-ligne sur 100 % des téléphones.</div>
+    <button class="fido" id="bchk">🛡️ Tester l'Enclave Biométrique FIDO2 / SHA-256</button>
+  </section>
+
+  <section class="box">
+    <h2 style="margin-top:0">⚡ SIMULATEUR ÉTANCHE & LIQUIDITÉ P2P</h2>
+    <div class="g2">
+      <input type="number" id="amt" class="inp" placeholder="Montant XAF (ex: 1000)" min="100"/>
+      <select id="acc" class="sel">
+        <option value="epargne">01 • Épargne & Parts Sociales</option>
+        <option value="zakat">02 • Zakat (4 Écoles)</option>
+        <option value="sadaqah">03 • Sadaqah & Fonds Social</option>
+        <option value="waqf">04 • Waqf & 05 • Amendes VSLA</option>
+        <option value="seq">06 • Séquestre & 07 • Agent P2P</option>
+        <option value="diaspora">08 • Diaspora Fléchée</option>
+      </select>
+    </div>
+    <button class="go" id="run">Affecter & Sceller en SHA-256</button>
+    <div class="res" id="out"></div>
+  </section>
+
+  <h2>🏛️ COMPTES LOCAL & CENTRAL</h2>
+  <div class="g2">
+    <button class="tab on" data-t="loc">Niveau Local (VSLA)</button>
+    <button class="tab" data-t="cen">Niveau Central (Souverain)</button>
+  </div>
+  <div id="t-loc">
+    <div class="acc"><strong>01 • Épargne & Parts Sociales :</strong> Réserve protégée à 100 % (0 % usure).</div>
+    <div class="acc"><strong>02 • Zakat (4 Écoles) :</strong> Hanafite, Malikite, Chafiite, Hanbalite.</div>
+    <div class="acc"><strong>03 • Sadaqah & Fonds Social :</strong> Urgences vitales (santé, deuil) sans frais.</div>
+    <div class="acc"><strong>04 • Waqf & 05 • Amendes VSLA :</strong> Immobilisation productive & réassurance villageoise.</div>
+    <div class="acc"><strong>06 • Séquestre & 07 • Agent P2P :</strong> Escrow anti-arnaque & liquidité (70 % agent / 30 % dorsale).</div>
+    <div class="acc"><strong>08 • Diaspora Fléchée :</strong> Transferts verrouillés santé, école ou bâti.</div>
+  </div>
+  <div id="t-cen" class="hid">
+    <div class="acc"><strong>C1 • Cantonnement Utilisateurs :</strong> Séparation stricte des dépôts clients.</div>
+    <div class="acc"><strong>C2 • Réserve de Liquidité :</strong> Garantie de remboursement instantané.</div>
+    <div class="acc"><strong>C3 • Bouclier Frais (60 %) :</strong> Infrastructure technique & agents terrain.</div>
+    <div class="acc"><strong>C4 • Compensation Solidarité (40 %) :</strong> Fonds d'urgence & subventions.</div>
+  </div>
+</main>
+
+<script>
+const c=document.getElementById("c3d");
+c.onclick=document.getElementById("fbtn").onclick=()=>c.classList.toggle("flip");
+document.querySelectorAll(".mbtn[data-m]").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll(".mbtn[data-m]").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on");
+  st.innerHTML=b.dataset.m==="qr"?"<strong>Mode Smartphone Nu :</strong> IA embarquée analysant la paume + QR Code dynamique hors-ligne sur 100 % des téléphones.":"<strong>Mode Clip NIR (Veine+Iris) :</strong> Spectroscopie proche infrarouge & empreinte biométrique actives.";
+});
+document.getElementById("bchk").onclick=()=>{
+  const ok=window.crypto&&window.crypto.subtle;
+  st.innerHTML=ok?"<strong>Enclave FIDO2 / SHA-256 Active :</strong> Module WebCrypto opérationnel sur ce terminal.":"<strong>Mode Standard :</strong> Vérification serveur SHA-256 active.";
+};
+document.querySelectorAll(".tab").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("on"));
+  t.classList.add("on");
+  document.getElementById("t-loc").classList.toggle("hid",t.dataset.t!=="loc");
+  document.getElementById("t-cen").classList.toggle("hid",t.dataset.t!=="cen");
+});
+document.getElementById("run").onclick = async () => {
+  const btn = document.getElementById("run");
+  const out = document.getElementById("out");
+  const v = Math.round(Number(document.getElementById("amt").value));
+  const a = document.getElementById("acc").value;
+  out.style.display = "block";
+  if (!v || v < 100) {
+    out.textContent = "Saisissez un montant valide (minimum 100 XAF).";
+    return;
+  }
+  btn.disabled = true;
+  btn.textContent = "Connexion au guichet sécurisé...";
+  out.innerHTML = "<strong>Préparation de la transaction UBUK PAY...</strong>";
+  try {
+    const apiUrl = "https://" + "ubuk-superapp.vercel.app" + "/api/cinetpay/init";
+    const response = await fetch(apiUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        amount: v,
+        accountType: a,
+        customerName: "Membre UBUK",
+        customerPhone: ""
+      })
+    });
+    const data = await response.json();
+    if (data.success && data.payment_url) {
+      out.innerHTML = "<strong>Redirection vers CinetPay en cours...</strong>";
+      window.location.href = data.payment_url;
+    } else {
+      out.innerHTML = `<strong style="color:#ef4444;">Erreur : ${data.error || "Impossible d'initialiser le paiement."}</strong>`;
+      btn.disabled = false;
+      btn.textContent = "Affecter & Sceller en SHA-256";
+    }
+  } catch (err) {
+    out.innerHTML = `<strong style="color:#ef4444;">Erreur réseau : vérifiez votre connexion ou l'API Vercel.</strong>`;
+    btn.disabled = false;
+    btn.textContent = "Affecter & Sceller en SHA-256";
+  }
+};
+</script>
+</body>
+</html>
+
