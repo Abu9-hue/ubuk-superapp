@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>UBUK PAY • ATM Virtuel & Dorsale Financière Souveraine</title>
+<style>
+:root{--bg:#04070d;--chassis:#0e1522;--screen:#060c16;--gold:#eab308;--gold2:#fde047;--emerald:#10b981;--cyan:#06b6d4;--text:#f8fafc;--muted:#94a3b8}
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
+body{background:radial-gradient(circle at top,#0d192e 0%,var(--bg) 75%);color:var(--text);min-height:100vh;padding:12px;display:flex;justify-content:center}
+.wrap{width:100%;max-width:560px;border:1px solid rgba(234,179,8,.35);border-radius:22px;padding:15px;background:rgba(7,12,22,.96);box-shadow:0 20px 50px rgba(0,0,0,.7)}
+.rib{display:flex;justify-content:space-between;align-items:center;font-size:.65rem;color:var(--emerald);font-weight:800;letter-spacing:.4px;margin-bottom:14px;padding:7px 12px;background:rgba(16,185,129,.1);border-radius:999px;border:1px solid rgba(16,185,129,.3)}
+.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--emerald);margin-right:6px;box-shadow:0 0 8px var(--emerald)}
+.hdr{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+h1{font-size:1.15rem;font-weight:800;color:var(--gold2);line-height:1.25}
+.sub{font-size:.73rem;color:var(--muted);margin-top:4px}
+.ret-pill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px 7px 8px;border-radius:999px;background:linear-gradient(135deg,rgba(16,185,129,.22),rgba(6,182,212,.12));border:1.5px solid var(--emerald);color:#fff;text-decoration:none;white-space:nowrap;flex-shrink:0;box-shadow:0 0 18px rgba(16,185,129,.3)}
+.ret-orb{width:28px;height:28px;border-radius:50%;border:1.5px dashed var(--gold2);background:rgba(16,185,129,.25);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem;font-weight:900}
+.ret-txt{display:flex;flex-direction:column;line-height:1.1}
+.ret-txt small{font-size:.54rem;color:var(--gold2);font-weight:800;letter-spacing:.6px}
+.ret-txt strong{font-size:.74rem;font-weight:900;color:#fff}
+
+/* CARTE 3D + LOGO DISCRET */
+.stage{perspective:1200px;margin-bottom:10px}
+.c3d{width:100%;height:224px;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.4,.2,.2,1);cursor:pointer}
+.c3d.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;padding:18px;border:1px solid rgba(234,179,8,.55);display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 30px rgba(0,0,0,.55);overflow:hidden}
+.front{background:radial-gradient(circle at 85% 15%,rgba(234,179,8,.26),transparent 55%),linear-gradient(135deg,#131d31,#090e1a)}
+.back{transform:rotateY(180deg);background:linear-gradient(135deg,#090e1a,#131d31)}
+.watermark{position:absolute;right:14px;bottom:34px;opacity:.14;pointer-events:none}
+.row{display:flex;justify-content:space-between;align-items:center;gap:8px;position:relative;z-index:2}
+.b0{padding:4px 10px;border-radius:999px;background:rgba(16,185,129,.16);border:1px solid var(--emerald);color:var(--emerald);font-size:.65rem;font-weight:800}
+.chip{width:44px;height:32px;border-radius:7px;background:linear-gradient(135deg,#fde047,#ca8a04);border:1px solid #fef08a;display:flex;align-items:center;justify-content:center;font-size:.5rem;font-weight:900;color:#422006;letter-spacing:.5px}
+.nfc{font-size:1.15rem;font-weight:800;color:var(--gold2);letter-spacing:1px}
+.mag{height:24px;margin:-16px -18px 8px;background:#020408;border-bottom:1px solid rgba(234,179,8,.3)}
+.bgrid{display:grid;grid-template-columns:1fr 78px;gap:10px;align-items:center}
+.qr{width:78px;height:78px;background:#fff;border-radius:8px;padding:4px;display:grid;grid-template-columns:repeat(5,1fr);gap:2px}
+.qr i{background:#05080f;display:block;border-radius:1px}.qr i.w{background:#fff}
+.fbtn{display:block;width:100%;margin:0 auto 18px;padding:9px 14px;border-radius:12px;background:rgba(234,179,8,.1);border:1px solid rgba(234,179,8,.35);color:var(--gold2);font-size:.74rem;font-weight:700;cursor:pointer;text-align:center}
+
+/* 3 LEVIERS CHIRURGICAUX LUMINEUX */
+h2{font-size:.82rem;font-weight:800;color:var(--gold2);text-transform:uppercase;letter-spacing:.5px;margin:16px 0 10px}
+.lev{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(135deg,#0d1524,#080d17);border-radius:15px;padding:13px;margin-bottom:10px;border:1px solid rgba(255,255,255,.08);box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.lev-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ic-cyan{background:rgba(6,182,212,.14);border:1px solid rgba(6,182,212,.5);box-shadow:0 0 15px rgba(6,182,212,.25)}
+.ic-gold{background:rgba(234,179,8,.14);border:1px solid rgba(234,179,8,.5);box-shadow:0 0 15px rgba(234,179,8,.25)}
+.ic-em{background:rgba(16,185,129,.14);border:1px solid rgba(16,185,129,.5);box-shadow:0 0 15px rgba(16,185,129,.25)}
+.lev h3{font-size:.84rem;color:var(--gold2);margin-bottom:4px}
+.lev p{font-size:.74rem;color:#cbd5e1;line-height:1.45}
+.kyc-pills{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.kpill{font-size:.62rem;font-weight:700;padding:3px 7px;border-radius:6px;background:rgba(6,182,212,.12);border:1px solid rgba(6,182,212,.35);color:#67e8f9}
+
+/* CHÂSSIS ATM VIRTUEL LUXE */
+.atm-chassis{margin-top:18px;background:linear-gradient(180deg,#1c2536 0%,#0f1622 100%);border:2px solid #334155;border-radius:24px;padding:12px;box-shadow:0 0 35px rgba(6,182,212,.22),inset 0 1px 0 rgba(255,255,255,.15)}
+.atm-top-led{height:6px;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--emerald),var(--gold));margin-bottom:10px;box-shadow:0 0 14px var(--cyan)}
+.atm-header{display:flex;justify-content:space-between;align-items:center;font-size:.66rem;font-weight:800;color:#cbd5e1;padding:0 4px 8px;letter-spacing:.6px}
+.atm-screen{background:radial-gradient(circle at top,#0d1f36 0%,var(--screen) 80%);border:2px solid rgba(6,182,212,.55);border-radius:16px;padding:12px;box-shadow:inset 0 0 25px rgba(6,182,212,.18)}
+
+/* ASSISTANT CARTOON INTERACTIF */
+.guide-bar{display:flex;align-items:center;gap:10px;background:rgba(6,182,212,.1);border:1px solid rgba(6,182,212,.35);border-radius:12px;padding:9px 10px;margin-bottom:12px}
+.bot-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),#0284c7);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 12px rgba(6,182,212,.5)}
+.guide-txt{font-size:.71rem;color:#e2e8f0;line-height:1.35;flex:1}
+.guide-next{padding:5px 9px;border-radius:8px;background:var(--cyan);color:#04070d;border:none;font-size:.66rem;font-weight:800;cursor:pointer;white-space:nowrap}
+
+/* TOUCHES TACTILES ATM LOCAL / CENTRAL */
+.atm-keys{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.atm-key{padding:10px 8px;border-radius:10px;background:#091220;border:1.5px solid #1e293b;color:var(--muted);font-size:.72rem;font-weight:800;cursor:pointer;text-align:center;transition:.2s}
+.atm-key.on{border-color:var(--emerald);background:rgba(16,185,129,.18);color:#fff;box-shadow:0 0 14px rgba(16,185,129,.3)}
+
+/* SIMULATEUR ENCASTRÉ + COLONNES LUMINEUSES */
+.sim-box{background:rgba(4,9,18,.75);border:1px solid rgba(234,179,8,.4);border-radius:13px;padding:11px;margin-bottom:12px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:9px}
+.inp,.sel{width:100%;padding:9px;border-radius:9px;background:#030710;border:1px solid rgba(6,182,212,.4);color:#fff;font-size:.76rem}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
+.col-bar{background:#09111e;border:1px solid #1e293b;border-radius:9px;padding:7px 4px;text-align:center;transition:.3s}
+.col-bar.lit{border-color:var(--gold);background:rgba(234,179,8,.14);box-shadow:0 0 12px rgba(234,179,8,.28)}
+.col-bar.lit-em{border-color:var(--emerald);background:rgba(16,185,129,.16);box-shadow:0 0 12px rgba(16,185,129,.28)}
+.col-val{font-size:.72rem;font-weight:900;color:#fff;margin-bottom:2px}
+.col-lbl{font-size:.56rem;color:var(--muted);line-height:1.15;font-weight:700}
+.go{background:linear-gradient(135deg,var(--gold),#ca8a04);color:#04070d;font-weight:900;border:none;border-radius:10px;padding:10px;width:100%;font-size:.78rem;cursor:pointer}
+.res{margin-top:8px;padding:8px;border-radius:8px;background:rgba(16,185,129,.12);border:1px solid var(--emerald);font-size:.71rem;display:none}
+
+/* COMPARTIMENTS ÉTANCHES */
+.grp-title{font-size:.68rem;font-weight:800;color:var(--cyan);text-transform:uppercase;letter-spacing:.5px;margin:10px 0 6px;padding-left:4px}
+.acc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:8px 10px;margin-bottom:6px;font-size:.72rem;color:#cbd5e1;line-height:1.4}
+.acc strong{color:var(--gold2)}.hid{display:none}
+.atm-slots{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;padding-top:8px;border-top:1px solid #334155}
+.slot{background:#070b12;border:1px solid #334155;border-radius:8px;padding:7px 6px;text-align:center;font-size:.6rem;color:#e2e8f0;font-weight:800;cursor:pointer}
+.slot span{display:block;height:3px;width:60%;margin:4px auto 0;background:var(--emerald);border-radius:999px;box-shadow:0 0 8px var(--emerald)}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <div class="rib"><span><i class="dot"></i>NOYAU SHA-256 ACTIF</span><span>FIDO2 • UIT-FIGI • ISO 20022</span></div>
+  <header class="hdr">
+    <div>
+      <h1>1. Carte UBUK PAY • Dorsale Financière Souveraine</h1>
+      <div class="sub">ATM Virtuel Universel • 0 % Usure • 54 États</div>
+    </div>
+    <a href="#" onclick="window.location.href='https://' + 'www.ubuk.net/?v=7'; return false;" class="ret-pill">
+      <span class="ret-orb">←</span>
+      <span class="ret-txt"><small>PORTAIL</small><strong>UBUK.NET</strong></span>
+    </a>
+        </header>
