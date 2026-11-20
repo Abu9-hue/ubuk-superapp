@@ -67,7 +67,7 @@ export default async function handler(req, res) {
       currency: 'XAF',
       description: `UBUK PAY - Compte ${targetAccount.toUpperCase()}`,
       notify_url: `${baseUrl}/api/cinetpay/notify`,
-      return_url: 'https://vercel.app',
+      return_url: 'https://' + 'ubuk-portail.vercel.app' + '/ubuk-pay.html',
       channels: 'ALL',
       metadata: JSON.stringify({
         account: targetAccount,
