@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UBUK KO'ONE • Bouclier Solidaire & Micro-Assurance</title>
+  
+  <!-- Feuille de style Leaflet pour la carte interactive -->
+  <link rel="stylesheet" href="https://unpkg.com" />
+
+  <style>
+    :root {
+      --bg: #04070d;
+      --chassis: #0e1522;
+      --gold: #eab308;
+      --emerald: #10b981;
+      --cyan: #06b6d4;
+      --muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0b1324 0%, var(--bg) 70%);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+    }
+
+    .wrap {
+      width: 100%;
+      max-width: 560px;
+    }
+
+    /* RUBAN SUPÉRIEUR & EN-TÊTE */
+    .rib {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.65rem;
+      color: var(--muted);
+      padding: 6px 10px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 99px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+      margin-right: 5px;
+    }
+
+    .hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #fff, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .ret-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      padding: 5px 10px;
+      border-radius: 99px;
+      color: #fff;
+    }
+
+    .ret-orb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(234, 179, 8, 0.15);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .ret-txt {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ret-txt small {
+      font-size: 0.52rem;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .ret-txt strong {
+      font-size: 0.7rem;
+      color: var(--gold);
+    }
+
+    /* CHÂSSIS PRINCIPAL */
+    .atm-chassis {
+      background: var(--chassis);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .atm-top-led {
+      height: 5px;
+      background: linear-gradient(90deg, var(--gold), var(--emerald), var(--cyan));
+    }
+
+    .atm-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .kyc-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .kpill {
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+    }
+
+    /* ASSISTANT INTERACTIF */
+    .guide-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      margin: 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+    }
+
+    .bot-avatar {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--emerald), #059669);
+      color: #04070d;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    .guide-txt {
+      font-size: 0.72rem;
+      color: #e2e8f0;
+      line-height: 1.35;
+      flex: 1;
+    }
+
+    .guide-next {
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--gold);
+      background: rgba(234, 179, 8, 0.12);
+      color: var(--gold);
+      font-size: 0.68rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* BOÎTES DE SIMULATION & COMPARTIMENTS */
+    .sim-box {
+      background: rgba(4, 9, 18, 0.75);
+      border: 1px solid var(--border);
+      margin: 12px;
+      padding: 12px;
+      border-radius: 12px;
+    }
+
+    .grp-title {
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .g2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .inp, .sel {
+      width: 100%;
+      padding: 9px;
+      border-radius: 8px;
+      background: #09111e;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 0.76rem;
+      margin-top: 4px;
+    }
+
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .col-bar {
+      background: #09111e;
+      border: 1px solid var(--border);
+      padding: 8px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .col-bar.lit {
+      border-color: var(--gold);
+      box-shadow: inset 0 0 12px rgba(234, 179, 8, 0.08);
+    }
+
+    .col-bar.lit-em {
+      border-color: var(--emerald);
+      box-shadow: inset 0 0 12px rgba(16, 185, 129, 0.08);
+    }
+
+    .col-lbl {
+      font-size: 0.56rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .col-val {
+      font-size: 0.76rem;
+      font-weight: 800;
+      margin-top: 3px;
+      color: #fff;
+    }
+
+    .go {
+      background: linear-gradient(135deg, var(--gold), #ca8a04);
+      color: #04070d;
+      font-weight: 800;
+      font-size: 0.74rem;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .atm-key {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.74rem;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    /* COMPARTIMENTS ÉTANCHES */
+    .atm-slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .slot {
+      background: #070b12;
+      border: 1px solid var(--border);
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .slot span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      border-radius: 2px;
+      margin-bottom: 5px;
+    }
+
+    /* CARTE INTERACTIVE LEAFLET SOMBRE */
+    #koone-map {
+      height: 210px;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      margin-top: 8px;
+      z-index: 1;
+    }
+
+    .leaflet-tile-pane {
+      filter: invert(100%) hue-rotate(180deg) brightness(92%) contrast(90%);
+    }
+
+    .res {
+      margin-top: 8px;
+      padding: 8px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 0.7rem;
+      color: #e2e8f0;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <!-- RUBAN D'ÉTAT -->
+    <div class="rib">
+      <span><i class="dot"></i>DORSALE UBUK PAY • CONNECTÉE</span>
+      <span>ZONE CIMA • CAMEROUN</span>
+    </div>
+
+    <!-- EN-TÊTE -->
+    <header class="hdr">
+      <div>
+        <h1>3. UBUK KO'ONE • Bouclier Solidaire</h1>
+        <div class="sub">Micro-assurance, Esprit Ruisseaux & Mutuelles</div>
+      </div>
+      <a href="index.html" class="ret-pill">
+        <span class="ret-orb">←</span>
+        <span class="ret-txt">
+          <small>Dorsale</small>
+          <strong>UBUK PAY</strong>
+        </span>
+      </a>
+    </header>
+
+    <section class="atm-chassis">
+      <div class="atm-top-led"></div>
+
+      <!-- BARRE DE STATUT CIMA -->
+      <div class="atm-header">
+        <div>
+          <h2>MODÈLE AGENT PARTENAIRE</h2>
+          <div class="sub">Couverture portée par assureur agréé (Livre VII CIMA)</div>
+        </div>
+        <div class="kyc-pills">
+          <span class="kpill" style="color: var(--emerald);">● ART. 700-707</span>
+          <span class="kpill" style="color: var(--gold);">● ZÉRO CARENCE</span>
+        </div>
+      </div>
+
+      <!-- 1. ASSISTANT PÉDAGOGIQUE (CLARTÉ CONTRACTUELLE ART. 701) -->
+      <div class="guide-bar">
+        <div class="bot-avatar">K</div>
+        <div class="guide-txt" id="koone-guide">
+          <strong>Esprit Ruisseaux :</strong> Activez le micro-arrondi sur vos paiements UBUK PAY pour financer votre protection sans effort.
+        </div>
+        <button class="guide-next" onclick="nextKooneTip()">Suivant</button>
+      </div>
+
+      <!-- 2. BOUTON MICRO-ARRONDI : L'ESPRIT RUISSEAUX -->
+      <div class="sim-box" style="border-color: rgba(16,185,129,0.4); background: linear-gradient(145deg, rgba(16,185,129,0.08), rgba(4,9,18,0.85));">
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
+          <div>
+            <div class="grp-title" style="color: var(--emerald);">
+              <i class="dot"></i>ESPRIT RUISSEAUX • MICRO-ARRONDI
+            </div>
+            <div style="font-size: 0.71rem; color: #cbd5e1; margin-top: 3px;">
+              Arrondir chaque achat UBUK PAY au <strong>500 F</strong> supérieur vers Ko'one.
+  </div>
