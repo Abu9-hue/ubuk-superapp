@@ -102,3 +102,164 @@ h2{font-size:.82rem;font-weight:800;color:var(--gold2);text-transform:uppercase;
       <span class="ret-txt"><small>PORTAIL</small><strong>UBUK.NET</strong></span>
     </a>
         </header>
+<!-- 1. CARTE 3D INTERACTIVE UBUK PAY -->
+    <section class="stage">
+      <div class="c3d" id="ubuk-card" onclick="this.classList.toggle('flip')">
+        <!-- RECTO -->
+        <div class="face front" style="padding: 18px; border-radius: 16px; border: 1px solid rgba(234,179,8,0.35); background: radial-gradient(circle at top right, #162238, #060b14); display: flex; flex-direction: column; justify-content: space-between; backface-visibility: hidden;">
+          <div class="watermark" style="opacity: 0.06; font-size: 3rem; font-weight: 900;">UBUK</div>
+          <div class="row" style="justify-content: space-between; align-items: center;">
+            <span class="b0" style="background: rgba(234,179,8,0.15); color: var(--gold); font-size: 0.65rem; font-weight: 800;">DORSALE SOUVERAINE</span>
+            <span class="nfc" style="color: var(--emerald);">)))</span>
+          </div>
+          <div class="row" style="align-items: center; gap: 12px;">
+            <div class="chip" style="background: linear-gradient(135deg, #eab308, #a16207); border-radius: 6px;"></div>
+            <div>
+              <div style="font-size: 0.65rem; color: var(--muted);">SOLDE DISPONIBLE</div>
+              <div style="font-size: 1.15rem; font-weight: 800; color: #fff;" id="card-balance">45 800 XAF</div>
+            </div>
+          </div>
+          <div class="row" style="justify-content: space-between; align-items: flex-end;">
+            <div>
+              <div style="font-size: 0.72rem; letter-spacing: 1.5px; color: #cbd5e1;">•••• •••• •••• 7018</div>
+              <div style="font-size: 0.65rem; color: var(--gold); font-weight: 700; margin-top: 2px;">MEMBRE LATIF CONNECT</div>
+            </div>
+            <div style="font-size: 0.6rem; color: var(--muted);">Touchez pour retourner ↻</div>
+          </div>
+        </div>
+
+        <!-- VERSO -->
+        <div class="face back" style="padding: 18px; border-radius: 16px; border: 1px solid rgba(16,185,129,0.35); background: #070d18; display: flex; flex-direction: column; justify-content: space-between; backface-visibility: hidden;">
+          <div class="mag" style="background: #020408;"></div>
+          <div class="bgrid" style="grid-template-columns: 78px 1fr; gap: 12px; align-items: center;">
+            <div class="qr" style="padding: 6px; border-radius: 8px; display: grid; place-items: center; font-size: 0.6rem; color: #05080f; font-weight: 900;">QR PAY</div>
+            <div style="font-size: 0.68rem; color: #cbd5e1; line-height: 1.4;">
+              <strong>Carte Virtuelle & Physique</strong><br>
+              Compatible CinetPay, Mobile Money, Tiers Payant Pharmacies & Bouclier <strong>UBUK KO'ONE</strong>.
+            </div>
+          </div>
+          <button type="button" class="fbtn" style="padding: 7px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.06); color: var(--gold); font-size: 0.68rem; font-weight: 700; cursor: pointer;">
+            Retourner au recto ↺
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. LES 3 LEVIERS CHIRURGICAUX LUMINEUX -->
+    <section style="display: grid; gap: 8px;">
+      <div class="lev" style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid rgba(6,182,212,0.2);">
+        <div class="lev-icon ic-cyan" style="border-radius: 10px; display: grid; place-items: center; color: #06b6d4; font-weight: 900;">01</div>
+        <div>
+          <h3>Épargne & Liquidité Instantanée</h3>
+          <p>Dépôts et retraits fluides connectés aux opérateurs mobiles (MTN / Orange).</p>
+        </div>
+      </div>
+
+      <div class="lev" style="background: rgba(255,255,255,0.03); padding: 10px; border-radius: 12px; border: 1px solid rgba(234,179,8,0.2);">
+        <div class="lev-icon ic-gold" style="border-radius: 10px; display: grid; place-items: center; color: var(--gold); font-weight: 900;">02</div>
+        <div>
+          <h3>Micro-Bourse & Zakat Souveraine</h3>
+          <p>Investissement accessible dès 1 000 XAF et calcul automatique selon les 4 écoles.</p>
+        </div>
+      </div>
+
+      <!-- LEVIER 3 : ACCÈS DIRECT À LA PAGE 3 (UBUK KO'ONE) -->
+      <a href="koone.html" style="text-decoration: none;">
+        <div class="lev" style="background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(4,9,18,0.8)); padding: 10px; border-radius: 12px; border: 1px solid rgba(16,185,129,0.45);">
+          <div class="lev-icon ic-em" style="border-radius: 10px; display: grid; place-items: center; color: var(--emerald); font-weight: 900;">03</div>
+          <div style="flex: 1;">
+            <h3 style="color: var(--emerald);">UBUK KO'ONE • Esprit Ruisseaux →</h3>
+            <p>Ouvrir la Page 3 : Micro-arrondis solidaires, mutuelle santé et protection famille.</p>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <!-- 3. CHÂSSIS ATM VIRTUEL & SIMULATEUR -->
+    <section class="atm-chassis" style="border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden;">
+      <div class="atm-top-led" style="background: linear-gradient(90deg, var(--gold), var(--emerald));"></div>
+
+      <div class="atm-header" style="padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+        <h2>ATM VIRTUEL • GUICHET CENTRAL</h2>
+        <div class="kyc-pills">
+          <span class="kpill" style="color: var(--emerald); background: rgba(16,185,129,0.12); padding: 3px 8px; border-radius: 99px;">● KYC VALIDÉ</span>
+        </div>
+      </div>
+
+      <div class="atm-screen" style="padding: 12px;">
+        <!-- ASSISTANT CARTOON INTERACTIF -->
+        <div class="guide-bar" style="padding: 8px; border-radius: 10px; background: rgba(255,255,255,0.03); margin-bottom: 10px;">
+          <div class="bot-avatar" style="background: var(--gold); color: #04070d; border-radius: 50%; display: grid; place-items: center; font-weight: 900;">U</div>
+          <div class="guide-txt" id="atm-guide">
+            Bienvenue sur la dorsale <strong>UBUK PAY</strong>. Simulez une opération ou accédez à votre bouclier <strong>Ko'one</strong>.
+          </div>
+          <button type="button" class="guide-next" style="background: transparent; color: var(--gold); border: 1px solid var(--gold); cursor: pointer;" onclick="nextAtmTip()">Aide</button>
+        </div>
+
+        <!-- TOUCHES TACTILES ATM -->
+        <div class="atm-keys" style="grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 10px;">
+          <button type="button" class="atm-key atm-key on" style="background: #09111e; color: #fff; cursor: pointer;" onclick="setAtmOp('depot')">Dépôt</button>
+          <button type="button" class="atm-key" style="background: #09111e; color: #fff; cursor: pointer;" onclick="setAtmOp('retrait')">Retrait</button>
+          <a href="koone.html" class="atm-key" style="background: rgba(16,185,129,0.15); color: var(--emerald); text-align: center; text-decoration: none; border-color: var(--emerald);">Page 3 Ko'one</a>
+        </div>
+
+        <!-- SIMULATEUR ENCASTRÉ -->
+        <div class="sim-box" style="padding: 10px; border-radius: 10px;">
+          <div class="grp-title">SIMULATEUR DE FLUX & ARRONDI RUISSEAUX</div>
+          <div class="g2" style="gap: 8px; margin-top: 6px;">
+            <input type="number" id="atm-amount" class="inp" value="2350" min="500" step="100" oninput="calcAtm()">
+            <select id="atm-mode" class="sel" onchange="calcAtm()">
+              <option value="momo">Mobile Money (MTN/OM)</option>
+              <option value="cinetpay">Passerelle CinetPay</option>
+            </select>
+          </div>
+
+          <div class="cols" style="grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 8px;">
+            <div class="col-bar lit">
+              <div class="col-lbl">MONTANT</div>
+              <div class="col-val" id="atm-v1">2 350 F</div>
+            </div>
+            <div class="col-bar lit-em">
+              <div class="col-lbl">ARRONDI KO'ONE</div>
+              <div class="col-val" id="atm-v2">+150 F</div>
+            </div>
+            <div class="col-bar">
+              <div class="col-lbl">TOTAL DÉBITÉ</div>
+              <div class="col-val" id="atm-v3">2 500 F</div>
+            </div>
+          </div>
+
+          <button type="button" class="go" style="width: 100%; padding: 9px; border: none; border-radius: 8px; margin-top: 8px; font-weight: 800; color: #04070d; cursor: pointer;" onclick="execAtm()">
+            Exécuter & Alimenter Ko'one
+          </button>
+          <div class="res" id="atm-res" style="display: none; font-size: 0.7rem; color: var(--emerald);"></div>
+        </div>
+
+        <!-- COMPARTIMENTS ÉTANCHES -->
+        <div style="margin-top: 10px;">
+          <div class="grp-title">COMPARTIMENTS ÉTANCHES • DORSALE</div>
+          <div class="atm-slots" style="grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 6px;">
+            <div class="slot" style="padding: 8px; border-radius: 8px;">
+              <span style="background: var(--gold);"></span>
+              <div class="col-lbl" style="margin-top: 4px;">SOUVERAINE</div>
+              <div class="col-val">Épargne</div>
+            </div>
+            <div class="slot" style="padding: 8px; border-radius: 8px;">
+              <span style="background: var(--emerald);"></span>
+              <div class="col-lbl" style="margin-top: 4px;">KO'ONE</div>
+              <div class="col-val">Bouclier</div>
+            </div>
+            <div class="slot" style="padding: 8px; border-radius: 8px;">
+              <span style="background: #06b6d4;"></span>
+              <div class="col-lbl" style="margin-top: 4px;">ZAKAT</div>
+              <div class="col-val">4 Écoles</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const atmTips = [
+      "Bienvenue sur la dorsale <strong>UBUK PAY</strong>. Simulez une opération ou accédez à votre bouclier <strong>Ko'one</strong>.",
