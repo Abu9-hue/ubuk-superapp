@@ -414,3 +414,222 @@
             <div style="font-size: 0.71rem; color: #cbd5e1; margin-top: 3px;">
               Arrondir chaque achat UBUK PAY au <strong>500 F</strong> supérieur vers Ko'one.
   </div>
+<button id="btn-ruisseaux" onclick="toggleRuisseaux()" style="padding: 8px 13px; border-radius: 99px; border: 1px solid var(--emerald); background: var(--emerald); color: #04070d; font-weight: 800; font-size: 0.7rem; cursor: pointer; white-space: nowrap;">
+            ACTIF • ON
+          </button>
+        </div>
+
+        <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; font-size: 0.68rem;">
+          <button onclick="simulerAchat()" style="background: rgba(255,255,255,0.07); border: 1px solid var(--border); color: var(--gold); padding: 4px 8px; border-radius: 6px; cursor: pointer; font-weight: 700;">
+            + Tester un achat (1 350 F)
+          </button>
+          <span id="ruisseaux-cumul" style="color: var(--emerald); font-weight: 800;">Cagnotte : 3 450 FCFA</span>
+        </div>
+      </div>
+
+      <!-- 3. SIMULATEUR DE COUVERTURE & FAMILLE -->
+      <div class="sim-box">
+        <div class="grp-title">SIMULATEUR DE PROTECTION (CGAP / STEP / RWANDA)</div>
+        <div class="g2">
+          <div>
+            <label class="col-lbl">Cotisation / jour (XAF)</label>
+            <input type="number" id="koone-daily" class="inp" value="200" min="100" step="50" oninput="calcKoone()">
+          </div>
+          <div>
+            <label class="col-lbl">Bouclier choisi</label>
+            <select id="koone-type" class="sel" onchange="calcKoone()">
+              <option value="sante">Urgence Santé (Mutuelle STEP)</option>
+              <option value="communaute">Tontine / Association (Art. 700)</option>
+              <option value="indiciel">Climat & Récoltes (Indiciel Art. 705)</option>
+              <option value="credit">Protection Micro-Crédit UBUK</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="g2">
+          <div>
+            <label class="col-lbl">Foyer protégé</label>
+            <select id="koone-family" class="sel" onchange="calcKoone()">
+              <option value="1">Individuel (1 pers.)</option>
+              <option value="4" selected>Foyer Standard (4 pers.)</option>
+              <option value="7">Grande Famille (7 pers.)</option>
+            </select>
+          </div>
+          <div>
+            <label class="col-lbl">Action Solidaire</label>
+            <button class="go" style="margin-top: 4px;" onclick="activerBouclier()">
+              Activer ce Bouclier
+            </button>
+          </div>
+        </div>
+
+        <div class="cols">
+          <div class="col-bar lit">
+            <div class="col-lbl">PRIME / MOIS</div>
+            <div class="col-val" id="res-month">6 000 F</div>
+          </div>
+          <div class="col-bar lit-em">
+            <div class="col-lbl">CAPITAL GARANTI</div>
+            <div class="col-val" id="res-cover">150 000 F</div>
+          </div>
+          <div class="col-bar">
+            <div class="col-lbl">FOYER & DÉLAI</div>
+            <div class="col-val" id="res-trigger" style="color: var(--cyan);">4 pers • 24h</div>
+          </div>
+        </div>
+
+        <div class="res" id="koone-feedback"></div>
+      </div>
+
+      <!-- 4. CARTE INTERACTIVE D'IMPACT GÉOGRAPHIQUE -->
+      <div class="sim-box">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div class="grp-title" style="color: var(--emerald);">CARTE D'IMPACT • RÉSEAU KO'ONE</div>
+          <span class="kpill" style="color: var(--gold);">● LIVE CAMEROUN</span>
+        </div>
+
+        <div id="koone-map"></div>
+
+        <div style="display: flex; justify-content: space-around; margin-top: 8px; font-size: 0.64rem; color: #cbd5e1;">
+          <span><i style="color: var(--emerald);">●</i> Ruisseaux (Arrondis)</span>
+          <span><i style="color: var(--gold);">●</i> Tontines & Foyers</span>
+          <span><i style="color: var(--cyan);">●</i> Cliniques & Agents</span>
+        </div>
+      </div>
+
+      <!-- 5. COMPARTIMENTS ÉTANCHES & GUICHET AGENT -->
+      <div style="padding: 0 12px 14px;">
+        <div class="grp-title">COMPARTIMENTS ÉTANCHES • FILETS SOCIAUX & TIERS PAYANT</div>
+        <div class="atm-slots">
+          <div class="slot">
+            <span style="background: var(--emerald);"></span>
+            <div class="col-lbl">PHARMACIE</div>
+            <div class="col-val">Tiers Payant QR</div>
+          </div>
+          <div class="slot">
+            <span style="background: var(--gold);"></span>
+            <div class="col-lbl">FILET SOCIAL</div>
+            <div class="col-val">Parrainage Zakat</div>
+          </div>
+          <div class="slot">
+            <span style="background: var(--cyan);"></span>
+            <div class="col-lbl">INDICIEL</div>
+            <div class="col-val">Auto-Météo 705</div>
+          </div>
+        </div>
+
+        <div class="g2" style="margin-top: 10px;">
+          <button class="atm-key" onclick="ouvrirAction('Guichet Agent Relais : Enrôlement terrain et encaissement micro-primes.')">
+            Guichet Agent Relais
+          </button>
+          <button class="atm-key" style="border-color: rgba(234,179,8,0.4); color: var(--gold);" onclick="ouvrirAction('SOS Sinistre 24/7 : Envoyez une photo de votre ordonnance ou justificatif pour indemnisation mobile.')">
+            Déclarer un Sinistre
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com"></script>
+  <script>
+    const kooneTips = [
+      "<strong>Esprit Ruisseaux :</strong> Activez le micro-arrondi sur vos paiements UBUK PAY pour financer votre protection sans effort.",
+      "<strong>Souscription Communautaire (Art. 700) :</strong> Protégez votre tontine, votre association ou votre famille entière en un clic.",
+      "<strong>Micro-assurance Indicielle (Art. 705) :</strong> Indemnisation automatique en cas d'inondation ou sécheresse sans attente d'expert.",
+      "<strong>Modèle Freemium :</strong> 10 paiements UBUK PAY dans le mois débloquent une couverture urgence accident offerte."
+    ];
+    let tipIndex = 0;
+
+    function nextKooneTip() {
+      tipIndex = (tipIndex + 1) % kooneTips.length;
+      document.getElementById('koone-guide').innerHTML = kooneTips[tipIndex];
+    }
+
+    let ruisseauxOn = true;
+    let cagnotteRuisseaux = 3450;
+
+    function toggleRuisseaux() {
+      ruisseauxOn = !ruisseauxOn;
+      const btn = document.getElementById('btn-ruisseaux');
+      if (ruisseauxOn) {
+        btn.innerText = 'ACTIF • ON';
+        btn.style.background = 'var(--emerald)';
+        btn.style.color = '#04070d';
+        btn.style.borderColor = 'var(--emerald)';
+      } else {
+        btn.innerText = 'EN PAUSE';
+        btn.style.background = 'transparent';
+        btn.style.color = '#94a3b8';
+        btn.style.borderColor = 'rgba(255,255,255,0.2)';
+      }
+    }
+
+    function simulerAchat() {
+      if (!ruisseauxOn) {
+        ouvrirAction("Activez d'abord le bouton Esprit Ruisseaux pour collecter les arrondis.");
+        return;
+      }
+      cagnotteRuisseaux += 150;
+      document.getElementById('ruisseaux-cumul').innerText = 'Cagnotte : ' + cagnotteRuisseaux.toLocaleString('fr-FR') + ' FCFA';
+      ouvrirAction("Achat de 1 350 F effectué → +150 F d'arrondi versés automatiquement dans votre bouclier UBUK KO'ONE !");
+    }
+
+    function calcKoone() {
+      const daily = parseFloat(document.getElementById('koone-daily').value) || 0;
+      const type = document.getElementById('koone-type').value;
+      const family = document.getElementById('koone-family').value;
+
+      const config = {
+        sante: { mult: 25, trig: '24h' },
+        communaute: { mult: 35, trig: 'Groupe' },
+        indiciel: { mult: 30, trig: 'Auto-Météo' },
+        credit: { mult: 40, trig: 'Prêt' }
+      };
+
+      const current = config[type];
+      const mensuel = daily * 30;
+      const plafond = mensuel * current.mult;
+
+      document.getElementById('res-month').innerText = mensuel.toLocaleString('fr-FR') + ' F';
+      document.getElementById('res-cover').innerText = plafond.toLocaleString('fr-FR') + ' F';
+      document.getElementById('res-trigger').innerText = family + ' pers • ' + current.trig;
+    }
+
+    function activerBouclier() {
+      const mensuel = document.getElementById('res-month').innerText;
+      const plafond = document.getElementById('res-cover').innerText;
+      ouvrirAction(`Bouclier UBUK KO'ONE pré-activé (${mensuel}/mois pour ${plafond} de garantie). Liaison avec votre carte UBUK PAY prête.`);
+    }
+
+    function ouvrirAction(msg) {
+      const box = document.getElementById('koone-feedback');
+      box.style.display = 'block';
+      box.innerHTML = msg;
+    }
+
+    const map = L.map('koone-map', { zoomControl: false }).setView([5.6, 11.5], 6);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap • UBUK KO\'ONE'
+    }).addTo(map);
+
+    const zonesImpact = [
+      { coords: [4.0511, 9.7679], titre: "Douala (Akwa / Bonabéri)", info: "1 420 Ruisseaux actifs • 38 Pharmacies Tiers Payant", color: "#10b981" },
+      { coords: [3.8480, 11.5021], titre: "Yaoundé (Mokolo / Bastos)", info: "980 Foyers protégés • 14 Tontines Art. 700 CIMA", color: "#eab308" },
+      { coords: [5.4778, 10.4176], titre: "Bafoussam (Ouest)", info: "Bouclier Indiciel Récoltes • 22 Agents Relais", color: "#06b6d4" },
+      { coords: [9.3014, 13.3977], titre: "Garoua (Nord)", info: "Filet Social & Protection Bétail (Art. 705)", color: "#10b981" }
+    ];
+
+    zonesImpact.forEach(z => {
+      L.circleMarker(z.coords, {
+        radius: 8,
+        fillColor: z.color,
+        color: "#ffffff",
+        weight: 1.5,
+        opacity: 1,
+        fillOpacity: 0.9
+      }).addTo(map).bindPopup(`<strong>${z.titre}</strong><br><small>${z.info}</small>`);
+    });
+  </script>
+</body>
+          </html>
